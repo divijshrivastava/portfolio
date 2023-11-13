@@ -156,7 +156,6 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -274,6 +273,3 @@ package-lock.json
 /ckeditor5/sample/
 
 
-# Gradle Wrapper
-gradle/wrapper/gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
