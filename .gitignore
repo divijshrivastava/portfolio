@@ -254,7 +254,8 @@ node_modules/
 Thumbs.db
 
 # Local environment files
-src/environments/*.ts
+src/environments/*.ts/
+#~src/environment.prod.ts
 
 # Editor-specific files
 .idea/
