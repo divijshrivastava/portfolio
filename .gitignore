@@ -272,6 +272,5 @@ package-lock.json
 /coverage/
 /e2e/
 /ckeditor5/sample/
-~/ckeditor5/build/
-
+/ckeditor5/
 
