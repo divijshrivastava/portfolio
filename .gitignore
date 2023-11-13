@@ -192,7 +192,7 @@ bin/main/
 build/reports
 build/boot*
 build/test-results
-build
+#build
 ### Node ###
 package-lock.json
 
