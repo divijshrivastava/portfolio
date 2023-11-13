@@ -1,0 +1,29 @@
+<article class="container">
+  <h1 [innerHTML]="blogHeading" class="blog-heading"></h1>
+  <div class="author-details">
+    <img alt="author's image" class="author-image" src={{authorImageSrc}}>
+    <span class="author-name">
+            {{authorName}}
+        </span>
+    <span class="published-date">{{publishedDate}}</span>
+    <span class="dot">.</span>
+    <span class="time-to-read">{{timeToRead}}</span>
+  </div>
+  <div class="blog-summary">{{blogSummary}}</div>
+  <div class="hero-image-wrapper">
+    <img alt="" class="blog-hero" src="{{blogHeroImageSrc}}">
+    <div *ngIf="blogHeroImageDetails" class="blog-hero-image-details">{{blogHeroImageDetails}}</div>
+  </div>
+  <div [innerHTML]="blogContent" class="blog-content"></div>
+  <button (click)="softDeleteBlog()" *ngIf="isAdmin">Delete</button>
+  <button (click)="approveBlog()" *ngIf="isAdmin && isBlogPending">Approve</button>
+  <button (click)="editBlog()" *ngIf="isAdmin">Edit</button>
+  <div *ngIf="isBlogEditable" class="draft-blog">
+    <div class="blog-heading" contenteditable="true">{{blogHeading}}</div>
+    <div class="blog-summary" contenteditable="true">{{blogSummary}}</div>
+
+    <ckeditor (change)="onChange($event)" (ready)="onReady($event)" [config]="config" [data]="lorem"
+              [editor]="Editor"></ckeditor>
+
+  </div>
+</article>

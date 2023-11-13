@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div>
+    <h1>
+      Contact me
+    </h1>
+  </div>
+  <div class="contact-form">
+    <form id="contact-form">
+      <div>
+        <input name="viewer-name" placeholder="Name" required type="text">
+      </div>
+      <div>
+        <input name="viewer-email" placeholder="Email ID" required type="email">
+      </div>
+
+      <div>
+        <input name="viewer-message" placeholder="Message" required type="text-area">
+      </div>
+
+    </form>
+  </div>
+  <div>
+    <button (click)="alert('This functionality is currently not available. Please use other social media channels to connect.')" form="contact-form"
+            type="submit">
+      Submit
+    </button>
+  </div>
+
+  <h1>Or</h1>
+  <div class="social_network_container">
+    <ul>
+
+      <li><a href="https://twitter.com/divijshrivastav" rel="noopener noreferrer" target="_blank">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a></li>
+      <li><a href="https://www.linkedin.com/in/divijshrivastava" rel="noopener noreferrer"
+             target="_blank">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a></li>
+      <li><a href="https://youtube.com/c/DivijShrivastava" rel="noopener noreferrer"
+             target="_blank">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </a></li>
+      <li><a href="https://www.instagram.com/divij.tech/" rel="noopener noreferrer" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a></li>
+      <li><a href="https://github.com/divijshrivastava" rel="noopener noreferrer" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+      </a></li>
+    </ul>
+  </div>
+
+</div>

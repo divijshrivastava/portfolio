@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1%;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 4px;
+  border-radius: 0px;
+  border-bottom: 1px dotted #3f293a;
+  color: white;
+}
+
+.user-activity-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.user-activity-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.user-activity-table tbody tr {
+  color: #fcfbfb;
+  border: 1px solid black;
+}
+
+.user-activity-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+  color: #0c0c0c;
+}
+
+//
+//.user-activity-table tbody tr:last-of-type {
+//  border-bottom: 2px solid #009879;
+//}
+
+
+.user-activity-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+td {
+  text-align: center;
+  border: 1px solid #b49d9e;
+}

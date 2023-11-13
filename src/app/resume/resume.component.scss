@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+}
+
+pdf-viewer {
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+  width: 885px;
+  height: 1155px;
+}
+
+.button_code {
+  height: 42px;
+  border-radius: 20px;
+  width: 100px;
+  font-size: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #814a72;
+  color: #d9ced6;
+  border: 1px solid black;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 375px) {
+
+  pdf-viewer {
+    max-width: 100%;
+    max-height: 100%;
+    overflow-x: hidden;
+    width: 375px;
+    height: 490px;
+  }
+}

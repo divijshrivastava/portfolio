@@ -1,0 +1,90 @@
+
+.blog_container {
+  height: auto;
+  min-height: calc(100vh - 25vh);
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  grid-gap: 40px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  justify-items: center;
+}
+
+.blog_content {
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+}
+
+.cover_image_view {
+  height: 15pc;
+  width: 33pc;
+}
+
+.header {
+  display: grid;
+  grid-gap: 50px;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: auto auto;
+}
+
+.edit-bar {
+  border: 1px solid black;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  cursor: pointer;
+}
+
+.bold-menu {
+  border: 1px solid brown;
+}
+
+.bold-menu:hover {
+  border: 4px sold black;
+}
+
+.italic-menu {
+  border: 1px solid brown;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 500px;
+}
+
+ckeditor {
+  border: 1px solid black;
+  width: 50pc;
+  background: #472a3fc8;
+  color: #111;
+}
+
+
+.ck {
+  border: 1px solid black;
+  width: 50pc;
+  background: #472a3fc8;
+  color: #111;
+}
+
+.ck-restricted-editing_mode_standard.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+  background-color: #4f3348;
+  color: white;
+}
+
+.ck-restricted-editing_mode_standard.ck-focused.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+  background-color: #4f3348;
+  color: white;
+}
+
+.ck-focused {
+  background-color: green;
+  color: blue;
+}
+
+.blog-summary {
+  font-style: italic;
+}

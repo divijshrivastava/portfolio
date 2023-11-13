@@ -1,0 +1,37 @@
+<div class="nav-wrapper">
+  <!--    <video autoplay muted loop playsinline src="./assets/video/Corner Network.mp4"></video>-->
+  <div class="nav-cover"></div>
+  <div (click)="closeNav()" class="cross">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="nav-container">
+    <div>
+      <ul>
+        <a (click)="closeNav()" href="#home">
+          <li class="menu">Home</li>
+        </a>
+        <a (click)="closeNav()" routerLink="/blogs">
+          <li class="menu">Blog</li>
+        </a>
+        <a (click)="closeNav()" routerLink="/projects">
+          <li class="menu">Project</li>
+        </a>
+        <a (click)="closeNav()" href="#about">
+          <li class="menu">About</li>
+        </a>
+        <a (click)="closeNav()" href="#contact">
+          <li class="menu">Contact</li>
+        </a>
+        <a (click)="closeNav()"
+           routerLink="/resume">
+          <li class="menu">Resume</li>
+        </a>
+        <a (click)="closeNav()"
+           *ngIf="isAdmin" routerLink="/admin">
+          <li class="menu">Admin</li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>

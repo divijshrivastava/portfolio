@@ -1,0 +1,25 @@
+<a [ngStyle]="{'border': isPending?'1px solid green':'none'}" routerLink="{{blogTitleLink}}">
+  <div class="container">
+    <div class="author-content">
+      <!--        <div class="author-details">-->
+      <!--            <img class="author-image" style="width:50px;height:50px" src="{{authorImgSrc}}" alt="author image">-->
+      <!--            <div class="author-name">{{data.authorName}}</div>-->
+      <!--        </div>-->
+      <div class="synopsis">
+            <span class="synopsis-content">
+                {{data.synopsis}}
+            </span>
+        <div [innerHTML]="data.blogContent" class="blog-content">
+
+        </div>
+      </div>
+      <div class="blog-date-time">
+        <span class="blog-date">{{data.blogDate}}</span>
+        <span class="time-to-read">{{data.readTime}}</span>
+      </div>
+    </div>
+
+    <img alt="blog display image" class="blog-img"
+         src={{data.blogImageSrc}}>
+  </div>
+</a>

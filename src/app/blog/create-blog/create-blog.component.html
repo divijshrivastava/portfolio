@@ -1,0 +1,19 @@
+<div class="blog_container">
+  <div class="header">
+    Write your blog!
+    <div>
+      <button (click)="publishBlog()" class="publish_button"> Publish</button>
+    </div>
+  </div>
+  <input (change)="readURL($event)" accept="image/gif, image/jpeg, image/png" type="file">
+  <img alt="Cover Image" class="cover_image_view">
+  <div>
+    Blog Content
+  </div>
+  <input [(ngModel)]="blogHeading" name="heading" placeholder="Blog Heading" type="text">
+  <div>{{blogHeading}}</div>
+  <input [(ngModel)]="blogSummary" name="blog summary" placeholder="Blog Summary" type="text">
+  <div class="blog-summary">{{blogSummary}}</div>
+  <ckeditor (change)="onChange($event)" (ready)="onReady($event)" [config]="config" [data]="lorem"
+            [editor]="Editor"></ckeditor>
+</div>

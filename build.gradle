@@ -1,0 +1,84 @@
+plugins {
+  id 'org.springframework.boot' version '2.7.4'
+  id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+  id 'java'
+  id 'war'
+  id 'eclipse'
+  id 'idea'
+}
+
+defaultTasks 'bootRun'
+
+group = 'tech.divij'
+version = '0.0.1'
+sourceCompatibility = "11"
+
+repositories {
+  mavenCentral()
+}
+
+def profiles = 'local'
+
+task buildAngular(type: Exec) {
+  workingDir = file('./')
+  commandLine 'npm', 'run', 'build:prod'
+}
+
+bootRun {
+  //dependsOn buildAngular
+  args = ["--spring.profiles.active=" + profiles]
+}
+
+bootWar() {
+  println 'Running bootWar'
+  dependsOn buildAngular
+  archiveFileName = "portfolio-web.war"
+}
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  implementation 'org.springframework.boot:spring-boot-starter-webflux'
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+  implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+  implementation 'org.springframework.boot:spring-boot-devtools'
+  compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+  annotationProcessor 'org.projectlombok:lombok:1.18.24'
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+  runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.19'
+  implementation 'org.liquibase:liquibase-core:4.8.0'
+  implementation group: 'com.blueconic', name: 'browscap-java', version: '1.4.0'
+  implementation 'com.google.code.gson:gson:2.8.9'
+  implementation 'org.codehaus.janino:janino:3.1.4'
+}
+
+
+test {
+  useJUnitPlatform()
+}
+
+
+targetCompatibility = JavaVersion.VERSION_11
+
+ext {
+  server_ip = System.getenv("DIVIJ_TECH_SERVER_IP")
+  server_username = System.getenv("DIVIJ_TECH_SERVER_USERNAME")
+  server_script_path = System.getenv("DIVIJ_TECH_REMOTE_RUN_PORTFOLIO_SCRIPT_PATH")
+}
+
+
+task copyWarToProd(type: Exec) {
+  println 'copyWarToProd starting'
+  dependsOn(bootWar)
+  commandLine 'sh', 'copy_portfolio_web_sudo.sh', server_ip, server_username, server_script_path
+  standardInput = System.in
+  standardOutput = System.out
+  errorOutput = System.err
+  println 'copyWarToProd ending'
+}
+
+task startDatabase(type: Exec) {
+  commandLine 'sh', 'mysql_run.bash'
+}

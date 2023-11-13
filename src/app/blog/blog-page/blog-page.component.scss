@@ -1,0 +1,172 @@
+
+.author-details {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.author-image {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.author-name {
+  font-size: 75%;
+  cursor: pointer;
+  color: #fff8dd;
+  font-family: sans-serif;
+}
+
+.published-date {
+  font-size: 60%;
+}
+
+.time-to-read {
+  font-size: 60%;
+}
+
+.dot {
+  font-size: 60%;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: auto;
+  grid-auto-flow: row;
+  gap: 30px;
+  margin-left: 25%;
+  word-break: keep-all;
+}
+
+.container::before {
+  content: '';
+  height: 90px;
+}
+
+article {
+  width: 50%;
+  letter-spacing: -0.003em;
+  line-height: 32px;
+  font-size: 105%;
+}
+
+article::after {
+  content: '';
+  height: 50px;
+}
+
+p {
+  margin-top: 20px;
+}
+
+
+.blog-heading {
+
+  font-size: 46px;
+  line-height: 56px;
+  text-align: center;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+
+}
+
+.hero-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 70%;
+}
+
+.blog-hero-image-details {
+  font-size: 80%;
+}
+
+.blogDto-content {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 25px;
+}
+
+
+.blog-hero {
+  width: 700px;
+  height: auto;
+}
+
+.blog-content > p > a:active {
+  color: green;
+}
+
+.blog-content > p > a:link {
+  color: rgb(198, 198, 199);
+}
+
+.blog-content > p > a:hover {
+  color: rgb(198, 198, 199);
+}
+
+.blog-summary {
+  font-style: italic;
+}
+
+ckeditor {
+  border: 1px solid black;
+  width: 50pc;
+  background: #472a3fc8;
+  color: #111;
+}
+
+
+.ck {
+  border: 1px solid black;
+  width: 50pc;
+  background: #472a3fc8;
+  color: #111;
+}
+
+.ck-restricted-editing_mode_standard.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+  background-color: #4f3348;
+  color: white;
+}
+
+.ck-restricted-editing_mode_standard.ck-focused.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+  background-color: #4f3348;
+  color: white;
+}
+
+.ck-focused {
+  background-color: green;
+  color: blue;
+}
+
+
+@media only screen and (max-width: 414px) {
+
+  .blog-heading {
+    font-size: 32px;
+    font-style: normal;
+    line-height: 40px;
+    word-wrap: break-word;
+    word-break: break-word;
+    letter-spacing: -0.512px;
+  }
+
+  .blog-content {
+    width: 342px;
+  }
+  .blog-hero {
+    width: 353px;
+    height: auto;
+  }
+
+  code {
+    width: 390px;
+  }
+}

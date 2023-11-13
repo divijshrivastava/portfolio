@@ -1,0 +1,5 @@
+<app-header (openNavEvent)="showNav($event)" id="header"></app-header>
+<app-navigation (closeNavEvent)="closeNav()" *ngIf="displayNav">
+</app-navigation>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

@@ -1,0 +1,9 @@
+<div class="container">
+  <p>Upload Document</p>
+  <input (change)="readURL($event)" accept="image/gif, image/jpeg, image/png, application/pdf"
+         type="file">
+  <button (click)="uploadDocument()"> Upload</button>
+  <div *ngIf="fileLinkShow">
+    <div class="file-response">The file id is: <a href="{{fileLink}}">{{response.message}}</a></div>
+  </div>
+</div>

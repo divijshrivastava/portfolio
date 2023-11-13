@@ -1,0 +1,104 @@
+
+.container {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #472a3f, #3f2738);
+}
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+}
+
+button {
+  color: white;
+  width: 150px;
+  height: 30px;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #804a71;
+  border: 1px solid #472a3f;
+  box-shadow: 5px 5px 10px 4px #2e1c29;
+}
+
+button:hover, button:focus {
+  background-color: #814a72;
+  color: rgb(250, 250, 250);
+  transition: background-image 1000ms;
+  font-weight: 400;
+  box-shadow: 5px 5px 10px 1px #2e1c29;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border-radius: 250px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  box-shadow: inset -5px -5px 15px 0px rgb(241 233 238);
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+
+::-moz-placeholder {
+  color: black;
+}
+
+:-ms-input-placeholder {
+  color: black;
+}
+
+::-ms-input-placeholder {
+  color: black;
+}
+
+::placeholder {
+  color: black;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.social_network_container > ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.social_network_container > ul li {
+  margin-left: 20px;
+}
+
+.social_network_container > ul li:first-child {
+  margin-left: 0px;
+}
+
+
+textarea {
+  margin-top: 5px;
+  width: 149px;
+}
+
+ion-icon {
+  height: 20px;
+  width: 20px;
+}
+
+ion-icon.desktop {
+  padding-top: 10px;
+  color: #ffddce;
+}

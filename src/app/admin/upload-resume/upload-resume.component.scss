@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: auto;
+  grid-auto-flow: row;
+  gap: 30px;
+  word-break: keep-all;
+}
+
+button {
+  font-weight: 400;
+  width: 200px;
+  height: 3.5em;
+  //    padding-top: 10.4%;
+  border-radius: 10px;
+  background-color: #472a3f;
+  border: 1px solid #472a3f;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}

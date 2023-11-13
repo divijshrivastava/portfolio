@@ -1,0 +1,8 @@
+<div class="container">
+  <p>Upload Resume</p>
+  <input (change)="readURL($event)" accept="application/pdf" type="file">
+  <button (click)="uploadResume()"> Upload</button>
+  <div *ngIf="fileLinkShow" class="file-response"> You can view file at <a href="{{fileLink}}"
+                                                                           target="_blank">here</a>
+  </div>
+</div>

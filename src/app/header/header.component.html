@@ -1,0 +1,15 @@
+<div class="header-wrapper">
+  <a href="/">
+    <img alt="logo" class="logo" src="./assets/favicon/apple-icon-120x120.png">
+  </a>
+
+  <div (click)="goToHeadingPage()" *ngIf="!scrolled" class="heading">{{heading.title}}</div>
+
+  <div (click)="openNav()">
+    <b>
+      <i></i>
+      <i></i>
+      <i></i>
+    </b>
+  </div>
+</div>

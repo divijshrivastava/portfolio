@@ -1,0 +1,21 @@
+<div class="container">
+
+  <pdf-viewer [autoresize]="true"
+              [external-link-target]="'blank'"
+              [fit-to-page]="false"
+              [original-size]="false"
+              [render-text]="true"
+              [rotation]="0"
+              [show-all]="true"
+              [show-borders]="false"
+              [src]="resumeUrl"
+              [stick-to-page]="true"
+              [zoom-scale]="'page-width'"
+              [zoom]="1"
+  ></pdf-viewer>
+
+
+  <a href="{{resumeUrl}}">
+    <div class="button_code">Download</div>
+  </a>
+</div>

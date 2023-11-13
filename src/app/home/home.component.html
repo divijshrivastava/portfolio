@@ -1,0 +1,35 @@
+<div class="container" id="home">
+  <!-- <video autoplay muted loop playsinline>
+       <source  src="./assets/video/Corner Network.mp4" type="">
+   </video>-->
+  <div class="image-synopsis-container">
+    <img alt="Divij's Image." class="main-image"
+         src="./assets/images/smallsized/display pic colored sillhout.png">
+    <div class="synopsis">
+      <h2 class="hey">Hey <span *ngIf="user==null; else loggedIn"> There! </span>
+        <ng-template #loggedIn>
+          {{user}}
+        </ng-template>
+      </h2>
+      <h1> I am <span class="name">Divij</span>.</h1>
+      <h2> I am a Web Developer and I just
+        <div class="heart-cover">
+          <div class="heart">❤️</div>
+        </div>
+        to code.
+      </h2>
+    </div>
+  </div>
+  <img alt="Down arrow" class="down-arrow-ipad"
+       src="./assets/images/thick-arrow-pointing-down-pink.png">
+  <div class="mouse-icon-wrapper">
+    <a href="#about">
+      <div class="mouse-icon">
+        <div class="wheel"></div>
+      </div>
+    </a>
+  </div>
+
+</div>
+<app-about id="about"></app-about>
+<app-contact id="contact"></app-contact>

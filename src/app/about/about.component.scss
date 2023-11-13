@@ -1,0 +1,147 @@
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #472a3f, #3f2738);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.about_container {
+  z-index: 2;
+  background-color: #3f1c36;
+  transform: translateX(50%);
+  display: flex;
+  height: 400px;
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.about_container_move_left {
+  animation: move-left 2s forwards;
+}
+
+.programmer_image_container_move_right {
+  animation: move-right 2s forwards;
+}
+
+.description {
+  width: 250px;
+  text-align: center;
+}
+
+.programmer_image_container {
+  background-color: #5d3552;
+  transform: translateX(-50%);
+  display: flex;
+  height: 400px;
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  50% {
+    transform: translateX(-45%);
+  }
+
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(50%);
+  }
+  50% {
+    transform: translateX(45%);
+  }
+
+  100% {
+    transform: translateX(10%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 150%;
+  }
+  .container {
+    flex-direction: column;
+  }
+
+  .about_container {
+    height: 300px;
+    width: 300px;
+    font-size: 70%;
+    //animation:none;
+    transform: translateY(50%);
+    // transform:none;
+  }
+
+  .programmer_image_container {
+    height: 300px;
+    width: 300px;
+    // animation:none;
+    transform: translateY(-50%);
+  }
+
+  .about_container_move_left {
+    animation: move-down 2s forwards;
+    //animation:none;
+  }
+
+  .programmer_image_container > img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .programmer_image_container_move_right {
+    animation: move-up 2s forwards;
+    // animation:none;
+  }
+
+  @keyframes move-up {
+    0% {
+      transform: translate(0%, -50%);
+    }
+
+    50% {
+      transform: translate(0%, -30%);
+    }
+
+    100% {
+      transform: translate(0%, -5%);
+    }
+  }
+
+  @keyframes move-down {
+    0% {
+      transform: translate(-0%, 50%);
+    }
+    50% {
+      transform: translate(-0%, 30%);
+    }
+
+    100% {
+      transform: translate(-0%, 5%);
+    }
+  }
+}
