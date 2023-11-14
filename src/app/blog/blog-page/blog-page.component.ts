@@ -92,7 +92,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
 
     });
 
-    this.userService.entitlements.subscribe((resp) => {
+    this.userService.entitlements.subscribe((resp: string[]) => {
       this.isAdmin = resp.includes('ADMIN');
       if (this.isAdmin) {
         this.canEdit = true;
