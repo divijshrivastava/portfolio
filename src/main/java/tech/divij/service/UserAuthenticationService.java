@@ -81,18 +81,20 @@ public class UserAuthenticationService {
   }
 
   public boolean isAdmin() {
+    return getAuthorities().contains(Role.ADMIN.toString());
+  }
 
+  public List<String> getAuthorities() {
     UserDetails userDetails;
-
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     if (principal instanceof UserDetails) {
       userDetails = ((UserDetails) principal);
       List<String> authorities =
-          userDetails.getAuthorities().stream()
-              .map(GrantedAuthority::getAuthority)
-              .collect(Collectors.toList());
-      return authorities.contains(Role.ADMIN.toString());
+        userDetails.getAuthorities().stream()
+          .map(GrantedAuthority::getAuthority)
+          .collect(Collectors.toList());
+      return authorities;
     }
-    return false;
+    return List.of();
   }
 }

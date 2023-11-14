@@ -17,7 +17,7 @@
   <div [innerHTML]="blogContent" class="blog-content"></div>
   <button (click)="softDeleteBlog()" *ngIf="isAdmin">Delete</button>
   <button (click)="approveBlog()" *ngIf="isAdmin && isBlogPending">Approve</button>
-  <button (click)="editBlog()" *ngIf="isAdmin">Edit</button>
+  <button (click)="editBlog()" *ngIf="canEdit">Edit</button>
   <div *ngIf="isBlogEditable" class="draft-blog">
     <div class="blog-heading" contenteditable="true">{{blogHeading}}</div>
     <div class="blog-summary" contenteditable="true">{{blogSummary}}</div>
