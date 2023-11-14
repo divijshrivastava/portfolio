@@ -56,7 +56,7 @@ export class BlogIndexComponent implements OnInit {
     this.authenticated();
   }
 
-  goToBlog(id: String, blogTitleLink: string) {
+  goToBlog(id: string, blogTitleLink: string) {
     console.log("Going to blog ", id, blogTitleLink);
     this.router.navigate([`/app/blogs/${blogTitleLink}`], {
       relativeTo: this.activatedRoute,
@@ -67,9 +67,9 @@ export class BlogIndexComponent implements OnInit {
   }
 
   authenticated() {
-    console.log("Authenticating!")
-    this.userService.isLoggedUser().subscribe((resp: any) => {
-      this.showCreateButton = resp.message == null ? false : true;
+    console.log('Authenticating!');
+    this.userService.entitlements.subscribe((resp: string[]) => {
+      this.showCreateButton = resp.includes('AUTHOR');
     });
   }
 }

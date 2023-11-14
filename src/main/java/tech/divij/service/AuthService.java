@@ -3,6 +3,7 @@ package tech.divij.service;
 import static tech.divij.constants.Constants.RESTART;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class AuthService {
 
+  private final UserAuthenticationService userAuthenticationService;
+
   private final ScheduledExecutorService executorService =
       Executors.newSingleThreadScheduledExecutor();
 
@@ -26,6 +29,10 @@ public class AuthService {
 
   @Value("${task_delay}")
   private int taskDelay;
+
+  public AuthService(UserAuthenticationService userAuthenticationService) {
+    this.userAuthenticationService = userAuthenticationService;
+  }
 
   @Async
   public void scheduleDelayedTask(Runnable task) {
@@ -53,5 +60,11 @@ public class AuthService {
       output = "Command not found!";
     }
     return ResponseEntity.ok().headers(httpHeaders).body(output);
+  }
+
+  public List<String> fetchAuthorities() {
+
+    return userAuthenticationService.getAuthorities();
+
   }
 }

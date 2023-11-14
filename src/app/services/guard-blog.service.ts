@@ -8,7 +8,7 @@ import {UserService} from './user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CanActivateTeam implements CanActivate {
+export class BlogGuard implements CanActivate {
 
   constructor(private fetchService: FetchServiceService, private router: Router, private userService: UserService) {
   }
@@ -17,7 +17,7 @@ export class CanActivateTeam implements CanActivate {
     boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
     return this.userService.entitlements.pipe(map((data) => {
-      if (data.includes('ADMIN')) {
+      if (data.includes('AUTHOR')) {
         return true;
       } else {
         this.router.navigate(['/blogs']);

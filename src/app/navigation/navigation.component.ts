@@ -47,7 +47,9 @@ export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isAdmin = this.userService.isAdminUser;
+    this.userService.isAdmin().subscribe((data) => {
+      this.isAdmin = data;
+    });
   }
 
   ngOnDestroy(): void {

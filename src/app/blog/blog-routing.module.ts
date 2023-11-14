@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CanActivateTeam} from '../services/guard.service';
+import {BlogGuard} from '../services/guard-blog.service';
 import {BlogContainerComponent} from './blog-container/blog.component';
 import {BlogIndexComponent} from './blog-index/blog-index.component';
 import {BlogPageComponent} from './blog-page/blog-page.component';
@@ -14,7 +14,7 @@ const routes: Routes = [
     }, {
       path: 'create',
       component: CreateBlogComponent,
-      canActivate: [CanActivateTeam],
+      canActivate: [BlogGuard],
     },
       {
         path: ':link',

@@ -68,6 +68,12 @@ public class AuthController {
         .build();
   }
 
+  @GetMapping("entitlements")
+  public ResponseEntity fetchAuthorities() {
+
+    return ResponseEntity.ok().body(authService.fetchAuthorities());
+  }
+
   @GetMapping("restart")
   public ResponseEntity restartServer() {
     // Execute the script

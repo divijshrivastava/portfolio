@@ -6,10 +6,8 @@
     <img alt="Divij's Image." class="main-image"
          src="./assets/images/smallsized/display pic colored sillhout.png">
     <div class="synopsis">
-      <h2 class="hey">Hey <span *ngIf="user==null; else loggedIn"> There! </span>
-        <ng-template #loggedIn>
-          {{user}}
-        </ng-template>
+      <h2 class="hey">Hey <span> {{user}} </span>
+
       </h2>
       <h1> I am <span class="name">Divij</span>.</h1>
       <h2> I am a Web Developer and I just
