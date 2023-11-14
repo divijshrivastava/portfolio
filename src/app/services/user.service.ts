@@ -42,7 +42,7 @@ export class UserService {
       });
     }*/
 
-    return this.entitlements.pipe(map((data) => {
+    return this.entitlements.pipe(map((data: string[]) => {
       return data.includes('ADMIN');
     }));
 
