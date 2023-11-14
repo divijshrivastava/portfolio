@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {environment} from 'src/environments/environment';
 import {FetchServiceService} from './fetch-service.service';
 
@@ -9,6 +10,8 @@ import {FetchServiceService} from './fetch-service.service';
 export class UserService {
 
   public isAdminUser = false;
+  public entitlements = new BehaviorSubject([]);
+  public entitlementsFetched = false;
 
   constructor(private fetchService: FetchServiceService) {
   }
@@ -29,7 +32,7 @@ export class UserService {
 
   public isAdmin() {
 
-    if (environment.envName === 'dev') {
+    /*if (environment.envName === 'dev') {
       return new Observable((subscriber) => {
         subscriber.next({
           message: 'TRUE',
@@ -37,15 +40,18 @@ export class UserService {
           responseMessage: 'USER IS ADMIN',
         });
       });
-    }
+    }*/
 
-    return this.fetchService.post(`${environment.apiUrl}/user-auth/is-admin`).subscribe((resp: any) => {
-      this.isAdminUser = (resp.message === 'TRUE');
-    });
+    return this.entitlements.pipe(map((data) => {
+      return data.includes('ADMIN');
+    }));
 
   }
 
   public fetchEntitlements() {
-
+    this.fetchService.get(`${environment.apiUrl}/user-auth/entitlements`).subscribe((resp: any) => {
+      this.entitlements.next(resp);
+      this.entitlementsFetched = true;
+    });
   }
 }

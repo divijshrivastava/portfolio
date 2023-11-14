@@ -19,6 +19,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
 
   public blogId!: string;
   public isAdmin = false;
+  public canEdit = false;
   public blogHeading = ``;
   public publishedDate = 'Jan 24, 2020';
   public authorName = '';
@@ -91,7 +92,15 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
 
     });
 
-    this.isAdmin = this.userService.isAdminUser;
+    this.userService.entitlements.subscribe((resp) => {
+      this.isAdmin = resp.includes('ADMIN');
+      if (this.isAdmin) {
+        this.canEdit = true;
+      } else {
+        // tslint:disable-next-line:max-line-length
+        this.canEdit = false; // TODO implement the edit blog flow: send blog id to backend and check if the logged in user is author or not, if she is, then return true, otherwise false and write logic here accordingly.
+      }
+    });
 
     this.highlighted = true;
   }
