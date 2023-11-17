@@ -20,7 +20,7 @@ export class CanActivateTeam implements CanActivate {
       if (data.includes('ADMIN')) {
         return true;
       } else {
-        this.router.navigate(['/blogs']);
+        this.router.navigate(['/blog']);
         return false;
       }
     }));

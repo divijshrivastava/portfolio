@@ -1,7 +1,9 @@
 import {HttpHeaders} from '@angular/common/http';
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {FetchServiceService} from '../../services/fetch-service.service';
+import {UtilService} from '../../services/util.service';
 
 @Component({
   selector: 'app-settings',
@@ -12,7 +14,7 @@ export class SettingsComponent {
 
   message: string = '';
 
-  constructor(private fetchService: FetchServiceService) {
+  constructor(private fetchService: FetchServiceService, private router: Router, private utilService: UtilService) {
   }
 
   restartServer() {
@@ -21,7 +23,7 @@ export class SettingsComponent {
 
     this.fetchService.get(`${environment.serverUrl}/user-auth/restart`, {
       headers,
-      responseType
+      responseType,
     }).subscribe(
       (message) => {
         console.log(message);
@@ -30,6 +32,13 @@ export class SettingsComponent {
         console.error(error);
       },
     );
+
+    this.utilService.ping();
+
+
+  }
+
+  ngOnDestroy() {
   }
 
 }
