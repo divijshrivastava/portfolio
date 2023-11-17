@@ -25,16 +25,16 @@ public class IndexController {
     return "/app/index.html";
   }
 
-  @GetMapping("/blogs")
+  @GetMapping("/blog")
   @LogActivity(activityType = "app")
   public String blogPage(HttpServletRequest request) {
-    return "/app/blogs";
+    return "/app/blog";
   }
 
-  @GetMapping("/projects")
+  @GetMapping("/project")
   @LogActivity(activityType = "app")
   public String projectPage(HttpServletRequest request) {
-    return "/app/projects";
+    return "/app/project";
   }
 
   @GetMapping("/about")
@@ -75,4 +75,5 @@ public class IndexController {
     log.info("Path: {}", path);
     return Constants.FORWARD_PATH;
   }
+
 }
