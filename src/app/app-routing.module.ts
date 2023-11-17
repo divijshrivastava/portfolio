@@ -7,13 +7,13 @@ const routes: Routes = [
 
   {path: '', component: HomeComponent},
   {
-    path: 'blogs',
+    path: 'blog',
     loadChildren: () => import('./blog/blog.module')
     .then(m => m.BlogModule)
   }
   ,
   {
-    path: 'projects',
+    path: 'project',
     loadChildren: () => import('./project/project.module')
     .then((m) => m.ProjectModule),
   },
