@@ -20,7 +20,7 @@ export class BlogGuard implements CanActivate {
       if (data.includes('AUTHOR')) {
         return true;
       } else {
-        this.router.navigate(['/blogs']);
+        this.router.navigate(['/blog']);
         return false;
       }
     }));

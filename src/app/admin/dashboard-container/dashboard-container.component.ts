@@ -13,7 +13,7 @@ export class DashboardContainerComponent {
   }
 
   ngOnInit() {
-    this.util.heading.next({title: 'Admin', url: '/adming'});
+    this.util.heading.next({title: 'Admin', url: '/admin'});
   }
 
 }
