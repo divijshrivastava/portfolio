@@ -56,7 +56,7 @@ export class BlogIndexComponent implements OnInit {
     this.authenticated();
   }
 
-  goToBlog(id: string, blogTitleLink: string) {
+  /*goToBlog(id: string, blogTitleLink: string) {
     console.log("Going to blog ", id, blogTitleLink);
     this.router.navigate([`/app/blogs/${blogTitleLink}`], {
       relativeTo: this.activatedRoute,
@@ -64,7 +64,7 @@ export class BlogIndexComponent implements OnInit {
     });
     console.log("skipLocationChange: true");
 
-  }
+  }*/
 
   authenticated() {
     console.log('Authenticating!');

@@ -113,7 +113,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       } else {
         alert('Sorry, could not delete blog.');
       }
-      this.router.navigateByUrl('blogs');
+      this.router.navigateByUrl('blog');
     });
   }
 
@@ -125,7 +125,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       } else {
         alert('Sorry, could not approve blog.');
       }
-      this.router.navigateByUrl('blogs');
+      this.router.navigateByUrl('blog');
     });
   }
 
