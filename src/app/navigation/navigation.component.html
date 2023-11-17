@@ -8,7 +8,7 @@
   <div class="nav-container">
     <div>
       <ul>
-        <a (click)="closeNav()" href="#home">
+        <a (click)="closeNav()" fragment="home" routerLink="">
           <li class="menu">Home</li>
         </a>
         <a (click)="closeNav()" routerLink="/blogs">
@@ -17,10 +17,10 @@
         <a (click)="closeNav()" routerLink="/projects">
           <li class="menu">Project</li>
         </a>
-        <a (click)="closeNav()" href="#about">
+        <a (click)="closeNav()" fragment="about" routerLink="">
           <li class="menu">About</li>
         </a>
-        <a (click)="closeNav()" href="#contact">
+        <a (click)="closeNav()" fragment="contact" routerLink="">
           <li class="menu">Contact</li>
         </a>
         <a (click)="closeNav()"

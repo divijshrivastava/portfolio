@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {UtilService} from '../services/util.service';
 
 @Component({
   selector: 'app-project',
@@ -7,10 +8,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
-  constructor() {
+  constructor(private util: UtilService) {
   }
 
   ngOnInit(): void {
+    this.util.heading.next({title: 'Project', url: '/project'});
   }
 
 }
