@@ -1,5 +1,6 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import {Router} from '@angular/router';
+import {UtilService} from '../services/util.service';
 
 @Component({
   selector: 'app-header',
@@ -13,26 +14,32 @@ export class HeaderComponent implements OnInit {
   scrolled = false;
   heading: any = {};
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private util: UtilService) {
   }
 
   ngOnInit(): void {
-    this.route.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        const url = event.url;
-        if (url === '/') {
-          this.heading = {title: '', url: '/'};
-        } else if (url.includes('/blogs')) {
-          this.heading = {title: 'Blogs', url: '/blogs'};
-        } else if (url.includes('/projects')) {
-          this.heading = {title: 'Projects', url: '/projects'};
-        } else if (url.includes('/admin')) {
-          this.heading = {title: 'Admin Console', url: '/admin'};
-        } else if (url.includes('/resume')) {
-          this.heading = {title: 'Resume', url: '/resume'};
-        }
-      }
-    });
+
+    this.util.heading.subscribe(
+      (obj) => {
+        this.heading = obj;
+      },
+    );
+    /*    this.route.events.subscribe(event => {
+          if (event instanceof NavigationEnd) {
+            const url = event.url;
+            if (url === '/' || url === '') {
+              this.heading = {title: '', url: ''};
+            } else if (url.includes('/blogs')) {
+              this.heading = {title: 'Blogs', url: '/blogs'};
+            } else if (url.includes('/projects')) {
+              this.heading = {title: 'Projects', url: '/projects'};
+            } else if (url.includes('/admin')) {
+              this.heading = {title: 'Admin Console', url: '/admin'};
+            } else if (url.includes('/resume')) {
+              this.heading = {title: 'Resume', url: '/resume'};
+            }
+          }
+        });*/
   }
 
   public openNav(): void {

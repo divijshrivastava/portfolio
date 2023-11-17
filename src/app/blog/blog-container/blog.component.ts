@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-
+import {UtilService} from '../../services/util.service';
 
 @Component({
   selector: 'app-blog',
@@ -11,15 +11,11 @@ export class BlogContainerComponent implements OnInit {
 
   blogs = new Array(5);
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private util: UtilService) {
   }
 
   ngOnInit(): void {
-  }
-
-  goToBlog() {
-    this.router.navigateByUrl("blogs/1");
-    console.log("Navigating");
+    this.util.heading.next({title: 'Blog', url: '/blog'});
   }
 
 }
