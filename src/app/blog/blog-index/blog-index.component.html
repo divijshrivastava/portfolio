@@ -1,5 +1,5 @@
 <div class="blog_container">
-  <button *ngIf="showCreateButton" class="create_blog" routerLink="/blogs/create">Create</button>
+  <button *ngIf="showCreateButton" class="create_blog" routerLink="/blog/create">Create</button>
   <div *ngFor="let blog of blogs">
     <app-blog-summary [data]="blog"
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
+import {UtilService} from '../services/util.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,13 @@ export class HomeComponent implements OnInit {
 
   user: string | undefined = 'There!';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private util: UtilService) {
   }
 
   ngOnInit() {
     this.userService.isLoggedUser().subscribe((response: any) => this.user = response.message ? response.message : this.user);
     this.userService.isAdmin();
+    this.util.heading.next({url: '#home', title: ''});
   }
 
 }

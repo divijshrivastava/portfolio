@@ -125,7 +125,7 @@ export class CreateBlogComponent implements OnInit {
         } else {
           alert('There was an issue uploading the blog. Please contact admin!');
         }
-        this.router.navigate([`blogs`]);
+        this.router.navigate([`blog`]);
       });
     } else {
       alert('Enter all values');
