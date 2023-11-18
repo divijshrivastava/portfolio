@@ -1,10 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BlogGuard} from '../services/guard-blog.service';
 import {BlogContainerComponent} from './blog-container/blog.component';
 import {BlogIndexComponent} from './blog-index/blog-index.component';
-import {BlogPageComponent} from './blog-page/blog-page.component';
-import {CreateBlogComponent} from './create-blog/create-blog.component';
 
 const routes: Routes = [
   {
@@ -13,12 +10,11 @@ const routes: Routes = [
       path: '', component: BlogIndexComponent,
     }, {
       path: 'create',
-      component: CreateBlogComponent,
-      canActivate: [BlogGuard],
+      loadChildren: () => import('./create-blog/create-blog.module').then((m) => m.CreateBlogModule),
     },
       {
         path: ':link',
-        component: BlogPageComponent,
+        loadChildren: () => import('./blog-page/blog-page.module').then((m) => m.BlogPageModule),
       }],
   },
 ];
