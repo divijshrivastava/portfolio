@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {UtilService} from '../../services/util.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,12 @@ import {Component} from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
+  constructor(private utilService: UtilService) {
+  }
+
+  ngOnInit() {
+    this.utilService.loader.next({state: 'off'});
+  }
 
 }
