@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {DomSanitizer, Meta} from '@angular/platform-browser';
+import {DomSanitizer, Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ChangeEvent} from '@ckeditor/ckeditor5-angular';
 import * as Editor from 'ckeditor5/build/ckeditor';
@@ -52,7 +52,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   constructor(private fetchService: FetchServiceService, private route: ActivatedRoute,
               private router: Router, private meta: Meta, private sanitizer: DomSanitizer,
               private highlightService: HighlightService, private userService: UserService,
-              private utilService: UtilService) {
+              private utilService: UtilService, private title: Title) {
     this.Editor = Editor.Editor;
   }
 
@@ -63,6 +63,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       console.log('Inside fetch blog call');
       this.blogHeading = resp.blogHeading;
       this.meta.updateTag({property: 'og:title', content: resp.blogHeading});
+      this.utilService.updateTitle(resp.blogHeading);
       this.meta.updateTag({
         property: 'og:image',
         content: `${window.location.origin}${resp.blogImageSrc}`,
@@ -171,6 +172,10 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
 
   private navigateToErrorPageWithMessage(message: string): void {
     this.router.navigate(['error'], {queryParams: {message}});
+  }
+
+  ngOnDestroy() {
+    this.utilService.updateTitle('Divij');
   }
 
 }
