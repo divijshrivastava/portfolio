@@ -1,7 +1,7 @@
 import {NgOptimizedImage} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutComponent} from './about/about.component';
@@ -34,6 +34,7 @@ import {NavButtonComponent} from './shared/nav-button/nav-button.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgOptimizedImage,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
