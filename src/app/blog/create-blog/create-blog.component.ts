@@ -9,6 +9,7 @@ import 'prismjs/components/prism-yaml';
 import {concatMap} from 'rxjs/operators';
 import {FetchServiceService} from 'src/app/services/fetch-service.service';
 import {environment} from 'src/environments/environment';
+import {UtilService} from '../../services/util.service';
 import {ImageUploadAdapter} from './adapter/image-upload-adapter';
 
 @Component({
@@ -49,7 +50,7 @@ export class CreateBlogComponent implements OnInit {
   public minutesToRead: any;
   public lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iste, nobis nesciunt voluptates saepe, nulla adipisci quas a minus rerum libero vitae vero voluptatum nam, expedita harum magnam. Obcaecati, hic?';
 
-  constructor(private fetchService: FetchServiceService, private router: Router) {
+  constructor(private fetchService: FetchServiceService, private router: Router, private utilService: UtilService) {
     this.Editor = Editor.Editor;
   }
 
@@ -134,7 +135,7 @@ export class CreateBlogComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-
+    this.utilService.loader.next({state: 'off'});
   }
 
   public onChange(event: ChangeEvent): void {

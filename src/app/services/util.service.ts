@@ -16,6 +16,8 @@ export class UtilService {
   private serverUp = false;
   private change = false;
 
+  public loader = new BehaviorSubject({state: 'on'});
+
   constructor(private fetchService: FetchServiceService, private router: Router) {
   }
 

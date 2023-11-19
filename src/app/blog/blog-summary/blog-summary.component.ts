@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FetchServiceService} from 'src/app/services/fetch-service.service';
+import {UtilService} from '../../services/util.service';
 import {BlogSummary} from '../blog-summary';
 
 @Component({
@@ -23,7 +24,7 @@ export class BlogSummaryComponent implements OnInit {
   isPending = false;
   blogTitleLink = "";
 
-  constructor(private fetchService: FetchServiceService) {
+  constructor(private fetchService: FetchServiceService, private utilService: UtilService) {
   }
 
   ngOnChanges() {

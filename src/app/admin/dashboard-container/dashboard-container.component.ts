@@ -14,6 +14,7 @@ export class DashboardContainerComponent {
 
   ngOnInit() {
     this.util.heading.next({title: 'Admin', url: '/admin'});
+    this.util.loader.next({state: 'off'});
   }
 
 }

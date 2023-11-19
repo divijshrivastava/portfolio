@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {PageEvent} from '@angular/material/paginator';
 import {environment} from '../../../environments/environment';
 import {UserActivityService} from '../../services/user-activity.service';
+import {UtilService} from '../../services/util.service';
 import {UserActivity} from './UserActivity';
 
 @Component({
@@ -19,11 +20,12 @@ export class UserActivityComponent implements OnInit {
   pageSize = 10;
   pageIndex = 1;
 
-  constructor(private http: HttpClient, private userActivityService: UserActivityService) {
+  constructor(private http: HttpClient, private userActivityService: UserActivityService, private utilService: UtilService) {
   }
 
   ngOnInit(): void {
     this.loadUserActivity(this.currentPage - 1, this.itemsPerPage);
+    this.utilService.loader.next({state: 'off'});
   }
 
   loadUserActivity(page: number, size: number): void {

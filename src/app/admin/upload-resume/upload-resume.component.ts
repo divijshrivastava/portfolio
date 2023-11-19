@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {FetchServiceService} from '../../services/fetch-service.service';
 import {environment} from '../../../environments/environment';
+import {FetchServiceService} from '../../services/fetch-service.service';
+import {UtilService} from '../../services/util.service';
 
 @Component({
   selector: 'app-upload-resume',
@@ -15,7 +16,7 @@ export class UploadResumeComponent {
   public fileLinkShow = false;
   public showResponse = false;
 
-  constructor(private fetchService: FetchServiceService) {
+  constructor(private fetchService: FetchServiceService, private utilService: UtilService) {
 
   }
 
@@ -47,5 +48,9 @@ export class UploadResumeComponent {
         }
       },
     );
+  }
+
+  ngOnInit() {
+    this.utilService.loader.next({state: 'off'});
   }
 }

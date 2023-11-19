@@ -41,4 +41,8 @@ export class SettingsComponent {
   ngOnDestroy() {
   }
 
+  ngOnInit() {
+    this.utilService.loader.next({state: 'off'});
+  }
+
 }

@@ -16,6 +16,7 @@ export class BlogContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.util.heading.next({title: 'Blog', url: '/blog'});
+    this.util.loader.next({state: 'on'});
   }
 
 }

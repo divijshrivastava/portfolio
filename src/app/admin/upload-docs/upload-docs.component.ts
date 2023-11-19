@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {FetchServiceService} from '../../services/fetch-service.service';
+import {UtilService} from '../../services/util.service';
 
 @Component({
   selector: 'app-upload-docs',
@@ -15,7 +16,7 @@ export class UploadDocsComponent {
   public fileLinkShow = false;
   public showResponse = false;
 
-  constructor(private fetchService: FetchServiceService) {
+  constructor(private fetchService: FetchServiceService, private utilService: UtilService) {
 
   }
 
@@ -46,5 +47,9 @@ export class UploadDocsComponent {
         }
       },
     );
+  }
+
+  ngOnInit() {
+    this.utilService.loader.next({state: 'off'});
   }
 }

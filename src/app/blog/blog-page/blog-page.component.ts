@@ -7,6 +7,7 @@ import {FetchServiceService} from 'src/app/services/fetch-service.service';
 import {HighlightService} from 'src/app/services/highlight.service';
 import {environment} from 'src/environments/environment';
 import {UserService} from '../../services/user.service';
+import {UtilService} from '../../services/util.service';
 import {ImageUploadAdapter} from '../create-blog/adapter/image-upload-adapter';
 
 @Component({
@@ -50,7 +51,8 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
 
   constructor(private fetchService: FetchServiceService, private route: ActivatedRoute,
               private router: Router, private meta: Meta, private sanitizer: DomSanitizer,
-              private highlightService: HighlightService, private userService: UserService) {
+              private highlightService: HighlightService, private userService: UserService,
+              private utilService: UtilService) {
     this.Editor = Editor.Editor;
   }
 
@@ -82,6 +84,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       this.isBlogPending = resp.blogStatus === 'PENDING';
       this.blogId = resp.id;
       this.highlightService.highlightAll();
+      this.utilService.loader.next({state: 'off'});
 
     }, (error) => {
       if (error.status === 403) {
@@ -103,6 +106,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
     });
 
     this.highlighted = true;
+    this.utilService.loader.next({state: 'on'});
   }
 
   public softDeleteBlog(): void {

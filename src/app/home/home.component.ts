@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.userService.isLoggedUser().subscribe((response: any) => this.user = response.message ? response.message : this.user);
     this.userService.isAdmin();
     this.util.heading.next({url: '#home', title: ''});
+    this.util.loader.next({state: 'off'});
   }
 
 }
