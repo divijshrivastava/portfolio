@@ -1,14 +1,15 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {DomSanitizer, Meta} from '@angular/platform-browser';
+import {DomSanitizer, Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ChangeEvent} from '@ckeditor/ckeditor5-angular';
+// import {ChangeEvent} from '@ckeditor/ckeditor5-angular';
 import * as Editor from 'ckeditor5/build/ckeditor';
 import {FetchServiceService} from 'src/app/services/fetch-service.service';
 import {HighlightService} from 'src/app/services/highlight.service';
 import {environment} from 'src/environments/environment';
 import {UserService} from '../../services/user.service';
 import {UtilService} from '../../services/util.service';
-import {ImageUploadAdapter} from '../create-blog/adapter/image-upload-adapter';
+
+// import {ImageUploadAdapter} from '../create-blog/adapter/image-upload-adapter';
 
 @Component({
   encapsulation: ViewEncapsulation.Emulated,
@@ -52,7 +53,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   constructor(private fetchService: FetchServiceService, private route: ActivatedRoute,
               private router: Router, private meta: Meta, private sanitizer: DomSanitizer,
               private highlightService: HighlightService, private userService: UserService,
-              private utilService: UtilService) {
+              private utilService: UtilService, private title: Title) {
     this.Editor = Editor.Editor;
   }
 
@@ -63,6 +64,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       console.log('Inside fetch blog call');
       this.blogHeading = resp.blogHeading;
       this.meta.updateTag({property: 'og:title', content: resp.blogHeading});
+      this.utilService.updateTitle(resp.blogHeading);
       this.meta.updateTag({
         property: 'og:image',
         content: `${window.location.origin}${resp.blogImageSrc}`,
@@ -70,7 +72,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       this.meta.updateTag({property: 'og:url', content: `${window.location.href}`});
       this.meta.updateTag({property: 'og:type', content: 'website'});
       this.meta.updateTag({property: 'og:site_name', content: 'Divij.tech'});
-      this.meta.updateTag({property: 'og:description', content: resp.blogSummary});
+      this.meta.updateTag({name: 'description', content: resp.blogSummary});
       this.blogContent = resp.blogContent.replace(/src=\"/g, `src=\"${environment.apiUrl}`);
       this.blogContent = this.sanitizer.bypassSecurityTrustHtml(this.blogContent);
 //      console.log(this.blogContent);
@@ -144,33 +146,39 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
     console.log('Editing Blog');
   }
 
-  public onChange(event: ChangeEvent): void {
-    this.data = event.editor.getData();
-    console.log(this.data);
-    const plainText = (document.querySelector('ckeditor') as HTMLElement)?.innerText;
-    this.timeToRead = this.calculateMinutesToRead(plainText);
-  }
+  /*
+    public onChange(event: ChangeEvent): void {
+      this.data = event.editor.getData();
+      console.log(this.data);
+      const plainText = (document.querySelector('ckeditor') as HTMLElement)?.innerText;
+      this.timeToRead = this.calculateMinutesToRead(plainText);
+    }*/
+  /*
+    public calculateMinutesToRead(plainText: string): string {
 
-  public calculateMinutesToRead(plainText: string): string {
+      const minutesToRead = Math.floor(plainText.replace(/\n/g, ' ').split(' ').length / (this.averageAdultReadingSpeed));
+      return Number(minutesToRead).toString();
+    }*/
 
-    const minutesToRead = Math.floor(plainText.replace(/\n/g, ' ').split(' ').length / (this.averageAdultReadingSpeed));
-    return Number(minutesToRead).toString();
-  }
+  /*
+    public onReady(editor: any): void {
+      editor.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
+        return new ImageUploadAdapter(loader, this.fetchService);
+      };
 
-  public onReady(editor: any): void {
-    editor.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
-      return new ImageUploadAdapter(loader, this.fetchService);
-    };
+      editor.ui.getEditableElement().parentElement.insertBefore(
+        editor.ui.view.toolbar.element,
+        editor.ui.getEditableElement(),
+      );
 
-    editor.ui.getEditableElement().parentElement.insertBefore(
-      editor.ui.view.toolbar.element,
-      editor.ui.getEditableElement(),
-    );
-
-  }
+    }*/
 
   private navigateToErrorPageWithMessage(message: string): void {
     this.router.navigate(['error'], {queryParams: {message}});
+  }
+
+  ngOnDestroy() {
+    this.utilService.updateTitle('Divij');
   }
 
 }

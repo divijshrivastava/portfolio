@@ -1,8 +1,12 @@
 export class UserContact {
-  public userName: string;
+  public fullName: string;
+  public email: string;
+  public message: string;
 
-  constructor() {
-    this.userName = '';
+  constructor(userName: string, email: string, message: string) {
+    this.fullName = userName;
+    this.email = email;
+    this.message = message;
   }
 
 }
