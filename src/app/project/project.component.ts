@@ -13,6 +13,7 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.util.heading.next({title: 'Project', url: '/project'});
+    this.util.loader.next({state: 'off'});
   }
 
 }

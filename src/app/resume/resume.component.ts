@@ -1,4 +1,3 @@
-import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {UtilService} from '../services/util.service';
 
@@ -11,12 +10,13 @@ export class ResumeComponent implements OnInit {
 
   resumeUrl: string = '';
 
-  constructor(private http: HttpClient, private util: UtilService) {
-    this.resumeUrl = '/resume/view';
+  constructor(private util: UtilService) {
   }
 
   public ngOnInit() {
+    this.resumeUrl = '/resume/view';
     this.util.heading.next({title: 'Resume', url: '/resume'});
+    this.util.loader.next({state: 'off'});
   }
 
 }
