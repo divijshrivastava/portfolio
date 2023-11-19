@@ -6,25 +6,27 @@
     </h1>
   </div>
   <div class="contact-form">
-    <form id="contact-form">
+    <form (ngSubmit)="saveUserContact()" [formGroup]="contactForm" id="contact-form">
       <div>
-        <input name="viewer-name" placeholder="Name" required type="text">
+        <input formControlName="viewerName" name="viewer-name" placeholder="Name" required
+               type="text">
       </div>
       <div>
-        <input name="viewer-email" placeholder="Email ID" required type="email">
-      </div>
-
-      <div>
-        <input name="viewer-message" placeholder="Message" required type="text-area">
+        <input formControlName="email" name="viewer-email" placeholder="Email ID" required
+               type="email">
       </div>
 
+      <div>
+        <input formControlName="message" name="viewer-message" placeholder="Message" required
+               type="text-area">
+      </div>
+      <div class="save-button">
+        <button
+          type="submit">
+          Submit
+        </button>
+      </div>
     </form>
-  </div>
-  <div>
-    <button (click)="alert('This functionality is currently not available. Please use other social media channels to connect.')" form="contact-form"
-            type="submit">
-      Submit
-    </button>
   </div>
 
   <h1>Or</h1>

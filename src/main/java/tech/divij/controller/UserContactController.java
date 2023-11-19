@@ -1,13 +1,17 @@
 package tech.divij.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import tech.divij.dao.UserContact;
 import tech.divij.service.RecaptchaService;
 import tech.divij.service.UserContactService;
 
 @RestController
-@RequestMapping("/user-contact")
+@RequestMapping("user-contact")
 public class UserContactController {
   private final UserContactService userContactService;
   private final RecaptchaService recaptchaService;

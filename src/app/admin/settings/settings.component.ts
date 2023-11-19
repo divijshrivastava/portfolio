@@ -1,6 +1,5 @@
 import {HttpHeaders} from '@angular/common/http';
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 import {FetchServiceService} from '../../services/fetch-service.service';
 import {UtilService} from '../../services/util.service';
@@ -14,7 +13,7 @@ export class SettingsComponent {
 
   message: string = '';
 
-  constructor(private fetchService: FetchServiceService, private router: Router, private utilService: UtilService) {
+  constructor(private fetchService: FetchServiceService, private utilService: UtilService) {
   }
 
   restartServer() {
@@ -34,11 +33,11 @@ export class SettingsComponent {
     );
 
     this.utilService.ping();
-
-
+    this.utilService.loader.next({state: 'on'});
   }
 
   ngOnDestroy() {
+    this.utilService.loader.next({state: 'off'});
   }
 
   ngOnInit() {

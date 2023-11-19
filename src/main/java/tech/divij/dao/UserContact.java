@@ -1,6 +1,12 @@
 package tech.divij.dao;
 
-import javax.persistence.*;
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "USER_CONTACT")
@@ -21,6 +27,12 @@ public class UserContact {
   @Column(name = "MESSAGE")
   private String message;
 
+  @Column(name = "CREATED_AT")
+  private LocalDateTime createdAt;
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
   // Constructor, getters, setters, and other methods
 
   public UserContact() {}

@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {BehaviorSubject, interval, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -18,7 +19,11 @@ export class UtilService {
 
   public loader = new BehaviorSubject({state: 'on'});
 
-  constructor(private fetchService: FetchServiceService, private router: Router) {
+  constructor(private fetchService: FetchServiceService, private router: Router, private title: Title) {
+  }
+
+  public updateTitle(title: string) {
+    this.title.setTitle(title);
   }
 
   public ping() {
