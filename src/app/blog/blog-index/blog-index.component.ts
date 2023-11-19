@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FetchServiceService} from 'src/app/services/fetch-service.service';
 import {UserService} from 'src/app/services/user.service';
 import {environment} from 'src/environments/environment';
+import {UtilService} from '../../services/util.service';
 import {BlogSummary} from '../blog-summary';
 
 @Component({
@@ -16,7 +17,7 @@ export class BlogIndexComponent implements OnInit {
   showCreateButton: boolean = false;
 
   constructor(private router: Router, private fetchService: FetchServiceService,
-              private userService: UserService, private activatedRoute: ActivatedRoute) {
+              private userService: UserService, private activatedRoute: ActivatedRoute, private utilService: UtilService) {
   }
 
   ngOnInit(): void {
@@ -45,9 +46,13 @@ export class BlogIndexComponent implements OnInit {
             blogTitleLink: item.blogTitleLink
           };
         });
+        console.log('setting loader off');
+        this.utilService.loader.next({state: 'off'});
 
       }
     );
+    console.log('setting loader on');
+    this.utilService.loader.next({state: 'on'});
 
   }
 

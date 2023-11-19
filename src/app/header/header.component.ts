@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   openNavEvent = new EventEmitter<boolean>();
   scrolled = false;
   heading: any = {};
+  logoClass = 'logo';
 
   constructor(private route: Router, private util: UtilService) {
   }
@@ -24,22 +25,14 @@ export class HeaderComponent implements OnInit {
         this.heading = obj;
       },
     );
-    /*    this.route.events.subscribe(event => {
-          if (event instanceof NavigationEnd) {
-            const url = event.url;
-            if (url === '/' || url === '') {
-              this.heading = {title: '', url: ''};
-            } else if (url.includes('/blogs')) {
-              this.heading = {title: 'Blogs', url: '/blogs'};
-            } else if (url.includes('/projects')) {
-              this.heading = {title: 'Projects', url: '/projects'};
-            } else if (url.includes('/admin')) {
-              this.heading = {title: 'Admin Console', url: '/admin'};
-            } else if (url.includes('/resume')) {
-              this.heading = {title: 'Resume', url: '/resume'};
-            }
-          }
-        });*/
+
+    this.util.loader.subscribe((e) => {
+      if (e.state === 'on') {
+        this.logoClass = 'hide-logo';
+      } else {
+        this.logoClass = 'logo';
+      }
+    });
   }
 
   public openNav(): void {
@@ -47,7 +40,6 @@ export class HeaderComponent implements OnInit {
   }
 
   goToHeadingPage() {
-    console.log('going to', this.heading.url);
     this.route.navigateByUrl(this.heading.url);
   }
 

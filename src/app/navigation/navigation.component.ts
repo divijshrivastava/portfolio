@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
+import {UtilService} from '../services/util.service';
 
 @Component({
   selector: 'app-navigation',
@@ -14,7 +15,7 @@ export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output()
   closeNavEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService, private utilService: UtilService) {
   }
 
   closeNav(): void {
@@ -50,6 +51,7 @@ export class NavigationComponent implements OnInit, AfterViewInit, OnDestroy {
     this.userService.isAdmin().subscribe((data) => {
       this.isAdmin = data;
     });
+
   }
 
   ngOnDestroy(): void {
