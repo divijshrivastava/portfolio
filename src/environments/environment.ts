@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  envName: "local",
-  apiUrl: "",
-  color: "red",
-  serverUrl: ""
+  envName: 'local',
+  apiUrl: '',
+  color: 'red',
+  serverUrl: '',
+  recaptcha: {sitekey: '6Les6hQpAAAAAKJV1eW8jR6QRMsqmdOIGPU9-W9J'},
 };
 
 /*
