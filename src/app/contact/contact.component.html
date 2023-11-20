@@ -20,11 +20,21 @@
         <input formControlName="message" name="viewer-message" placeholder="Message" required
                type="text-area">
       </div>
+      <div class="recaptcha">
+        <re-captcha #recaptcha (errored)="recaptchaError($event)"
+                    (resolved)="resolved($event)"
+                    badge="bottomright" errorMode="handled" height='auto' width='120px'></re-captcha>
+      </div>
       <div class="save-button">
-        <button
+        <button [disabled]="(!contactForm.valid || !resolvedCaptcha)"
           type="submit">
           Submit
         </button>
+      </div>
+
+      <div *ngIf="(!contactForm.valid || !resolvedCaptcha ) && !contactForm.pristine"
+           class="contact-alert">You must fill
+        all the above fields!
       </div>
     </form>
   </div>

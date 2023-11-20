@@ -4,6 +4,8 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RECAPTCHA_SETTINGS, RecaptchaModule, RecaptchaSettings} from 'ng-recaptcha';
+import {environment} from '../environments/environment';
 import {AboutComponent} from './about/about.component';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -34,9 +36,19 @@ import {NavButtonComponent} from './shared/nav-button/nav-button.component';
     HttpClientModule,
     BrowserAnimationsModule,
     NgOptimizedImage,
+    RecaptchaModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.recaptcha.sitekey,
+      } as RecaptchaSettings,
+    },
+
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
