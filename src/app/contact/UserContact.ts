@@ -8,5 +8,4 @@ export class UserContact {
     this.email = email;
     this.message = message;
   }
-
 }
