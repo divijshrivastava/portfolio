@@ -27,14 +27,14 @@
    <ol>
       <li>
          <p>Clone this repository to your local machine:</p>
-         <pre><div class="bg-black rounded-md mb-4"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-shell">git clone https://github.com/divijshrivastava/portfolio_3_tier_fe.git
+         <pre><div class="bg-black rounded-md mb-4"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-shell">git clone https://github.com/divijshrivastava/portfolio.git
 </code></div></div></pre>
       </li>
       <li>
          <p>Install the necessary dependencies for the frontend. Navigate to the frontend directory and run:</p>
          <pre><div class="p-4 overflow-y-auto">
          <code class="!whitespace-pre hljs language-nnnn">
-         cd portfolio_3_tier_fe
+         cd portfolio
          npm install
          </code>
          </div></pre>
@@ -52,7 +52,7 @@
          <p>Run the backend. In the root directory, start the backend server using your preferred Java IDE or build tool.</p>
       </li>
       <li>
-         <p>Access the portfolio website by opening your browser and navigating to <a href="http://localhost:8080" target="_new">http://localhost:8080</a>.</p>
+         <p>Access the portfolio website by opening your browser and navigating to <a href="http://localhost:80" target="_new">http://localhost</a>.</p>
       </li>
    </ol>
    <p>Feel free to customize the website to suit your own needs. You can add more blog posts, showcase additional projects, or modify the design and layout according to your preferences.</p>
