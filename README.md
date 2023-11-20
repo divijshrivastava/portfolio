@@ -17,8 +17,8 @@
    <h2>Functionality</h2>
    <p>The portfolio website offers the following features:</p>
    <ul>
-      <li><strong>Blogs</strong>: Visit <a href="https://divij.tech/blogs" target="_new">divij.tech/blogs</a> to explore my blog posts. This section allows me to share my thoughts, experiences, and insights on various topics.</li>
-      <li><strong>Projects</strong>: Check out <a href="https://divij.tech/projects" target="_new">divij.tech/projects</a> to view my showcased projects. Here, I highlight the projects I have worked on, providing details about their purpose, technologies used, and outcomes achieved.</li>
+      <li><strong>Blog</strong>: Visit <a href="https://divij.tech/blog" target="_new">divij.tech/blog</a> to explore my blog posts. This section allows me to share my thoughts, experiences, and insights on various topics.</li>
+      <li><strong>Projects</strong>: Check out <a href="https://divij.tech/project" target="_new">divij.tech/project</a> to view my showcased projects. Here, I highlight the projects I have worked on, providing details about their purpose, technologies used, and outcomes achieved.</li>
       <li><strong>Social Media</strong>: Connect with me on various social media platforms. You can find links to my profiles on Twitter, LinkedIn, Instagram, and YouTube.</li>
       <li><strong>Contact Page</strong>: Have a question or want to get in touch? Visit the contact page on <a href="https://divij.tech/contact" target="_new">divij.tech/contact</a> to reach out to me.</li>
    </ul>
