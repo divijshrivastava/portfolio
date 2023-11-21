@@ -3,10 +3,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {CanActivateTeam} from '../services/guard.service';
 import {DashboardContainerComponent} from './dashboard-container/dashboard-container.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {InboxComponent} from './inbox/inbox.component';
 import {SettingsComponent} from './settings/settings.component';
-import {UserActivityComponent} from './user-activity/user-activity.component';
 import {UploadDocsComponent} from './upload-docs/upload-docs.component';
 import {UploadResumeComponent} from './upload-resume/upload-resume.component';
+import {UserActivityComponent} from './user-activity/user-activity.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
       },
       {
         path: 'upload-resume', component: UploadResumeComponent, canActivate: [CanActivateTeam],
+      },
+      {
+        path: 'inbox', component: InboxComponent, canActivate: [CanActivateTeam],
       },
     ],
   },
