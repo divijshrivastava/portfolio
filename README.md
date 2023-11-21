@@ -17,8 +17,8 @@
    <h2>Functionality</h2>
    <p>The portfolio website offers the following features:</p>
    <ul>
-      <li><strong>Blogs</strong>: Visit <a href="https://divij.tech/blogs" target="_new">divij.tech/blogs</a> to explore my blog posts. This section allows me to share my thoughts, experiences, and insights on various topics.</li>
-      <li><strong>Projects</strong>: Check out <a href="https://divij.tech/projects" target="_new">divij.tech/projects</a> to view my showcased projects. Here, I highlight the projects I have worked on, providing details about their purpose, technologies used, and outcomes achieved.</li>
+      <li><strong>Blog</strong>: Visit <a href="https://divij.tech/blog" target="_new">divij.tech/blog</a> to explore my blog posts. This section allows me to share my thoughts, experiences, and insights on various topics.</li>
+      <li><strong>Projects</strong>: Check out <a href="https://divij.tech/project" target="_new">divij.tech/project</a> to view my showcased projects. Here, I highlight the projects I have worked on, providing details about their purpose, technologies used, and outcomes achieved.</li>
       <li><strong>Social Media</strong>: Connect with me on various social media platforms. You can find links to my profiles on Twitter, LinkedIn, Instagram, and YouTube.</li>
       <li><strong>Contact Page</strong>: Have a question or want to get in touch? Visit the contact page on <a href="https://divij.tech/contact" target="_new">divij.tech/contact</a> to reach out to me.</li>
    </ul>
@@ -27,14 +27,14 @@
    <ol>
       <li>
          <p>Clone this repository to your local machine:</p>
-         <pre><div class="bg-black rounded-md mb-4"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-shell">git clone https://github.com/divijshrivastava/portfolio_3_tier_fe.git
+         <pre><div class="bg-black rounded-md mb-4"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-shell">git clone https://github.com/divijshrivastava/portfolio.git
 </code></div></div></pre>
       </li>
       <li>
          <p>Install the necessary dependencies for the frontend. Navigate to the frontend directory and run:</p>
          <pre><div class="p-4 overflow-y-auto">
          <code class="!whitespace-pre hljs language-nnnn">
-         cd portfolio_3_tier_fe
+         cd portfolio
          npm install
          </code>
          </div></pre>
@@ -52,7 +52,7 @@
          <p>Run the backend. In the root directory, start the backend server using your preferred Java IDE or build tool.</p>
       </li>
       <li>
-         <p>Access the portfolio website by opening your browser and navigating to <a href="http://localhost:8080" target="_new">http://localhost:8080</a>.</p>
+         <p>Access the portfolio website by opening your browser and navigating to <a href="http://localhost:80" target="_new">http://localhost</a>.</p>
       </li>
    </ol>
    <p>Feel free to customize the website to suit your own needs. You can add more blog posts, showcase additional projects, or modify the design and layout according to your preferences.</p>
