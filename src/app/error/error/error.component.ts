@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-error',
@@ -14,8 +14,6 @@ export class ErrorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Inside error component'); // , this.router.getCurrentNavigation()?.extras.state);
-
     this.route.queryParams.subscribe((queryParams) => {
       this.errorMessage = queryParams.message || 'Default error message';
     });
