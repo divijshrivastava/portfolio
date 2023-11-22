@@ -29,8 +29,6 @@ export class BlogIndexComponent implements OnInit {
 
     this.fetchService.get(servicePath).subscribe(
       resp => {
-        console.log("Fetching Blogs.");
-        console.log(resp);
         this.blogs = resp.message.map((item: any) => {
           return {
             authorName: item.authorName,
@@ -46,12 +44,10 @@ export class BlogIndexComponent implements OnInit {
             blogTitleLink: item.blogTitleLink
           };
         });
-        console.log('setting loader off');
         this.utilService.loader.next({state: 'off'});
 
       }
     );
-    console.log('setting loader on');
     this.utilService.loader.next({state: 'on'});
 
   }
@@ -61,18 +57,7 @@ export class BlogIndexComponent implements OnInit {
     this.authenticated();
   }
 
-  /*goToBlog(id: string, blogTitleLink: string) {
-    console.log("Going to blog ", id, blogTitleLink);
-    this.router.navigate([`/app/blogs/${blogTitleLink}`], {
-      relativeTo: this.activatedRoute,
-      skipLocationChange: true
-    });
-    console.log("skipLocationChange: true");
-
-  }*/
-
   authenticated() {
-    console.log('Authenticating!');
     this.userService.entitlements.subscribe((resp: string[]) => {
       this.showCreateButton = resp.includes('AUTHOR');
     });

@@ -35,11 +35,9 @@ export class ContactComponent implements OnInit {
   public resolved(captchaResponse: string): void {
     // This will be called when the user submits the reCAPTCHA response
     this.resolvedCaptcha = true;
-    console.log(`Submitted captcha! ${captchaResponse}`);
   }
 
   public saveUserContact() {
-    console.log('saving user contact');
     this.userContactInfo = new UserContact(this.contactForm.value.viewerName,
       this.contactForm.value.email,
       this.contactForm.value.message);

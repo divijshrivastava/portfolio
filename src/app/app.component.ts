@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationSkipped, NavigationStart, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
-import {environment} from 'src/environments/environment';
 import {UserService} from './services/user.service';
 import {UtilService} from './services/util.service';
 
@@ -32,11 +31,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(`Environment is ${environment.envName}`);
     this.userService.fetchEntitlements();
     this.utilService.loader.subscribe((a) => {
       if (a.state === 'on') {
-        console.log('displaying loader');
         this.imageStyle = {
           'width': '40px',
           'height': 'auto',
@@ -50,7 +47,6 @@ export class AppComponent implements OnInit {
           'display': 'block'
         };
       } else {
-        console.log('not displaying loader');
         this.imageStyle = {
           'width': '40px',
           'height': 'auto',
@@ -64,7 +60,6 @@ export class AppComponent implements OnInit {
           'display': 'none'
         };
       }
-      console.log(this.imageStyle);
     });
 
     this.router.events.pipe(filter(e => e instanceof NavigationSkipped)).subscribe(
@@ -78,6 +73,7 @@ export class AppComponent implements OnInit {
     this.activatedRoute.fragment.subscribe(e => {
       this.utilService.loader.next({state: 'off'});
     });
+    this.utilService.scrollToTop();
   }
 
   showNav(event: boolean): void {

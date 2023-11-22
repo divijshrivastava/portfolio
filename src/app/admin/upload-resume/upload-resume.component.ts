@@ -36,7 +36,6 @@ export class UploadResumeComponent {
     const formData = new FormData();
     formData.append('file', this.document as Blob, this.document == null ? '' : this.document.name);
     formData.append('comment', 'comment');
-    console.log(`${environment.serverUrl}`);
     this.fetchService.post(environment.apiUrl + '/resume/upload', formData).subscribe(
       (resp) => {
         this.showResponse = true;
