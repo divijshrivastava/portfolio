@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {BehaviorSubject, interval, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
@@ -31,7 +31,6 @@ export class UtilService {
       map((a) => this.fetchService.get(`${environment.serverUrl}/ping`)),
     ).subscribe((r) => {
       r.subscribe((v) => {
-        console.log('Server is up!');
         if (this.change) {
           this.serverUp = true;
           this.change = !this.change;
@@ -45,7 +44,6 @@ export class UtilService {
         }
       }, (error) => {
         this.change = true;
-        console.log('Server not up!');
       });
     });
 
@@ -58,5 +56,13 @@ export class UtilService {
       });
     }
 
+  }
+
+  public scrollToTop() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
+    });
   }
 }
