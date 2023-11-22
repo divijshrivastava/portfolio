@@ -57,7 +57,6 @@ export class CreateBlogComponent implements OnInit {
   public uploadBlogImage() {
     const formData = new FormData();
     formData.append('file', this.blogImage as Blob, this.blogImage == null ? '' : this.blogImage.name);
-    console.log(`${environment.serverUrl}`);
     return this.fetchService.post(environment.apiUrl + '/file/create', formData);
 
   }
@@ -73,7 +72,6 @@ export class CreateBlogComponent implements OnInit {
     let files: any;
     files = input!.currentTarget!.files;
     const image: File = files[0];
-    // console.log(image);
 
     if (files && image) {
       const reader: FileReader = new FileReader();
@@ -140,7 +138,6 @@ export class CreateBlogComponent implements OnInit {
 
   public onChange(event: ChangeEvent): void {
     this.data = event.editor.getData();
-    console.log(this.data);
     const plainText = (document.querySelector('ckeditor') as HTMLElement)?.innerText;
     this.minutesToRead = this.calculateMinutesToRead(plainText);
   }

@@ -1,6 +1,5 @@
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-
 import {isPlatformBrowser} from '@angular/common';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 
 import 'prismjs';
 import 'prismjs/components/prism-css';
@@ -26,7 +25,6 @@ export class HighlightService {
 
   public highlightAll(): void {
     if (isPlatformBrowser(this.platformId)) {
-      console.log('prismjs highlightingAll');
       Prism.highlightAll();
     }
   }
