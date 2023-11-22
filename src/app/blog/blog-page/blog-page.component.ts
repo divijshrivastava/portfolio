@@ -58,10 +58,8 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap);
     this.blogTitleLink = this.route.snapshot.paramMap.get('link') || '';
     this.fetchService.get(`${environment.apiUrl}/blog/link/${this.blogTitleLink}`).subscribe((resp: any) => {
-      console.log('Inside fetch blog call');
       this.blogHeading = resp.blogHeading;
       this.meta.updateTag({property: 'og:title', content: resp.blogHeading});
       this.utilService.updateTitle(resp.blogHeading);
@@ -75,7 +73,6 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
       this.meta.updateTag({name: 'description', content: resp.blogSummary});
       this.blogContent = resp.blogContent.replace(/src=\"/g, `src=\"${environment.apiUrl}`);
       this.blogContent = this.sanitizer.bypassSecurityTrustHtml(this.blogContent);
-//      console.log(this.blogContent);
       this.authorName = resp.authorName;
       this.publishedDate = resp.publishedDate;
       this.timeToRead = resp.readTime;
@@ -112,7 +109,6 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   }
 
   public softDeleteBlog(): void {
-    console.log(`Deleting Blog ${this.blogId}`);
     this.fetchService.delete(`${environment.apiUrl}/blog`, [this.blogId]).subscribe((res) => {
       if (res.responseCode === 'SUCCESS') {
         alert('Blog is deleted.');
@@ -124,7 +120,6 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   }
 
   public approveBlog(): void {
-    console.log('Approving Blog.');
     this.fetchService.post(`${environment.apiUrl}/blog/approve`, this.blogId).subscribe((res) => {
       if (res.responseCode === 'SUCCESS') {
         alert('Blog is Approved');
@@ -136,42 +131,13 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit() {
-    console.log('Applying prismjs');
     this.highlightService.highlightAll();
     this.highlighted = true;
   }
 
   public editBlog() {
     this.isBlogEditable = true;
-    console.log('Editing Blog');
   }
-
-  /*
-    public onChange(event: ChangeEvent): void {
-      this.data = event.editor.getData();
-      console.log(this.data);
-      const plainText = (document.querySelector('ckeditor') as HTMLElement)?.innerText;
-      this.timeToRead = this.calculateMinutesToRead(plainText);
-    }*/
-  /*
-    public calculateMinutesToRead(plainText: string): string {
-
-      const minutesToRead = Math.floor(plainText.replace(/\n/g, ' ').split(' ').length / (this.averageAdultReadingSpeed));
-      return Number(minutesToRead).toString();
-    }*/
-
-  /*
-    public onReady(editor: any): void {
-      editor.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
-        return new ImageUploadAdapter(loader, this.fetchService);
-      };
-
-      editor.ui.getEditableElement().parentElement.insertBefore(
-        editor.ui.view.toolbar.element,
-        editor.ui.getEditableElement(),
-      );
-
-    }*/
 
   private navigateToErrorPageWithMessage(message: string): void {
     this.router.navigate(['error'], {queryParams: {message}});

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="user-activity-container">
+    <table class="user-activity-table">
+      <thead>
+      <tr>
+        <th>Visitor Name</th>
+        <th>Email</th>
+        <th>Messge</th>
+        // TODO: Hydrate these fields.
+        <!--        <th>Status</th>-->
+        <!--        <th>ipAddress</th>-->
+        <!--        <th>Responded</th>-->
+        <th>Time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let contact of userContact">
+        <td>{{contact.fullName}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.message}}</td>
+        <!--        <td>{{contact.status}}</td>-->
+        <!--        <td>{{contact.ipAddress}}</td>-->
+        <!--        <td>{{contact.isResponded}}</td>-->
+        <td>{{contact.time}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="pagination-container">
+      <mat-paginator (page)="onPageChange($event)" [length]="totalContact"
+                     [pageSizeOptions]="[5, 10, 15, 20, 25]"
+                     [pageSize]="pageSize">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

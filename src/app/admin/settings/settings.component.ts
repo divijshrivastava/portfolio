@@ -25,7 +25,6 @@ export class SettingsComponent {
       responseType,
     }).subscribe(
       (message) => {
-        console.log(message);
         this.message = message;
       }, (error) => {
         console.error(error);
