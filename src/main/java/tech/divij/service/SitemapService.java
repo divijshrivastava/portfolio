@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 import org.springframework.stereotype.Service;
-import tech.divij.dao.SitemapEntity;
+import tech.divij.entity.SitemapEntity;
 import tech.divij.repository.SitemapRepository;
 
 @Service

@@ -1,8 +1,8 @@
 package tech.divij.mapper;
 
 import org.springframework.stereotype.Component;
-import tech.divij.dao.UserActivity;
 import tech.divij.dto.UserActivityDto;
+import tech.divij.entity.UserActivity;
 
 @Component
 public class UserActivityMapper {

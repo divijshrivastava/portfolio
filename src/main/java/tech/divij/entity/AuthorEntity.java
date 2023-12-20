@@ -1,4 +1,4 @@
-package tech.divij.dao;
+package tech.divij.entity;
 
 import static javax.persistence.FetchType.LAZY;
 

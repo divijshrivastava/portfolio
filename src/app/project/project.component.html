@@ -1,23 +1,7 @@
 <div class="container">
   <section class="projects_container">
-    <div class="project_wrapper">
-      <div class="project_img_wrapper">
-        <img alt="USM Project Link Image" class="project_img"
-             src="./assets/images/smallsized/USM_SS.jpg">
-      </div>
-      <div class="project_content_wrapper">
-        <div class="project_name">Universal Solidarity Movement</div>
-        <div class="about_project">USM is an organization whose goal is to guide the youth
-          and instill values of love and harmony in them so that they can become good future
-          leaders.
-        </div>
-        <div class="buttons_container">
-          <div class="button_project"><a href="https://universalsolidaritymovement.netlify.app"
-                                         target="_blank">Project</a></div>
-          <div class="button_code"><a href="https://github.com/divijshrivastava/USM_FE"
-                                      target="_blank">Code</a></div>
-        </div>
-      </div>
+    <div *ngFor="let project of projectArray; let i = index;">
+      <app-project-card [data]="project" [parity]="i%2==0?'even':'odd'"></app-project-card>
     </div>
     <div class="project_wrapper">
       <div class="project_content_wrapper">
@@ -227,6 +211,30 @@
         </div>
       </div>
     </div>
+
+    <div class="project_wrapper">
+      <div class="project_img_wrapper">
+        <iframe
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen frameborder="0" height="315"
+          src="https://www.youtube.com/embed/FX6dYi-VWl0?si=68R78swWKXSh0Xuo"
+          title="YouTube video player"
+          width="560"></iframe>
+      </div>
+      <div class="project_content_wrapper">
+        <div class="project_name">SpringToolSuite and Github</div>
+        <div class="about_project">
+          A handson tutorial to show how to setup remote git repo using github and Spring tool
+          Suite.
+          <div class="buttons_container">
+            <div class="button_code"><a href="https://www.youtube.com/watch?v=FPPpjQ7TG2w"
+                                        target="_blank">Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="project_wrapper">
       <div class="project_content_wrapper">
         <div class="project_name">PWA Template</div>

@@ -1,46 +1,39 @@
-package tech.divij.dao;
+package tech.divij.entity;
 
 import java.time.LocalDateTime;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@Entity(name = "VIDEO_PROJECT")
+@Builder(toBuilder = true)
+@Entity(name = "PROJECT")
 @NoArgsConstructor
 @AllArgsConstructor
-public class YtVideoEntity {
+public class ProjectEntity {
 
   @Id
   @Column(name = "ID")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "PROJECT_ID")
-  private ProjectEntity projectId;
+  @Column(name = "PUBLISH_TIMESTAMP")
+  private LocalDateTime publishedOn;
 
-  @Column(name = "CODE_LINK")
-  private String codeLink;
-
-  @Column(name = "IS_IMAGE_PRESENT")
-  private boolean isImagePresent;
-
-  @Column(name = "IMAGE_ID")
-  private long imageId;
+  @Column(name = "INSERT_TIMESTAMP")
+  private LocalDateTime insertTimestamp;
 
   @Column(name = "STATUS")
   private String status;
+
+  @Column(name = "PROJECT_TYPE")
+  private String projectType;
 
   @Column(name = "INSERTED_BY")
   private String insertedBy;
@@ -48,7 +41,10 @@ public class YtVideoEntity {
   @Column(name = "IS_ACTIVE")
   private boolean isActive;
 
-  @Column(name = "INSERTED_ON")
-  private LocalDateTime insertTime;
+  @Column(name = "HEADING")
+  private String heading;
+
+  @Column(name = "DESCRIPTION")
+  private String description;
 
 }

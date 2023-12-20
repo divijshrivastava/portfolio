@@ -3,7 +3,7 @@ package tech.divij.repository;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import tech.divij.dao.ResumeEntity;
+import tech.divij.entity.ResumeEntity;
 
 public interface ResumeRepository extends JpaRepository<ResumeEntity, Long> {
 

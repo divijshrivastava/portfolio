@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import tech.divij.constants.Constants;
 import tech.divij.constants.Role;
-import tech.divij.dao.UserCredEntity;
 import tech.divij.dto.UserDto;
+import tech.divij.entity.UserCredEntity;
 import tech.divij.repository.UserCredRepo;
 
 @Slf4j

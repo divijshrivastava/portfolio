@@ -1,4 +1,4 @@
-package tech.divij.dao;
+package tech.divij.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;

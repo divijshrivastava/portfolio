@@ -1,4 +1,4 @@
-package tech.divij.dao;
+package tech.divij.entity;
 
 import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
@@ -26,7 +26,7 @@ public class WebsiteProjectEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @JoinColumn
+  @JoinColumn(name = "PROJECT_ID")
   @OneToOne(cascade = CascadeType.ALL)
   private ProjectEntity projectId;
 

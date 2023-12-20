@@ -16,5 +16,6 @@ public class CodeProjectDto extends ProjectWrapper {
   private Long imageId;
   private String insertedBy;
   private Boolean isActive;
+  private String status;
 
 }

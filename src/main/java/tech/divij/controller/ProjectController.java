@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +20,7 @@ import tech.divij.service.ProjectService;
 @RestController
 @RequestMapping("project")
 @CrossOrigin(
-  origins = "*",
-  maxAge = 3600,
+  origins = "*", maxAge = 3600,
   methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class ProjectController {
 
@@ -32,10 +33,17 @@ public class ProjectController {
 
   @PostMapping
   @LogActivity(activityType = "create_project")
-  public ResponseEntity createBlog(HttpServletRequest request,
-    @RequestBody final ProjectRequest projectRequest)
-    throws Exception {
+  public ResponseEntity
+  createProject(HttpServletRequest request,
+    @RequestBody final ProjectRequest projectRequest) {
     return projectService.createProject(projectRequest);
   }
 
+  @GetMapping("{page}/{count}")
+  @LogActivity(activityType = "fetch_projects")
+  public ResponseEntity fetchProject(HttpServletRequest request,
+    @PathVariable int page,
+    @PathVariable int count) {
+    return projectService.fetchProjects(page, count);
+  }
 }

@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FetchServiceService} from 'src/app/services/fetch-service.service';
-import {UtilService} from '../../services/util.service';
 import {BlogSummary} from '../blog-summary';
 
 @Component({
@@ -24,8 +22,6 @@ export class BlogSummaryComponent implements OnInit {
   isPending = false;
   blogTitleLink = "";
 
-  constructor(private fetchService: FetchServiceService, private utilService: UtilService) {
-  }
 
   ngOnChanges() {
     this.synopsis = this.data.synopsis;
@@ -43,7 +39,6 @@ export class BlogSummaryComponent implements OnInit {
 
     let pageIndex: number = 1;
     let items: number = 3;
-    //  this.fetchService.get(`${environment.apiUrl}blogs/${items}/${pageIndex}`);
 
   }
 

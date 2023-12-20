@@ -1,4 +1,4 @@
-package tech.divij.dao;
+package tech.divij.entity;
 
 import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
@@ -16,38 +16,39 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@Entity(name = "CODE_PROJECT")
+@Entity(name = "VIDEO_PROJECT")
 @NoArgsConstructor
 @AllArgsConstructor
-public class CodeProjectEntity {
+public class YtVideoEntity {
 
   @Id
   @Column(name = "ID")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @JoinColumn
   @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "PROJECT_ID")
   private ProjectEntity projectId;
 
-  @Column(name = "CODE_LINK")
-  private String codeLink;
+  @Column(name = "VIDEO_LINK")
+  private String videoLink;
 
   @Column(name = "IS_IMAGE_PRESENT")
-  private Boolean isImagePresent;
+  private boolean isImagePresent;
 
   @Column(name = "IMAGE_ID")
-  private Long imageId;
+  private long imageId;
 
   @Column(name = "STATUS")
   private String status;
 
-  @Column(name = "INSERT_TIMESTAMP")
-  private LocalDateTime insertTimestamp;
+  @Column(name = "INSERTED_BY")
+  private String insertedBy;
 
   @Column(name = "IS_ACTIVE")
   private boolean isActive;
 
-  @Column(name = "INSERTED_BY")
-  private String insertedBy;
+  @Column(name = "INSERTED_ON")
+  private LocalDateTime insertTime;
+
 }

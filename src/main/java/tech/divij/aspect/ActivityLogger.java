@@ -16,7 +16,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import tech.divij.dao.UserActivity;
+import tech.divij.entity.UserActivity;
 import tech.divij.repository.UserActivityRepository;
 
 @Aspect

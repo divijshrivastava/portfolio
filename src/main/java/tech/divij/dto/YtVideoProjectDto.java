@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 public class YtVideoProjectDto extends ProjectWrapper {
 
   private Long id;
-  private String codeLink;
+  private String videoLink;
   private Long projectId;
   private Boolean isImagePresent;
   private Long imageId;

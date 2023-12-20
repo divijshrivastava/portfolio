@@ -2,7 +2,7 @@ package tech.divij.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import tech.divij.dao.AuthorEntity;
+import tech.divij.entity.AuthorEntity;
 
 public interface AuthorRepository extends JpaRepository<AuthorEntity, Long> {
 

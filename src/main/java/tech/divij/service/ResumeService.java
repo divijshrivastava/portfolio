@@ -9,8 +9,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import tech.divij.dao.FileEntity;
-import tech.divij.dao.ResumeEntity;
+import tech.divij.entity.FileEntity;
+import tech.divij.entity.ResumeEntity;
 import tech.divij.repository.ResumeRepository;
 import tech.divij.response.Response;
 

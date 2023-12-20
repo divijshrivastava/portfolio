@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import tech.divij.constants.Constants;
-import tech.divij.dao.FileEntity;
+import tech.divij.entity.FileEntity;
 import tech.divij.exceptions.IllegalFileTypeException;
 import tech.divij.repository.DownloadRepository;
 

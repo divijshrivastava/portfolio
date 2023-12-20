@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import tech.divij.dao.UserContactEntity;
 import tech.divij.dto.UserContactDto;
+import tech.divij.entity.UserContactEntity;
 import tech.divij.mapper.UserContactMapper;
 import tech.divij.repository.UserContactRepository;
 
