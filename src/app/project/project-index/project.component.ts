@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {environment} from '../../environments/environment';
-import {FetchServiceService} from '../services/fetch-service.service';
-import {UtilService} from '../services/util.service';
+import {environment} from '../../../environments/environment';
+import {FetchServiceService} from '../../services/fetch-service.service';
+import {UtilService} from '../../services/util.service';
 
 @Component({
   selector: 'app-project',

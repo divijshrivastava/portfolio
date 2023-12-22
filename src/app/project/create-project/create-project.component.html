@@ -1,0 +1,47 @@
+<div class="container">
+  <section class="create_project">
+
+    <h2>
+      Create Project!
+    </h2>
+    <div>
+      <ul class="list-group">
+        <li *ngFor="let projectType of projectTypes;let i = index;" class="list-group-item">
+          <input (change)="onItemChange(projectType)" [(ngModel)]="selectedProjectType" [checked]="projectType.value == selectedProjectType"
+                 name="{{projectType.name}}" type="radio"
+                 value="{{projectType.value}}"/>
+          <label>{{projectType.name }}</label>
+
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content">
+    <div *ngIf="selectedProjectType === projectTypes[0].value">
+      Content for {{projectTypes[0].name}}
+      <div>
+        <input placeholder="Video Name" type="text" value="">
+      </div>
+      <div>
+        <input placeholder="Video Description" type="textbox" value="">
+      </div>
+      <div>
+        <input placeholder="Video Link" type="textbox" value="">
+      </div>
+      <div>
+        Insert image:
+        <input placeholder="Image" type="file" value="">
+      </div>
+
+      <button>Submit</button>
+
+    </div>
+    <div *ngIf="selectedProjectType === projectTypes[1].value">
+      Content for {{projectTypes[1].name}}
+    </div>
+    <div *ngIf="selectedProjectType === projectTypes[2].value">
+      Content for  {{projectTypes[2].name}}
+    </div>
+  </section>
+</div>

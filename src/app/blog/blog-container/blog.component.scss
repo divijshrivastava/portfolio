@@ -10,34 +10,3 @@
 .container {
   height: auto;
 }
-
-/*
-.blog_container{
-    height:90%;
-    justify-content: center;
-    align-content: center;
-    display:grid;
-    grid-template-columns:500px 500px 500px;
-    grid-gap:80px;
-    overflow-y:scroll;
-}
-
-.blogDto-summary-container{
-    display:grid;
-    grid-template-columns:auto auto;
-}
-
-@media only screen and (max-width:1200px){
-
-    .blog_container{
-        grid-template-columns: 500px 500px;
-    }
-}
-
-@media only screen and (max-width:1080px){
-    .blog_container{
-        grid-template-columns:500px;
-    }
-}
-
-*/

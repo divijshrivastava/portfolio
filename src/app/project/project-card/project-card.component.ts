@@ -9,11 +9,10 @@ import {environment} from 'src/environments/environment';
 })
 export class ProjectCardComponent {
 
-  @Input('parity')
-  public parity = 'even';
+  @Input('parity') public parity = 'even';
   public isImagePresent = false;
   public imageSrc: string | undefined;
-  public videoLink: SafeResourceUrl = 'https://www.youtube.com/embed/FX6dYi-VWl0?si=68R78swWKXSh0Xuo';
+  public videoLink: SafeResourceUrl | undefined;
   public isVideoLinkPresent = false;
   public videoButtonLink: string | undefined;
   public projectType: string | undefined;
@@ -31,7 +30,8 @@ export class ProjectCardComponent {
   @Input('data')
   set data(value: any) {
     this._data = value;
-    this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl(value.videoLink);
+    this.videoLink =
+      this.sanitizer.bypassSecurityTrustResourceUrl(value.videoLink);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -47,14 +47,13 @@ export class ProjectCardComponent {
     } else if (this.projectType === 'YTVIDEO') {
       this.isImagePresent = false;
       this.videoButtonLink = this.data.videoLink;
-      this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.data.videoLink);
+      this.videoLink =
+        this.sanitizer.bypassSecurityTrustResourceUrl(this.data.videoLink);
       console.log(this.videoLink);
       this.isVideoLinkPresent = true;
     } else if (this.projectType === 'CODE') {
       this.isImagePresent = this.data.isImagePresent;
       this.imageSrc = `${environment.apiUrl}/file/${this.data.imageId}`;
     }
-
   }
-
 }
