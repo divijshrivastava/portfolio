@@ -16,6 +16,11 @@ import {HeaderComponent} from './header/header.component';
 import {HomeComponent} from './home/home.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {NavButtonComponent} from './shared/nav-button/nav-button.component';
+import {WINDOW} from './shared/window.token';
+
+export function windowFactory(): Window {
+  return window;
+}
 
 @NgModule({
   declarations: [
@@ -46,6 +51,8 @@ import {NavButtonComponent} from './shared/nav-button/nav-button.component';
       useValue: {
         siteKey: environment.recaptcha.sitekey,
       } as RecaptchaSettings,
+    }, {
+      provide: WINDOW, useFactory: windowFactory
     },
 
   ],

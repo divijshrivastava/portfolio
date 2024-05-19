@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {WINDOW} from '../shared/window.token';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  sitemapUlr: string = window.location.origin + "/sitemap.xml";
+  public sitemapUlr: string;
 
-  constructor() {
+  constructor(@Inject(WINDOW) private window: Window) {
+    this.sitemapUlr = this.window.location.origin + '/sitemap.xml';
   }
 
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class FooterComponent implements OnInit {
     //var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
     //  if (currentScroll > 0) {
     //  window.requestAnimationFrame(smoothscroll);
-    window.scrollTo(0, 0);//, currentScroll - (currentScroll / 8));
+    this.window.scrollTo(0, 0);//, currentScroll - (currentScroll / 8));
     // }
   }
 
