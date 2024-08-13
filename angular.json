@@ -58,7 +58,9 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.staging.ts"
                 }
-              ]
+              ],
+              "sourceMap": true,
+              "optimization": false
             },
             "prod": {
               "fileReplacements": [
