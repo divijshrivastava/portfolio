@@ -1,6 +1,5 @@
-package tech.divij.entity;
+package tech.divij.entity.project;
 
-import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,37 +9,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
-@Entity(name = "WEBSITE_PROJECT")
+@Entity(name = "CODE_PROJECT")
 @NoArgsConstructor
 @AllArgsConstructor
-public class WebsiteProjectEntity {
+@SuperBuilder(toBuilder = true)
+public class CodeProjectEntity {
 
   @Id
   @Column(name = "ID")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @JoinColumn(name = "PROJECT_ID")
+  @JoinColumn
   @OneToOne(cascade = CascadeType.ALL)
   private ProjectEntity projectId;
-
-  @Column(name = "WEBSITE_LINK")
-  private String websiteLink;
-
-  @Column(name = "IS_WEBSITE_LINK_PRESENT")
-  private Boolean isWebsiteLinkPresent;
 
   @Column(name = "CODE_LINK")
   private String codeLink;
 
-  @Column(name = "IS_CODE_LINK_PRESENT")
-  private Boolean isCodeLinkPresent;
+  @Column(name = "IS_IMAGE_PRESENT")
+  private Boolean isImagePresent;
 
   @Column(name = "IMAGE_ID")
   private Long imageId;
@@ -48,12 +41,4 @@ public class WebsiteProjectEntity {
   @Column(name = "STATUS")
   private String status;
 
-  @Column(name = "INSERT_TIMESTAMP")
-  private LocalDateTime insertTimestamp;
-
-  @Column(name = "IS_ACTIVE")
-  private boolean isActive;
-
-  @Column(name = "INSERT_BY")
-  private String insertedBy;
 }

@@ -1,11 +1,12 @@
-package tech.divij.dto;
+package tech.divij.dto.project;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
+import tech.divij.dto.ProjectWrapper;
 
-@Builder
 @Data
+@SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(callSuper = true)
 public class WebsiteProjectDto extends ProjectWrapper {
 

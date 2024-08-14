@@ -1,4 +1,4 @@
-package tech.divij.entity;
+package tech.divij.entity.project;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

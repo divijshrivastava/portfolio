@@ -1,22 +1,32 @@
 package tech.divij.request;
 
-import lombok.Builder;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import tech.divij.constants.ProjectType;
-import tech.divij.dto.CodeProjectDto;
-import tech.divij.dto.WebsiteProjectDto;
-import tech.divij.dto.YtVideoProjectDto;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+import tech.divij.dto.ProjectWrapper;
+import tech.divij.dto.project.CodeProjectDto;
+import tech.divij.dto.project.WebsiteProjectDto;
+import tech.divij.dto.project.YtVideoProjectDto;
 
 @Data
-@Builder
+@SuperBuilder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProjectRequest {
 
-  private ProjectType projectType;
-
-  private YtVideoProjectDto ytVideoProjectDto;
-
-  private WebsiteProjectDto websiteProjectDto;
-
-  private CodeProjectDto codeProjectDto;
+  @JsonTypeInfo(
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "projectType"
+  )
+  @JsonSubTypes({
+    @JsonSubTypes.Type(value = YtVideoProjectDto.class, name = "YTVIDEO"),
+    @JsonSubTypes.Type(value = WebsiteProjectDto.class, name = "WEBSITE"),
+    @JsonSubTypes.Type(value = CodeProjectDto.class, name = "CODE")
+  })
+  private ProjectWrapper projectWrapper;
 
 }
