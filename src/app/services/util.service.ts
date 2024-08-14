@@ -1,9 +1,10 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {BehaviorSubject, interval, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {WINDOW} from '../shared/window.token';
 import {FetchServiceService} from './fetch-service.service';
 
 @Injectable({
@@ -19,7 +20,8 @@ export class UtilService {
 
   public loader = new BehaviorSubject({state: 'on'});
 
-  constructor(private fetchService: FetchServiceService, private router: Router, private title: Title) {
+  constructor(private fetchService: FetchServiceService, private router: Router, private title: Title,
+              @Inject(WINDOW) private window: Window) {
   }
 
   public updateTitle(title: string) {
@@ -39,7 +41,7 @@ export class UtilService {
           .unsubscribe();
           this.serverUp = !this.serverUp;
           this.router.navigate(['/']).then(() => {
-            window.location.reload();
+            this.window.location.reload();
           });
         }
       }, (error) => {
@@ -52,7 +54,7 @@ export class UtilService {
       .unsubscribe();
       this.serverUp = !this.serverUp;
       this.router.navigate(['/']).then(() => {
-        window.location.reload();
+        this.window.location.reload();
       });
     }
 
@@ -61,7 +63,7 @@ export class UtilService {
   public scrollToTop() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        this.window.scrollTo({top: 0, behavior: 'smooth'});
       }
     });
   }

@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import tech.divij.constants.Constants;
-import tech.divij.dao.FileEntity;
+import tech.divij.entity.FileEntity;
 import tech.divij.exceptions.FileIsEmpty;
 import tech.divij.exceptions.FileTooLargeException;
 import tech.divij.exceptions.IllegalFileTypeException;

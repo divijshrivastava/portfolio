@@ -52,5 +52,9 @@ export class InboxComponent {
     this.fetchTotalContacts();
     this.fetchUserContact(this.pageIndex, this.pageSize);
     this.utilService.loader.next({state: 'off'});
+    this.fetchUserContact(this.pageIndex, this.pageSize).subscribe(response => {
+      this.userContact = response.content;
+      // this.totalActivities = response.totalElements;
+    });
   }
 }

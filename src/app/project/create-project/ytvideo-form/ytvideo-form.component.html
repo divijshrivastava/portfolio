@@ -1,0 +1,24 @@
+<form (ngSubmit)="ngSubmit()" [formGroup]="ytVideoForm">
+
+  <div>
+    <input [formControl]="ytVideoForm.controls.name" placeholder="Video Name" type="text" value="">
+  </div>
+  <div>
+    <input [formControl]="ytVideoForm.controls.description" placeholder="Video Description" type="textbox"
+           value="">
+  </div>
+  <div>
+    <input [formControl]="ytVideoForm.controls.link" placeholder="Video Link" type="textbox"
+           value="">
+  </div>
+  <div>
+    Is image available?: <input (change)="isImage=!isImage" name="isImageAvailable" type="checkbox">
+
+  </div>
+  <div *ngIf="isImage">
+    Insert image:
+    <input (change)="onImagePicked($event)" placeholder="Image" type="file" value="">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

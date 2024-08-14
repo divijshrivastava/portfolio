@@ -1,13 +1,16 @@
-import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {ProjectCardComponent} from './project-card/project-card.component';
+import {ProjectContainerComponent} from './project-container/project-container.component';
+import {ProjectComponent} from './project-index/project.component';
 
 import {ProjectRoutingModule} from './project-routing.module';
-import {ProjectComponent} from './project.component';
-
 
 @NgModule({
   declarations: [
-    ProjectComponent
+    ProjectComponent,
+    ProjectCardComponent,
+    ProjectContainerComponent
   ],
   imports: [
     CommonModule,

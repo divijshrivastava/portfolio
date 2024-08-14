@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import tech.divij.dao.UserContactEntity;
 import tech.divij.dto.UserContactDto;
+import tech.divij.entity.UserContactEntity;
 
 @Component
 @Slf4j

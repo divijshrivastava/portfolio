@@ -76,4 +76,52 @@
       </li>
    </ol>
    <p>Your contributions will be reviewed, and upon acceptance, they will be merged into the main</p>
-</div>
+
+<h2>Commit Message Standard</h2>
+
+<p>Clear commit messages are essential for maintaining a clean and understandable codebase. We follow a standard format to ensure consistency and clarity.</p>
+
+<h3>Structure</h3>
+
+<ul>
+  <li>
+    <b>Subject (50 characters max):</b>
+    <ul>
+      <li>Start with a verb in the imperative mood (e.g., "fix", "add", "refactor").</li>
+      <li>Briefly describe the change (e.g., "fix contact form submission").</li>
+      <li>Optionally, include the affected area in parenthesis (e.g., "fix(contact): contact form submission").</li>
+    </ul>
+  </li>
+  <li>
+    <b>Body (optional):</b>
+    <ul>
+      <li>Provide a more detailed explanation of the change, if needed.</li>
+      <li>Explain the reason for the change.</li>
+      <li>Reference any related issues or tickets (e.g., "Fixes #123").</li>
+      <li>Keep line length around 72 characters.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Commit Types</h3>
+
+<ul>
+  <li><code>feat</code>: New feature or functionality.</li>
+  <li><code>fix</code>: Bug fix or correction.</li>
+  <li><code>refactor</code>: Code improvements without changing functionality.</li>
+  <li><code>docs</code>: Documentation changes.</li>
+  <li><code>style</code>: Code formatting or stylistic changes.</li>
+  <li><code>test</code>: Adding or updating tests.</li>
+  <li><code>chore</code>: Changes to build process, tooling, or project setup.</li>
+</ul>
+
+<h3>Example</h3>
+
+<pre><code>fix(contact): Handle empty email field gracefully
+Fixes #141
+
+This commit modifies the contact form validation to provide a clearer error message
+when the email field is left empty.
+</code></pre>
+
+<p>By following this format, you'll contribute to a well-documented and maintainable codebase.</p>

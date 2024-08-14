@@ -7,8 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import tech.divij.dao.UserActivity;
 import tech.divij.dto.UserActivityDto;
+import tech.divij.entity.UserActivity;
 import tech.divij.mapper.UserActivityMapper;
 import tech.divij.repository.UserActivityRepository;
 

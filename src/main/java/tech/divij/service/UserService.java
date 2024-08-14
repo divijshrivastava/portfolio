@@ -3,7 +3,7 @@ package tech.divij.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
-import tech.divij.dao.Authority;
+import tech.divij.entity.Authority;
 import tech.divij.repository.UserRepo;
 
 @Service

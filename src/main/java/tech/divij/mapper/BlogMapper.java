@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import tech.divij.constants.BlogStatus;
 import tech.divij.constants.Constants;
-import tech.divij.dao.AuthorEntity;
-import tech.divij.dao.BlogEntity;
 import tech.divij.dto.BlogDto;
 import tech.divij.dto.BlogSummary;
+import tech.divij.entity.AuthorEntity;
+import tech.divij.entity.BlogEntity;
 import tech.divij.util.DateUtil;
 
 @Component
