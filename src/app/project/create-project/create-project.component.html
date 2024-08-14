@@ -20,28 +20,15 @@
   <section class="content">
     <div *ngIf="selectedProjectType === projectTypes[0].value">
       Content for {{projectTypes[0].name}}
-      <div>
-        <input placeholder="Video Name" type="text" value="">
-      </div>
-      <div>
-        <input placeholder="Video Description" type="textbox" value="">
-      </div>
-      <div>
-        <input placeholder="Video Link" type="textbox" value="">
-      </div>
-      <div>
-        Insert image:
-        <input placeholder="Image" type="file" value="">
-      </div>
-
-      <button>Submit</button>
-
+      <app-ytvideo-form></app-ytvideo-form>
     </div>
     <div *ngIf="selectedProjectType === projectTypes[1].value">
       Content for {{projectTypes[1].name}}
+      <app-website-form></app-website-form>
     </div>
     <div *ngIf="selectedProjectType === projectTypes[2].value">
       Content for  {{projectTypes[2].name}}
+      <app-github-code-form></app-github-code-form>
     </div>
   </section>
 </div>

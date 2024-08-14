@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 import {UtilService} from '../../services/util.service';
 
 interface ProjectType {
   name: string;
   value: string;
+  formGroup: FormGroup;
 }
 
 @Component({
@@ -21,15 +23,18 @@ export class CreateProjectComponent {
     this.projectTypes = [{
       name: 'Youtube Video',
       value: 'YTVIDEO',
+      formGroup: new FormGroup(''),
     }
       ,
       {
         name: 'Website',
         value: 'WEBSITE',
+        formGroup: new FormGroup(''),
       },
       {
         name: 'Github Code',
         value: 'CODE',
+        formGroup: new FormGroup(''),
       },
 
     ];
