@@ -31,12 +31,12 @@ export class YtvideoFormComponent {
       const formData = new FormData();
       formData.append('file', this.image as Blob, this.image == null ? '' : this.image.name);
       const imageCall: Observable<any> = this.fetchService.post(environment.apiUrl + '/file/create', formData);
-      const formRequest = (x: any) => {
+      const formRequest = (imageId: any) => {
         const requestBody = {
           projectWrapper: {
             videoLink: this.ytVideoForm.get('link')?.value,
             isImagePresent: this.isImage,
-            imageId: x,
+            imageId: imageId.message,
             heading: this.ytVideoForm.get('heading')?.value,
             description: this.ytVideoForm.get('description')?.value,
             projectType: 'YTVIDEO',
@@ -45,8 +45,9 @@ export class YtvideoFormComponent {
         return this.fetchService.post(`${environment.apiUrl}/project`, requestBody);
       };
 
-      imageCall.pipe(concatMap(formRequest)).subscribe((x) => {
-        console.log(x);
+      imageCall.pipe(concatMap(formRequest)).subscribe((resp) => {
+        alert('Project Saved with ID: ' + resp.projectId);
+        this.ytVideoForm.reset();
       });
 
     } else {
@@ -61,7 +62,8 @@ export class YtvideoFormComponent {
           projectType: 'YTVIDEO',
         },
       }).subscribe((resp) => {
-        console.log(resp);
+        alert('Project Saved with ID: ' + resp.projectId);
+        this.ytVideoForm.reset();
       });
     }
   }
@@ -71,7 +73,6 @@ export class YtvideoFormComponent {
     if (!file || !file.files) {
       return;
     }
-    console.log(image);
     this.image = file.files[0];
   }
 

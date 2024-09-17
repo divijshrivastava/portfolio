@@ -10,8 +10,8 @@
       height="315"
       title="YouTube video player" width="520"
     ></iframe>
-    <img *ngIf="isImagePresent" alt="USM Project Link Image"
-         class="project_img" src="{{imageSrc}}">
+    <img *ngIf="isImagePresent" [src]="imageSrc"
+         alt="Project Link Image" class="project_img">
   </div>
   <div class="project_content_wrapper">
     <div class="project_name">{{data.heading}}</div>
@@ -61,7 +61,7 @@
     </div>
   </div>
   <div class="project_img_wrapper">
-    <img *ngIf="isImagePresent" alt="USM Project Link Image"
+    <img *ngIf="isImagePresent" alt="Project Link Image"
          class="project_img" src="{{imageSrc}}">
     <iframe
       *ngIf="projectType=='YTVIDEO'"

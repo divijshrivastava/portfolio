@@ -1,15 +1,38 @@
-<div>
-  <input placeholder="Video Name" type="text" value="">
-</div>
-<div>
-  <input placeholder="Video Description" type="textbox" value="">
-</div>
-<div>
-  <input placeholder="Video Link" type="textbox" value="">
-</div>
-<div>
-  Insert image:
-  <input placeholder="Image" type="file" value="">
-</div>
+<form (ngSubmit)="ngSubmit()" [formGroup]="websiteProjectForm">
 
-<button>Submit</button>
+  <div>
+    <input [formControl]="websiteProjectForm.controls.name" placeholder="Project Name" type="text"
+           value="">
+  </div>
+  <div>
+    <input [formControl]="websiteProjectForm.controls.description" placeholder="Project Description"
+           type="textbox"
+           value="">
+  </div>
+  <div>
+    Is website link available?: <input (change)="isWebsiteLinkPresent=!isWebsiteLinkPresent"
+                                       name="isWebsiteLinkPresent" type="checkbox">
+  </div>
+  <div *ngIf="isWebsiteLinkPresent">
+    <input [formControl]="websiteProjectForm.controls.link" placeholder="Project Link"
+           type="textbox"
+           value="">
+  </div>
+  <div>
+    Is image available?: <input (change)="isImage=!isImage" name="isImageAvailable" type="checkbox">
+  </div>
+  <div *ngIf="isImage">
+    Insert image:
+    <input (change)="onImagePicked($event)" placeholder="Image" type="file" value="">
+  </div>
+  <div>
+    Is code link available?: <input (change)="isCodeLink=!isCodeLink" name="isCodeLinkAvailable"
+                                    type="checkbox">
+  </div>
+  <div *ngIf="isCodeLink">
+    Add code link:
+    <input [formControl]="websiteProjectForm.controls.codeLink" placeholder="Image" type="textbox"
+           value="">
+  </div>
+  <button type="submit">Submit</button>
+</form>
