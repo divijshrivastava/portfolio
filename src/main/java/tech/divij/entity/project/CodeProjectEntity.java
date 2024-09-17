@@ -21,11 +21,11 @@ import lombok.experimental.SuperBuilder;
 public class CodeProjectEntity {
 
   @Id
-  @Column(name = "ID")
+  @Column(name = "CODE_ID")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @JoinColumn
+  @JoinColumn(name = "PROJECT_ID")
   @OneToOne(cascade = CascadeType.ALL)
   private ProjectEntity projectId;
 

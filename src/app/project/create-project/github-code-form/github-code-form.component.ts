@@ -1,4 +1,9 @@
 import {Component} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {concatMap} from 'rxjs/operators';
+import {environment} from '../../../../environments/environment';
+import {FetchServiceService} from '../../../services/fetch-service.service';
 
 @Component({
   selector: 'app-github-code-form',
@@ -6,5 +11,70 @@ import {Component} from '@angular/core';
   styleUrls: ['./github-code-form.component.scss']
 })
 export class GithubCodeFormComponent {
+
+  isImage = false;
+  codeProjectForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    link: ['', Validators.required],
+    imageId: [''],
+  });
+
+  public image: File | undefined;
+
+  constructor(private formBuilder: FormBuilder, private fetchService: FetchServiceService) {
+  }
+
+  public onImagePicked(image: Event): void {
+    const file = image.target as HTMLInputElement;
+    if (!file || !file.files) {
+      return;
+    }
+    this.image = file.files[0];
+  }
+
+  ngSubmit() {
+    console.log('submitting form!');
+    if (this.isImage) {
+
+      const formData = new FormData();
+      formData.append('file', this.image as Blob, this.image == null ? '' : this.image.name);
+      const imageCall: Observable<any> = this.fetchService.post(environment.apiUrl + '/file/create', formData);
+      const formRequest = (imageId: any) => {
+        const requestBody = {
+          projectWrapper: {
+            codeLink: this.codeProjectForm.get('link')?.value,
+            isImagePresent: this.isImage,
+            imageId: imageId.message,
+            heading: this.codeProjectForm.get('heading')?.value,
+            description: this.codeProjectForm.get('description')?.value,
+            projectType: 'CODE',
+          },
+        };
+        return this.fetchService.post(`${environment.apiUrl}/project`, requestBody);
+      };
+
+      imageCall.pipe(concatMap(formRequest)).subscribe((resp) => {
+        alert('Project Saved with ID: ' + resp.projectId);
+        this.codeProjectForm.reset();
+      });
+
+    } else {
+      console.log('submitting form');
+      console.log(this.codeProjectForm);
+      this.fetchService.post(`${environment.apiUrl}/project`, {
+        projectWrapper: {
+          videoLink: this.codeProjectForm.get('link')?.value,
+          isImagePresent: this.isImage,
+          heading: this.codeProjectForm.get('name')?.value,
+          description: this.codeProjectForm.get('description')?.value,
+          projectType: 'CODE',
+        },
+      }).subscribe((resp) => {
+        alert('Project Saved with ID: ' + resp.projectId);
+        this.codeProjectForm.reset();
+      });
+    }
+  }
 
 }
