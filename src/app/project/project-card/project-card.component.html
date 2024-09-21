@@ -18,7 +18,7 @@
   <div class="project_content_wrapper">
 
     <div class="project_name">{{data.heading}}</div>
-    <div class="about_project">{{data.description}}
+    <div [innerHTML]="data.description" class="about_project">
     </div>
     <div *ngIf="projectType == 'WEBSITE'" class="buttons_container">
       <div *ngIf="data.isWebsiteLinkPresent" class="button_project"><a href="{{data.websiteLink}}"

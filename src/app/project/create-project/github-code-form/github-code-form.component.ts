@@ -38,7 +38,6 @@ export class GithubCodeFormComponent {
   }
 
   ngSubmit() {
-    console.log('submitting form!');
     if (this.isImage) {
       console.log(this.codeProjectForm);
       const formData = new FormData();
@@ -66,7 +65,6 @@ export class GithubCodeFormComponent {
       });
 
     } else {
-      console.log(this.codeProjectForm);
       this.fetchService.post(`${environment.apiUrl}/project`, {
         projectWrapper: {
           codeLink: this.codeProjectForm.get('link')?.value,
@@ -75,7 +73,7 @@ export class GithubCodeFormComponent {
           description: this.codeProjectForm.get('description')?.value,
           projectType: 'CODE',
           isDeploymentLinkPresent: this.isProjectLiveLink,
-          deploymentLink: this.codeProjectForm.get('deploymentLink'),
+          deploymentLink: this.codeProjectForm.get('deploymentLink')?.value,
         },
       }).subscribe((resp) => {
         alert('Project Saved with ID: ' + resp.projectId);
