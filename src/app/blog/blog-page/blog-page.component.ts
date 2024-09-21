@@ -109,7 +109,7 @@ export class BlogPageComponent implements OnInit, AfterViewInit {
   }
 
   public softDeleteBlog(): void {
-    this.fetchService.delete(`${environment.apiUrl}/blog`, [this.blogId]).subscribe((res) => {
+    this.fetchService.delete(`${environment.apiUrl}/blog/${this.blogId}`).subscribe((res) => {
       if (res.responseCode === 'SUCCESS') {
         alert('Blog is deleted.');
       } else {

@@ -38,7 +38,10 @@ public class CodeProjectEntity {
   @Column(name = "IMAGE_ID")
   private Long imageId;
 
-  @Column(name = "STATUS")
-  private String status;
+  @Column(name = "IS_PROJECT_DEPLOYMENT_LINK_PRESENT")
+  private boolean isProjectDeploymentLinkPresent;
+
+  @Column(name = "PROJECT_DEPLOYMENT_LINK")
+  private String projectDeploymentLink;
 
 }

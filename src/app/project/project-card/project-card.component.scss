@@ -27,6 +27,10 @@
   margin-top: 100px;
 }
 
+.reverse_direction{
+  flex-direction: row-reverse;
+}
+
 .project_wrapper:first-child {
   margin-top: 170px;
 }
@@ -51,6 +55,10 @@
 .project_wrapper:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
+}
+
+.pending_project{
+  border: 1px solid green;
 }
 
 .about_project {

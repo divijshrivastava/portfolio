@@ -1,13 +1,14 @@
-<form (ngSubmit)="ngSubmit()" [formGroup]="websiteProjectForm">
+<form class="form-container" (ngSubmit)="ngSubmit()" [formGroup]="websiteProjectForm">
 
   <div>
-    <input [formControl]="websiteProjectForm.controls.name" placeholder="Project Name" type="text"
+    <input [formControl]="websiteProjectForm.controls.heading" placeholder="Project Name" type="text"
            value="">
   </div>
   <div>
-    <input [formControl]="websiteProjectForm.controls.description" placeholder="Project Description"
-           type="textbox"
-           value="">
+    <textarea [formControl]="websiteProjectForm.controls.description" placeholder="Project Description"
+           type="text"
+           >
+    </textarea>
   </div>
   <div>
     Is website link available?: <input (change)="isWebsiteLinkPresent=!isWebsiteLinkPresent"
@@ -34,5 +35,5 @@
     <input [formControl]="websiteProjectForm.controls.codeLink" placeholder="Image" type="textbox"
            value="">
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="websiteProjectForm.invalid">Submit</button>
 </form>

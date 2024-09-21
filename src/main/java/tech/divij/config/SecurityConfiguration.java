@@ -81,6 +81,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       .hasAuthority(Role.ADMIN.toString())
       .antMatchers("/file/blog-image-upload")
       .hasAnyAuthority(Role.ADMIN.toString(), Role.AUTHOR.toString())
+      .antMatchers("/project/approve")
+      .hasAnyAuthority(Role.ADMIN.toString())
       .antMatchers("/blog/**")
       .permitAll()
       .antMatchers("/user-auth/**")

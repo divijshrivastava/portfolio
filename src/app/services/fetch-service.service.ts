@@ -21,11 +21,8 @@ export class FetchServiceService {
     return this.http.post(url, item);
   }
 
-  delete(url: string, params: string[]): Observable<any> {
-    for (let s of params) {
-      url += "/" + s;
-    }
-    return this.http.delete(url);
+  delete(url: string, item?: any): Observable<any> {
+    return this.http.delete(url, item);
   }
 
 }
