@@ -8,17 +8,25 @@
   font-size: 200%;
 }
 
+.create_project {
+  height: 25px;
+  width: 940px;
+  margin-top: 100px;
+  align-items: center;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.button_code:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 .projects_container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.create_project {
-  height: 500px;
-  width: 940px;
-  margin-top: 100px;
-}
 .project_wrapper {
   background-color: rgb(119 79 109);
   height: 472px;

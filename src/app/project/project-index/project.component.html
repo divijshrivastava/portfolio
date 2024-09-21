@@ -1,5 +1,9 @@
 <div class="container">
+
   <section class="projects_container">
+    <div (click)="navigateToCreateProject()" *ngIf="showCreateButton" class="create_project">
+      <div class="button_project">Create</div>
+    </div>
     <div *ngFor="let project of projectArray; let i = index;">
       <app-project-card [data]="project" [parity]="i%2==0?'even':'odd'"></app-project-card>
     </div>
