@@ -13,11 +13,15 @@ import {FetchServiceService} from '../../../services/fetch-service.service';
 export class GithubCodeFormComponent {
 
   isImage = false;
+  isProjectLiveLink: boolean = false;
+
   codeProjectForm = this.formBuilder.group({
-    name: ['', Validators.required],
+    heading: ['', Validators.required],
     description: ['', Validators.required],
     link: ['', Validators.required],
     imageId: [''],
+    isDeploymentLinkPresent: [''],
+    deploymentLink: [''],
   });
 
   public image: File | undefined;
@@ -34,9 +38,8 @@ export class GithubCodeFormComponent {
   }
 
   ngSubmit() {
-    console.log('submitting form!');
     if (this.isImage) {
-
+      console.log(this.codeProjectForm);
       const formData = new FormData();
       formData.append('file', this.image as Blob, this.image == null ? '' : this.image.name);
       const imageCall: Observable<any> = this.fetchService.post(environment.apiUrl + '/file/create', formData);
@@ -49,6 +52,8 @@ export class GithubCodeFormComponent {
             heading: this.codeProjectForm.get('heading')?.value,
             description: this.codeProjectForm.get('description')?.value,
             projectType: 'CODE',
+            isDeploymentLinkPresent: this.isProjectLiveLink,
+            deploymentLink: this.codeProjectForm.get('deploymentLink')?.value,
           },
         };
         return this.fetchService.post(`${environment.apiUrl}/project`, requestBody);
@@ -60,15 +65,15 @@ export class GithubCodeFormComponent {
       });
 
     } else {
-      console.log('submitting form');
-      console.log(this.codeProjectForm);
       this.fetchService.post(`${environment.apiUrl}/project`, {
         projectWrapper: {
-          videoLink: this.codeProjectForm.get('link')?.value,
+          codeLink: this.codeProjectForm.get('link')?.value,
           isImagePresent: this.isImage,
-          heading: this.codeProjectForm.get('name')?.value,
+          heading: this.codeProjectForm.get('heading')?.value,
           description: this.codeProjectForm.get('description')?.value,
           projectType: 'CODE',
+          isDeploymentLinkPresent: this.isProjectLiveLink,
+          deploymentLink: this.codeProjectForm.get('deploymentLink')?.value,
         },
       }).subscribe((resp) => {
         alert('Project Saved with ID: ' + resp.projectId);

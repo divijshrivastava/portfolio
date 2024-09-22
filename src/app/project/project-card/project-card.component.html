@@ -1,4 +1,6 @@
-<div *ngIf="parity=='even'" class="project_wrapper">
+<div class="project_wrapper"
+     [ngClass]="{'pending_project': projectStatus=='PENDING', 'reverse_direction':parity=='even'}"
+     >
   <div class="project_img_wrapper">
 
     <iframe
@@ -14,8 +16,9 @@
          alt="Project Link Image" class="project_img">
   </div>
   <div class="project_content_wrapper">
+
     <div class="project_name">{{data.heading}}</div>
-    <div class="about_project">{{data.description}}
+    <div [innerHTML]="data.description" class="about_project">
     </div>
     <div *ngIf="projectType == 'WEBSITE'" class="buttons_container">
       <div *ngIf="data.isWebsiteLinkPresent" class="button_project"><a href="{{data.websiteLink}}"
@@ -27,49 +30,19 @@
     <div *ngIf="projectType == 'CODE'" class="buttons_container">
       <div class="button_code"><a href="{{data.codeLink}}"
                                   target="_blank">Code</a></div>
+      <div class="button_code" *ngIf="data.isDeploymentLinkPresent">
+        <a href="{{data.deploymentLink}}" target="_blank">Project</a>
+      </div>
     </div>
     <div *ngIf="projectType == 'YTVIDEO'" class="buttons_container">
       <div class="button_code"><a href="{{videoButtonLink}}"
                                   target="_blank">Video</a>
       </div>
     </div>
-
-  </div>
-</div>
-<div *ngIf="parity=='odd'" class="project_wrapper">
-
-  <div class="project_content_wrapper">
-    <div class="project_name">{{data.heading}}</div>
-    <div class="about_project">{{data.description}}
-      <div *ngIf="projectType == 'WEBSITE'" class="buttons_container">
-        <div *ngIf="data.isWebsiteLinkPresent" class="button_project"><a href="{{data.websiteLink}}"
-                                                                         target="_blank">Project</a>
-        </div>
-        <div *ngIf="data.isCodeLinkPresent" class="button_code"><a href="{{data.codeLink}}"
-                                                                   target="_blank">Code</a>
-        </div>
-      </div>
-      <div *ngIf="projectType == 'CODE'" class="buttons_container">
-        <div class="button_code"><a href="{{data.codeLink}}"
-                                    target="_blank">Code</a></div>
-      </div>
-      <div *ngIf="projectType == 'YTVIDEO'" class="buttons_container">
-        <div class="button_code"><a href="{{videoButtonLink}}"
-                                    target="_blank">Video</a>
-        </div>
-      </div>
+    <div *ngIf="projectStatus=='PENDING'" class="buttons_container" >
+      <div class="button_code" (click)="approveProject(data.projectId)">Approve</div>
+      <div class="button_code" (click)="deleteProject(data.projectId)">Delete</div>
     </div>
-  </div>
-  <div class="project_img_wrapper">
-    <img *ngIf="isImagePresent" alt="Project Link Image"
-         class="project_img" src="{{imageSrc}}">
-    <iframe
-      *ngIf="projectType=='YTVIDEO'"
-      [src]="videoLink"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      frameborder="0"
-      height="315"
-      title="YouTube video player" width="520"></iframe>
+
   </div>
 </div>

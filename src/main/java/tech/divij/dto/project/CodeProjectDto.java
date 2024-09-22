@@ -13,7 +13,6 @@ import tech.divij.dto.ProjectWrapper;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CodeProjectDto extends ProjectWrapper {
-
   private Long id;
   private String codeLink;
   private Long projectId;
@@ -22,5 +21,6 @@ public class CodeProjectDto extends ProjectWrapper {
   private String insertedBy;
   private Boolean isActive;
   private String status;
-
+  private Boolean isDeploymentLinkPresent;
+  private String deploymentLink;
 }

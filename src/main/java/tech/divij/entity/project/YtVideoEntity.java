@@ -38,7 +38,4 @@ public class YtVideoEntity {
   @Column(name = "IMAGE_ID")
   private long imageId;
 
-  @Column(name = "STATUS")
-  private String status;
-
 }

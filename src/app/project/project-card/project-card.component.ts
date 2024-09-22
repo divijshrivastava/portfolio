@@ -1,6 +1,8 @@
-import {ChangeDetectorRef, Component, Input, SimpleChanges} from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {Router} from '@angular/router';
 import {environment} from 'src/environments/environment';
+import {FetchServiceService} from '../../services/fetch-service.service';
 
 @Component({
   selector: 'app-project-card',
@@ -16,8 +18,9 @@ export class ProjectCardComponent {
   public isVideoLinkPresent = false;
   public videoButtonLink: string | undefined;
   public projectType: string | undefined;
+  public projectStatus: string | undefined;
 
-  constructor(private sanitizer: DomSanitizer, private cdr: ChangeDetectorRef) {
+  constructor(private sanitizer: DomSanitizer, private fetchService: FetchServiceService, private router: Router) {
 
   }
 
@@ -41,6 +44,7 @@ export class ProjectCardComponent {
   public ngOnInit() {
 
     this.projectType = this.data.projectType;
+    this.projectStatus = this.data.status;
     if (this.projectType === 'WEBSITE') {
       this.isImagePresent = true;
       this.imageSrc = `${environment.apiUrl}/file/${this.data.imageId}`;
@@ -55,5 +59,32 @@ export class ProjectCardComponent {
       this.isImagePresent = this.data.isImagePresent;
       this.imageSrc = `${environment.apiUrl}/file/${this.data.imageId}`;
     }
+  }
+
+  public approveProject(projectId: any) {
+
+    this.fetchService.post(`${environment.apiUrl}/project/approve/${projectId}`).subscribe(
+      (resp) => {
+        alert(resp.message);
+        this.reloadCurrentRoute();
+      },
+    );
+  }
+
+  public deleteProject(projectId: any) {
+
+    this.fetchService.delete(`${environment.apiUrl}/project/${projectId}`).subscribe(
+      (resp) => {
+        alert(resp.message);
+        this.reloadCurrentRoute();
+      },
+    );
+  }
+
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 }

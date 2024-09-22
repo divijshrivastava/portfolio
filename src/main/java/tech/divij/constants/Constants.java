@@ -8,6 +8,7 @@ public class Constants {
   public static final String FALSE = "FALSE";
   public static final String USER_ADMIN_MESSAGE = "USER IS ADMIN";
   public static final String USER_NOT_ADMIN_MESSAGE = "USER IS NOT ADMIN";
+  public static final String USER_NOT_AUTHORISED = "USER IS NOT AUTHORISED";
   public static final String APP_INDEX_PATH = "/app/index.html";
   public static final String ADMIN_LOGIN_PATH = "/admin/login.html";
   public static final String APP_ERROR_PATH = "/app/error";
@@ -41,4 +42,19 @@ public class Constants {
   public static final int ONE = 1;
   public static final int SIXTEEN = 16;
   public static final int THIRTY_TWO = 32;
+  public static final String PROJECT_APPROVED_MESSAGE = "Project is approved.";
+
+  public static final String PROJECT_NOT_APPROVED_MESSAGE = "Sorry! Could not approve project.";
+
+  public static final String PROJECT_NOT_FOUND = "Sorry! Project not found.";
+
+  public static final String PROJECT_DELETED_MESSAGE = "The Project is successfully deleted.";
+
+  public static final String PROJECT_COULD_NOT_BE_DELETED = "Sorry! The project could not be deleted.";
+
+  public static final String YOUTUBE_EMBED_VIDEO_URL_PREFIX = "https://www.youtube.com/embed/";
+
+  public static final String YOUTUBE_ID_PATTERN = "^(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/)([\\w-]{11})" ;
+
+
 }

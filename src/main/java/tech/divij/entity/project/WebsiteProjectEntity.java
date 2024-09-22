@@ -44,7 +44,4 @@ public class WebsiteProjectEntity {
   @Column(name = "IMAGE_ID")
   private Long imageId;
 
-  @Column(name = "STATUS")
-  private String status;
-
 }

@@ -22,11 +22,14 @@ public class VideoProjectStrategy implements ProjectStrategy {
 
   public YtVideoProjectDto save(ProjectRequest projectRequest) {
     String userName = this.userAuthenticationService.getLoggedInUserDetails();
-    YtVideoEntity ytVideoEntity =
-      ytVideoProjectRepository.save(
+    YtVideoEntity ytVideoEntity;
+    try {
+      ytVideoEntity = ytVideoProjectRepository.save(
         projectMapper.mapDtoToEntity((YtVideoProjectDto) projectRequest.getProjectWrapper(),
           userName));
-
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
     return projectMapper.mapEntityToDto(ytVideoEntity);
   }
 }

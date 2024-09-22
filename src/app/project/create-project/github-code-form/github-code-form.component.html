@@ -1,16 +1,16 @@
-<form (ngSubmit)="ngSubmit()" [formGroup]="codeProjectForm">
-
+<form class="form-container" (ngSubmit)="ngSubmit()" [formGroup]="codeProjectForm">
   <div>
-    <input [formControl]="codeProjectForm.controls.name" placeholder="Project Name" type="text"
+    <input [formControl]="codeProjectForm.controls.heading" placeholder="Project Name" type="text"
            value="">
   </div>
   <div>
-    <input [formControl]="codeProjectForm.controls.description" placeholder="Project Description"
-           type="textbox"
-           value="">
+    <textarea [formControl]="codeProjectForm.controls.description" placeholder="Project Description"
+           type="text"
+           >
+    </textarea>
   </div>
   <div>
-    <input [formControl]="codeProjectForm.controls.link" placeholder="Project Link" type="textbox"
+    <input [formControl]="codeProjectForm.controls.link" placeholder="Project Link" type="text"
            value="">
   </div>
   <div>
@@ -21,6 +21,17 @@
     Insert image:
     <input (change)="onImagePicked($event)" placeholder="Image" type="file" value="">
   </div>
+  Is project live link available?: <input
+  (change)="isProjectLiveLink=!isProjectLiveLink"
+  [formControl]="codeProjectForm.controls.isDeploymentLinkPresent" name="isProjectLiveLink" type="checkbox">
 
-  <button type="submit">Submit</button>
+  <br>
+  <div *ngIf="isProjectLiveLink">
+    Insert Project Live Link:
+    <input [formControl]="codeProjectForm.controls.deploymentLink" placeholder="Project Link"
+           type="text"
+           value="">
+  </div>
+
+  <button type="submit" [disabled]="codeProjectForm.invalid">Submit</button>
 </form>

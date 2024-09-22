@@ -16,4 +16,5 @@ public class ProjectWrapper {
   private String heading;
   private String description;
   private ProjectType projectType;
+  private String status;
 }

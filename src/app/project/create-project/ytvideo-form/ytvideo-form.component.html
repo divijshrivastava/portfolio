@@ -1,24 +1,37 @@
-<form (ngSubmit)="ngSubmit()" [formGroup]="ytVideoForm">
+<!-- video-description.component.html -->
+<div class="form-container" xmlns="http://www.w3.org/1999/html">
+  <h2>Submit Video Description</h2>
+  <form [formGroup]="ytVideoForm" (ngSubmit)="ngSubmit()">
 
-  <div>
-    <input [formControl]="ytVideoForm.controls.name" placeholder="Video Name" type="text" value="">
-  </div>
-  <div>
-    <input [formControl]="ytVideoForm.controls.description" placeholder="Video Description" type="textbox"
-           value="">
-  </div>
-  <div>
-    <input [formControl]="ytVideoForm.controls.link" placeholder="Video Link" type="textbox"
-           value="">
-  </div>
-  <div>
-    Is image available?: <input (change)="isImage=!isImage" name="isImageAvailable" type="checkbox">
+    <div>
+      <input [formControl]="ytVideoForm.controls.name" placeholder="Video Name" type="text" value="">
+    </div>
 
-  </div>
-  <div *ngIf="isImage">
-    Insert image:
-    <input (change)="onImagePicked($event)" placeholder="Image" type="file" value="">
-  </div>
+    <textarea
+      type="text"
+      id="description"
+      [formControl]="ytVideoForm.controls.description"
+      placeholder="Enter video description here..."
+      required
+    ></textarea>
 
-  <button type="submit">Submit</button>
-</form>
+    <div>
+      <input [formControl]="ytVideoForm.controls.link" placeholder="Video Link" type="text"
+             value="">
+    </div>
+    <div>
+      <label for="imageCheckbox">Is image available?</label> <input id="imageCheckbox" (change)="isImage=!isImage" name="isImageAvailable" type="checkbox" class="checkbox">
+    </div>
+    <div *ngIf="isImage">
+      Insert image:
+      <input (change)="onImagePicked($event)" placeholder="Image" type="file" value="">
+    </div>
+    <!-- Error message if the input is invalid -->
+    <div *ngIf="ytVideoForm?.invalid && (ytVideoForm?.dirty || ytVideoForm?.touched)">
+      <small class="error" *ngIf="ytVideoForm?.errors?.required">Description is required.</small>
+      <small class="error" *ngIf="ytVideoForm?.errors?.maxlength">Description cannot exceed 1000 characters.</small>
+    </div>
+
+    <button type="submit" [disabled]="ytVideoForm.invalid">Submit</button>
+  </form>
+</div>

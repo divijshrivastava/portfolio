@@ -5,29 +5,32 @@
       Create Project!
     </h2>
     <div>
-      <ul class="list-group">
-        <li *ngFor="let projectType of projectTypes;let i = index;" class="list-group-item">
-          <input (change)="onItemChange(projectType)" [(ngModel)]="selectedProjectType" [checked]="projectType.value == selectedProjectType"
-                 name="{{projectType.name}}" type="radio"
-                 value="{{projectType.value}}"/>
-          <label>{{projectType.name }}</label>
+<!--      <ul class="list-group">-->
+<!--        <li *ngFor="let projectType of projectTypes;let i = index;" class="list-group-item">-->
+<!--          <input (change)="onItemChange(projectType)" [(ngModel)]="selectedProjectType" [checked]="projectType.value == selectedProjectType"-->
+<!--                 name="{{projectType.name}}" type="radio"-->
+<!--                 value="{{projectType.value}}"/>-->
+<!--          <label>{{projectType.name }}</label>-->
 
-        </li>
-      </ul>
+<!--        </li>-->
+<!--      </ul>-->
+      <!-- Dropdown for projectTypes -->
+      <select class="form-control" [(ngModel)]="selectedProjectType" (change)="onItemChange(selectedProjectType)">
+        <option *ngFor="let projectType of projectTypes" [value]="projectType.value">
+          {{ projectType.name }}
+        </option>
+      </select>
     </div>
   </section>
 
   <section class="content">
     <div *ngIf="selectedProjectType === projectTypes[0].value">
-      Content for {{projectTypes[0].name}}
       <app-ytvideo-form></app-ytvideo-form>
     </div>
     <div *ngIf="selectedProjectType === projectTypes[1].value">
-      Content for {{projectTypes[1].name}}
       <app-website-form></app-website-form>
     </div>
     <div *ngIf="selectedProjectType === projectTypes[2].value">
-      Content for  {{projectTypes[2].name}}
       <app-github-code-form></app-github-code-form>
     </div>
   </section>

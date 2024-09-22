@@ -27,6 +27,10 @@
   margin-top: 100px;
 }
 
+.reverse_direction{
+  flex-direction: row-reverse;
+}
+
 .project_wrapper:first-child {
   margin-top: 170px;
 }
@@ -53,12 +57,13 @@
   transition: all 0.2s;
 }
 
+.pending_project{
+  border: 1px solid green;
+}
+
 .about_project {
   width: auto;
   word-break: keep-all;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin-top: 10px;
   font-size: 80%;

@@ -16,7 +16,7 @@ export class WebsiteFormComponent {
   isCodeLink = false;
   isWebsiteLinkPresent = false;
   websiteProjectForm = this.formBuilder.group({
-    name: ['', Validators.required],
+    heading: ['', Validators.required],
     description: ['', Validators.required],
     link: [''],
     imageId: [''],
