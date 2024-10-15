@@ -15,7 +15,7 @@
                                        name="isWebsiteLinkPresent" type="checkbox">
   </div>
   <div *ngIf="isWebsiteLinkPresent">
-    <input [formControl]="websiteProjectForm.controls.link" placeholder="Project Link"
+    <input [formControl]="websiteProjectForm.controls.link" placeholder="Website Link"
            type="textbox"
            value="">
   </div>
@@ -32,7 +32,8 @@
   </div>
   <div *ngIf="isCodeLink">
     Add code link:
-    <input [formControl]="websiteProjectForm.controls.codeLink" placeholder="Image" type="textbox"
+    <input [formControl]="websiteProjectForm.controls.codeLink" placeholder="Code link"
+           type="textbox"
            value="">
   </div>
   <button type="submit" [disabled]="websiteProjectForm.invalid">Submit</button>
