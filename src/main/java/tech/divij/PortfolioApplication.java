@@ -69,6 +69,7 @@ public class PortfolioApplication {
     };
   }
 
+
   @Bean
   public UserAgentParser userAgentParser() throws IOException, ParseException {
 

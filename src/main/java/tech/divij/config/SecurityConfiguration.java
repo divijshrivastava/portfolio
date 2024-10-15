@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import tech.divij.constants.Constants;
 import tech.divij.constants.Role;
 import tech.divij.service.PortfolioUserDetailsService;
@@ -75,7 +76,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       http.csrf().disable();
     }
 
-    http.authorizeRequests()
+    http.csrf().
+      csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().authorizeRequests()
       .antMatchers("/admin")
       .hasRole(Role.ADMIN.toString())
       .antMatchers("/user-contact/all?**")

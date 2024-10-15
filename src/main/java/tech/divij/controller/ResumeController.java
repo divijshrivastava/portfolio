@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,10 +19,10 @@ import tech.divij.service.ResumeService;
 @Slf4j
 @RestController
 @RequestMapping("resume")
-@CrossOrigin(
-    origins = "*",
-    maxAge = 3600,
-    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
+//@CrossOrigin(
+//    origins = "*",
+//    maxAge = 3600,
+//    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class ResumeController {
 
   private final ResumeService resumeService;

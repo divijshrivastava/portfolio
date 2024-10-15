@@ -27,7 +27,10 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         // Handle successful login, e.g., store session info
         console.log('Login successful', response);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/').then(() => {
+
+          window.location.reload();
+        });
       },
       error: (err) => {
         this.errorMessage = 'Invalid username or password.';
@@ -47,13 +50,16 @@ export class LoginComponent implements OnInit {
       }
     }, (err) => {
       console.log('user not logged in!');
+      this.showLoginForm = true;
     });
     console.log('Login form!');
   }
 
   logout() {
     this.userService.logout();
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/').then(() => {
+      window.location.reload();
+    });
   }
 
 }

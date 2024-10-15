@@ -37,6 +37,7 @@
     "express": "^4.15.2",
     "ng-recaptcha": "^11.0.0",
     "ng2-pdf-viewer": "^9.1.5",
+    "ngx-cookie-service": "^18.0.0",
     "ngx-extended-pdf-viewer": "^17.0.0-alpha.6",
     "prism-themes": "^1.9.0",
     "rxjs": "~6.6.0",
