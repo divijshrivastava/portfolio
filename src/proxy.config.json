@@ -1,6 +1,11 @@
 {
   "/api": {
-    "target": "http://localhost/",
-    "changeOrigin": true
+    "target": "http://localhost",
+    "changeOrigin": true,
+    "security": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "info"
   }
 }
