@@ -28,10 +28,11 @@ public class PortfolioUserDetailsService implements UserDetailsService {
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
     UserDto portfolioUser = userAuthenticationService.getUserDetailsByUserName(username);
-    List<String> authorities = userService.fetchAuthoritiesForUserName(username);
     if (portfolioUser == null) {
       throw new UsernameNotFoundException(Constants.USERNAME_NOT_FOUND);
     }
+
+    List<String> authorities = userService.fetchAuthoritiesForUserName(username);
     List<GrantedAuthority> auths = new ArrayList<>();
 
     for (String authority : authorities) {

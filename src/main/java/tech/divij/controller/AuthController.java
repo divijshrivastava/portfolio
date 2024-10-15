@@ -6,11 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import tech.divij.constants.Constants;
 import tech.divij.response.Response;
@@ -20,10 +18,10 @@ import tech.divij.service.UserAuthenticationService;
 @Slf4j
 @RestController
 @RequestMapping("user-auth")
-@CrossOrigin(
-    origins = "*",
-    maxAge = 3600,
-    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
+//@CrossOrigin(
+//    origins = "*",
+//    maxAge = 3600,
+//    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class AuthController {
 
   private final UserAuthenticationService userAuthenticationService;
