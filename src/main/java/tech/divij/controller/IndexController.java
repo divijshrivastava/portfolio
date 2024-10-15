@@ -59,7 +59,7 @@ public class IndexController {
   @LogActivity(activityType = "logging_in")
   public String admin(HttpServletRequest request) {
     log.info("login");
-    return Constants.ADMIN_LOGIN_PATH;
+    return "/app/login";
   }
 
   @GetMapping("/error")

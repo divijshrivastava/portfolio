@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'resume',
     loadChildren: () => import('./resume/resume.module').then(m => m.ResumeModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
   {path: '**', pathMatch: 'full', component: ErrorComponent},
 ];
 

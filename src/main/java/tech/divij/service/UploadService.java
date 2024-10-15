@@ -9,6 +9,7 @@ import java.util.Objects;
 import javax.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import tech.divij.constants.Constants;
@@ -57,6 +58,10 @@ public class UploadService {
   public Response<Object> uploadFile(MultipartFile file)
       throws IllegalFileTypeException, FileIsEmpty, FileTooLargeException {
     log.info("Inside uploadFile()");
+
+    if (!Objects.nonNull(this.userAuthenticationService.getLoggedInUserDetails())) {
+      throw new UsernameNotFoundException("User must be logged in to upload file");
+    }
 
     if (file.isEmpty()) {
       log.info(empty);

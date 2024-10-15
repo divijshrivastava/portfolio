@@ -3,20 +3,28 @@ package tech.divij.config;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import tech.divij.constants.Constants;
 import tech.divij.constants.Role;
 import tech.divij.service.PortfolioUserDetailsService;
 
+
 @EnableWebSecurity
 @Slf4j
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+  @Autowired
+  private Environment environment;
 
   private final PortfolioUserDetailsService userDetailsService;
 
@@ -64,7 +72,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 
-    http.authorizeRequests()
+    if (isDevProfileActive()) {
+      http.csrf().disable();
+    }
+
+    http.csrf().
+      csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().authorizeRequests()
       .antMatchers("/admin")
       .hasRole(Role.ADMIN.toString())
       .antMatchers("/user-contact/all?**")
@@ -95,9 +108,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       .antMatchers("/**")
       .permitAll()
       .and()
-      .csrf()
-      .disable()
-      .formLogin();
+      .formLogin().disable().logout().disable();
+  }
+
+  private boolean isDevProfileActive() {
+    return Arrays.asList(environment.getActiveProfiles()).contains("local");
   }
 
   @Bean

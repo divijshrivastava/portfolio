@@ -16,17 +16,17 @@ export class UserService {
   constructor(private fetchService: FetchServiceService) {
   }
 
-  public isLoggedUser(): Observable<any> | Observable<unknown> {
+  public fetchLoggedUserDetails(): Observable<any> | Observable<unknown> {
 
-    if (environment.envName === 'dev') {
-      return new Observable((subscriber) => {
-        subscriber.next({
-          message: 'John Doe',
-          responseCode: 'User Found',
-          responseMessage: null,
-        });
-      });
-    }
+    // if (environment.envName === 'dev') {
+    //   return new Observable((subscriber) => {
+    //     subscriber.next({
+    //       message: 'John Doe',
+    //       responseCode: 'User Found',
+    //       responseMessage: null,
+    //     });
+    //   });
+    // }
     return this.fetchService.post(`${environment.apiUrl}/user-auth/logged-user`);
   }
 
@@ -48,10 +48,20 @@ export class UserService {
 
   }
 
-  public fetchEntitlements() {
+  public fetchEntitlements(): void {
     this.fetchService.get(`${environment.apiUrl}/user-auth/entitlements`).subscribe((resp: any) => {
       this.entitlements.next(resp);
       this.entitlementsFetched = true;
+    });
+  }
+
+  public login(credentials: { username: string; password: string }): Observable<any> {
+    return this.fetchService.post(`${environment.apiUrl}/login`, credentials);
+  }
+
+  public logout(): void {
+    this.fetchService.post(`${environment.apiUrl}/logout`).subscribe(() => {
+      console.log('User logged out!');
     });
   }
 }
