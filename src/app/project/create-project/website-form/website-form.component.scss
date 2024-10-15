@@ -1,12 +1,16 @@
 .form-container {
-  max-width: 800px;
+  width: 100%;
   margin: 0 auto;
-  background-color: #a9a7c2;
+  background-color: #805575;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
-  width: 800px;
+  color: #ccc;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
@@ -18,10 +22,10 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #555;
+  color: #ccc;
 }
 
-input {
+input, select {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -29,9 +33,11 @@ input {
   border-radius: 4px;
   outline: none;
   transition: border-color 0.3s ease;
+  background-color: #5e3d55;
+  color: #ccc;
 }
 
-textarea{
+textarea {
   width: 100%;
   height: 200px;
   padding: 10px;
@@ -40,9 +46,16 @@ textarea{
   border-radius: 4px;
   outline: none;
   transition: border-color 0.3s ease;
+  background: #5e3d55;
+  color: #fff;
 }
 
-input:focus {
+input::placeholder,
+textarea::placeholder {
+  color: #ccc; /* Light shade color */
+}
+
+input:focus, select:focus, textarea:focus {
   border-color: #66afe9;
   box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
@@ -50,23 +63,25 @@ input:focus {
 button {
   width: 100%;
   padding: 12px;
-  background-color: #28a745;
   border: none;
-  color: white;
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;
+  background-color: #653c58;
+  color: #ccc;
   transition: background-color 0.3s ease;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #5e5d5d;
+  color: #ccc;
   cursor: not-allowed;
 }
 
 button:hover:enabled {
-  background-color: #218838;
+  background-color: #dca0cd6e;
+  color: #f2f2f2;
 }
 
 .error {
@@ -74,6 +89,6 @@ button:hover:enabled {
   font-size: 12px;
 }
 
-.checkbox{
-  display:inline;
+.checkbox {
+  display: inline;
 }
