@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
+import {UtilService} from '../services/util.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   showLoginForm = false;
   userName = '';
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router,
+              private utilService: UtilService) {
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required],
@@ -53,6 +55,8 @@ export class LoginComponent implements OnInit {
       this.showLoginForm = true;
     });
     console.log('Login form!');
+    this.utilService.heading.next({title: 'Login', url: '/login'});
+    this.utilService.loader.next({state: 'off'});
   }
 
   logout() {

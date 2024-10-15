@@ -20,10 +20,6 @@ import tech.divij.service.BlogService;
 @Slf4j
 @RestController
 @RequestMapping("blog")
-//@CrossOrigin(
-//    origins = "*",
-//    maxAge = 3600,
-//    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class BlogController {
 
   private final BlogService blogService;

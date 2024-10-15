@@ -1,20 +1,21 @@
 <div class="container">
-
-  <form (ngSubmit)="onSubmit()" *ngIf="showLoginForm" [formGroup]="loginForm">
+  <form (ngSubmit)="onSubmit()" *ngIf="showLoginForm" [formGroup]="loginForm"
+        aria-labelledby="loginFormTitle">
     <div>
-      <label for="userName">Username:</label>
-      <input formControlName="userName" id="userName"/>
+      <input aria-describedby="userNameHelp" aria-required="true" formControlName="userName" id="userName" placeholder="Username"
+             required type="text"/>
     </div>
     <div>
-      <label for="password">Password:</label>
-      <input formControlName="password" id="password" type="password"/>
+      <input aria-describedby="passwordHelp" aria-required="true" formControlName="password" id="password" placeholder="Password"
+             required type="password"/>
     </div>
-    <div *ngIf="errorMessage">{{ errorMessage }}</div>
-    <button type="submit">Login</button>
+    <div *ngIf="errorMessage" class="errorMessage" role="alert">{{ errorMessage }}</div>
+    <div class="submit">
+      <button [disabled]="!loginForm.valid" type="submit">Login</button>
+    </div>
   </form>
   <div *ngIf="!showLoginForm">
-    <div>Hello {{userName}}</div>
+    <div class="submit">Hello {{userName}}!</div>
     <button (click)="logout()">Logout</button>
   </div>
-
 </div>

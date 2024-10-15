@@ -18,29 +18,10 @@ export class UserService {
 
   public fetchLoggedUserDetails(): Observable<any> | Observable<unknown> {
 
-    // if (environment.envName === 'dev') {
-    //   return new Observable((subscriber) => {
-    //     subscriber.next({
-    //       message: 'John Doe',
-    //       responseCode: 'User Found',
-    //       responseMessage: null,
-    //     });
-    //   });
-    // }
     return this.fetchService.post(`${environment.apiUrl}/user-auth/logged-user`);
   }
 
   public isAdmin() {
-
-    /*if (environment.envName === 'dev') {
-      return new Observable((subscriber) => {
-        subscriber.next({
-          message: 'TRUE',
-          responseCode: 'SUCCESS',
-          responseMessage: 'USER IS ADMIN',
-        });
-      });
-    }*/
 
     return this.entitlements.pipe(map((data: string[]) => {
       return data.includes('ADMIN');

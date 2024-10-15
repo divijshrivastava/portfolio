@@ -19,9 +19,6 @@ import tech.divij.service.ProjectService;
 @Slf4j
 @RestController
 @RequestMapping("project")
-//@CrossOrigin(
-//  origins = "*", maxAge = 3600,
-//  methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class ProjectController {
 
   private final ProjectService projectService;
