@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("ping")
-//@CrossOrigin(origins = "*", maxAge = 3600, methods = {RequestMethod.GET})
 public class HealthController {
 
 

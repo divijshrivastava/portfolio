@@ -22,10 +22,6 @@ import tech.divij.service.FileService;
 @Slf4j
 @RestController
 @RequestMapping("file")
-//@CrossOrigin(
-//    origins = "*",
-//    maxAge = 600,
-//    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class FileController {
 
   private final FileService fileService;

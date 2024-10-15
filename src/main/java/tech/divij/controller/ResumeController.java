@@ -19,10 +19,6 @@ import tech.divij.service.ResumeService;
 @Slf4j
 @RestController
 @RequestMapping("resume")
-//@CrossOrigin(
-//    origins = "*",
-//    maxAge = 3600,
-//    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class ResumeController {
 
   private final ResumeService resumeService;

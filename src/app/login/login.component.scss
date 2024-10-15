@@ -2,4 +2,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  height: 80vh;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #653c58;
+  color: white;
+  width: 122px;
+}
+
+button:hover {
+  background-color: #36212e;
+}
+
+.errorMessage {
+  color: #f20f36ad;
+  margin-bottom: 15px;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }

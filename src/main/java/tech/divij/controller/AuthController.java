@@ -18,10 +18,6 @@ import tech.divij.service.UserAuthenticationService;
 @Slf4j
 @RestController
 @RequestMapping("user-auth")
-//@CrossOrigin(
-//    origins = "*",
-//    maxAge = 3600,
-//    methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class AuthController {
 
   private final UserAuthenticationService userAuthenticationService;
