@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {environment} from '../../environments/environment';
 import {UtilService} from '../services/util.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ResumeComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.resumeUrl = '/resume/view';
+    this.resumeUrl = `${environment.apiUrl}/resume/view`;
     this.util.heading.next({title: 'Resume', url: '/resume'});
     this.util.loader.next({state: 'off'});
   }
