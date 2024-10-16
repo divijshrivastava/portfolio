@@ -5,16 +5,6 @@
       Create Project!
     </h2>
     <div>
-<!--      <ul class="list-group">-->
-<!--        <li *ngFor="let projectType of projectTypes;let i = index;" class="list-group-item">-->
-<!--          <input (change)="onItemChange(projectType)" [(ngModel)]="selectedProjectType" [checked]="projectType.value == selectedProjectType"-->
-<!--                 name="{{projectType.name}}" type="radio"-->
-<!--                 value="{{projectType.value}}"/>-->
-<!--          <label>{{projectType.name }}</label>-->
-
-<!--        </li>-->
-<!--      </ul>-->
-      <!-- Dropdown for projectTypes -->
       <select class="form-control" [(ngModel)]="selectedProjectType" (change)="onItemChange(selectedProjectType)">
         <option *ngFor="let projectType of projectTypes" [value]="projectType.value">
           {{ projectType.name }}
