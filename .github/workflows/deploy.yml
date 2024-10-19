@@ -73,3 +73,10 @@ jobs:
         VPS_HOST: ${{ secrets.VPS_HOST }}
       run: |
         scp -o StrictHostKeyChecking=no portfolio-web.war $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
+
+    - name: Run deploy script on VPS
+      env:
+       VPS_USER: ${{ secrets.VPS_USER }}
+       VPS_HOST: ${{ secrets.VPS_HOST }}
+      run: |
+       ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST 'bash ~/run_portfolio.sh'
