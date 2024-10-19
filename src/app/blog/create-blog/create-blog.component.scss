@@ -1,90 +1,109 @@
-
 .blog_container {
   height: auto;
   min-height: calc(100vh - 25vh);
-  justify-content: center;
-  align-content: center;
   display: grid;
-  grid-gap: 40px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  grid-gap: 20px;
+  padding: 50px 20px;
   justify-items: center;
 }
 
-.blog_content {
-  height: 500px;
-  width: 500px;
-  border: 1px solid black;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.publish_button {
+  background-color: #895a7d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.publish_button:hover {
+  background-color: #603f55;
+}
+
+.form-group {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .cover_image_view {
-  height: 15pc;
-  width: 33pc;
-}
-
-.header {
-  display: grid;
-  grid-gap: 50px;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: auto auto;
-}
-
-.edit-bar {
-  border: 1px solid black;
-  height: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-flow: row;
-  cursor: pointer;
-}
-
-.bold-menu {
-  border: 1px solid brown;
-}
-
-.bold-menu:hover {
-  border: 4px sold black;
-}
-
-.italic-menu {
-  border: 1px solid brown;
-}
-
-:host ::ng-deep .ck-editor__editable_inline {
-  min-height: 500px;
-}
-
-ckeditor {
-  border: 1px solid black;
-  width: 50pc;
-  background: #472a3fc8;
-  color: #111;
-}
-
-
-.ck {
-  border: 1px solid black;
-  width: 50pc;
-  background: #472a3fc8;
-  color: #111;
-}
-
-.ck-restricted-editing_mode_standard.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
-  background-color: #4f3348;
-  color: white;
-}
-
-.ck-restricted-editing_mode_standard.ck-focused.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
-  background-color: #4f3348;
-  color: white;
-}
-
-.ck-focused {
-  background-color: green;
-  color: blue;
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .blog-summary {
   font-style: italic;
+}
+
+ckeditor {
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#blogContent {
+  border: 1px solid black;
+}
+
+.centered-input {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #4f3348;
+  color: white;
+  font-size: 20px;
+  font-family: Georgia, serif;
+
+  &::placeholder {
+    color: #948181; /* Set your desired placeholder color */
+  }
+}
+
+.file-input {
+  display: none; /* Hide the default file input */
+}
+
+.custom-file-button {
+  background-color: #895a7d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 197px;
+}
+
+.custom-file-button:hover {
+  background-color: #603f55;
 }

@@ -48,6 +48,7 @@ export class CreateBlogComponent implements OnInit {
   public coverImage!: any;
   public authorImageSrc!: string;
   public minutesToRead: any;
+  public coverImageSrc: any;
   public lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iste, nobis nesciunt voluptates saepe, nulla adipisci quas a minus rerum libero vitae vero voluptatum nam, expedita harum magnam. Obcaecati, hic?';
 
   constructor(private fetchService: FetchServiceService, private router: Router, private utilService: UtilService) {
@@ -66,26 +67,7 @@ export class CreateBlogComponent implements OnInit {
     this.blogImage = (event.target.files[0] as File);
 
   }
-
-  public readURL(input: any): void {
-
-    let files: any;
-    files = input!.currentTarget!.files;
-    const image: File = files[0];
-
-    if (files && image) {
-      const reader: FileReader = new FileReader();
-      this.coverImage = (document.querySelectorAll('.cover_image_view')[0] as HTMLImageElement)
-        || {} as Element;
-
-      reader.onload = (e: Event) => {
-        this.coverImage.src = reader.result as string;
-      };
-
-      reader.readAsDataURL(image);
-      this.blogImage = image;
-    }
-  }
+  protected readonly document = document;
 
   public onReady(editor: any): void {
     editor.plugins.get('FileRepository').createUploadAdapter = (loader: any) => {
@@ -148,4 +130,24 @@ export class CreateBlogComponent implements OnInit {
     return Number(minutesToRead).toString();
   }
 
+  public readURL(input: any): void {
+
+    let files: any;
+    files = input!.currentTarget!.files;
+    const image: File = files[0];
+
+    if (files && image) {
+      const reader: FileReader = new FileReader();
+      this.coverImage = (document.querySelectorAll('.cover_image_view')[0] as HTMLImageElement)
+        || {} as Element;
+
+      reader.onload = (e: Event) => {
+        this.coverImage.src = reader.result as string;
+        this.coverImageSrc = true;
+      };
+
+      reader.readAsDataURL(image);
+      this.blogImage = image;
+    }
+  }
 }
