@@ -29,7 +29,6 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt' # or any other valid distribution
-        cache: 'maven'
 
     - name: Build with Gradle
       run: ./gradlew build
