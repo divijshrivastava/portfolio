@@ -72,7 +72,7 @@ ext {
 task copyWarToProd(type: Exec) {
   println 'copyWarToProd starting'
   dependsOn(bootWar)
-  commandLine 'sh', 'copy_portfolio_web_sudo.sh', server_ip, server_username, server_script_path
+  //commandLine 'sh', 'copy_portfolio_web_sudo.sh', server_ip, server_username, server_script_path
   standardInput = System.in
   standardOutput = System.out
   errorOutput = System.err
