@@ -56,13 +56,21 @@ jobs:
       with:
         name: build-jar
 
+    - name: Add SSH Key
+      run: echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+      shell: bash
+
+    - name: Set SSH Key Permissions
+      run: chmod 600 ~/.ssh/id_rsa
+      shell: bash
+
     - name: Deploy to VPS
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         VPS_USER: ${{ secrets.VPS_USER }}
         VPS_HOST: ${{ secrets.VPS_HOST }}
       run: |
-        scp -i $SSH_PRIVATE_KEY build/libs/*.jar $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
+        scp -r build/libs/*.jar $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
         ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $VPS_USER@$VPS_HOST << 'EOF'
           exit
         EOF
