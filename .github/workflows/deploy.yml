@@ -56,6 +56,9 @@ jobs:
       with:
         name: build-jar
 
+    - name: Create .ssh directory
+      run: mkdir -p ~/.ssh
+
     - name: Add SSH Key
       run: echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
       shell: bash
