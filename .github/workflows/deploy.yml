@@ -56,24 +56,14 @@ jobs:
       with:
         name: build-jar
 
-    - name: Create .ssh directory
-      run: mkdir -p ~/.ssh
-
-    - name: Add SSH Key
-      run: echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-      shell: bash
-
-    - name: Set SSH Key Permissions
-      run: chmod 600 ~/.ssh/id_rsa
-      shell: bash
+    - name: Set up SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Deploy to VPS
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         VPS_USER: ${{ secrets.VPS_USER }}
         VPS_HOST: ${{ secrets.VPS_HOST }}
       run: |
-        scp -r build/libs/*.jar $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
-        ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $VPS_USER@$VPS_HOST << 'EOF'
-          exit
-        EOF
+        scp -o StrictHostKeyChecking=no build/libs/*.jar $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
