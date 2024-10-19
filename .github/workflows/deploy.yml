@@ -66,4 +66,4 @@ jobs:
         VPS_USER: ${{ secrets.VPS_USER }}
         VPS_HOST: ${{ secrets.VPS_HOST }}
       run: |
-        scp -o StrictHostKeyChecking=no build/libs/*.jar $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
+        scp -o StrictHostKeyChecking=no build/libs/portfolio-web.war $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
