@@ -1,0 +1,60 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '22.4.1'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Angular project
+      run: npm run build
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Archive JAR file
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-jar
+        path: build/libs/*.jar
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Download JAR artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: build-jar
+
+    - name: Deploy to VPS
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        VPS_USER: ${{ secrets.VPS_USER }}
+        VPS_HOST: ${{ secrets.VPS_HOST }}
+      run: |
+        scp -i $SSH_PRIVATE_KEY build/libs/*.jar $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
+        ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $VPS_USER@$VPS_HOST << 'EOF'
+          exit
+        EOF
