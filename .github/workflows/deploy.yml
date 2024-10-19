@@ -59,9 +59,6 @@ jobs:
       with:
         name: build-jar
 
-    - name: List build/libs directory
-      run: ls -l build/libs/
-
     - name: List current directory
       run: ls -l .
 
@@ -75,4 +72,4 @@ jobs:
         VPS_USER: ${{ secrets.VPS_USER }}
         VPS_HOST: ${{ secrets.VPS_HOST }}
       run: |
-        scp -o StrictHostKeyChecking=no build/libs/portfolio-web.war $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
+        scp -o StrictHostKeyChecking=no portfolio-web.war $VPS_USER@$VPS_HOST:~/divij_tech/portfolio-web.war
