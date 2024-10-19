@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Build Angular project
-      run: npm run build
+      run: npm run build:prod
 
     - name: Set up JDK
       uses: actions/setup-java@v2
