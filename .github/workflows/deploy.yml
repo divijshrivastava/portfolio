@@ -62,6 +62,9 @@ jobs:
     - name: List build/libs directory
       run: ls -l build/libs/
 
+    - name: List current directory
+      run: ls -l .
+
     - name: Set up SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
