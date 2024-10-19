@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <changeSet author="divij" id="addUserAnalyticsColumns">
+    <addColumn tableName="USER_ACTIVITY">
+      <column defaultValue="Unknown" name="BROWSER" type="varchar(255)"/>
+      <column defaultValue="Unknown" name="OPERATING_SYSTEM" type="varchar(255)"/>
+      <column defaultValue="Unknown" name="DEVICE_TYPE" type="varchar(255)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="divij" id="addUserAgentColumn">
+    <addColumn tableName="USER_ACTIVITY">
+      <column defaultValue="Unknown" name="USER_AGENT" type="varchar(255)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="divij" id="addDevice">
+    <addColumn tableName="USER_ACTIVITY">
+      <column defaultValue="Unknown" name="PLATFORM_MAKER" type="varchar(255)"/>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="divij" id="create_user_contact_table">
+    <createTable tableName="USER_CONTACT">
+      <column autoIncrement="true" name="ID" type="BIGINT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="FULL_NAME" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="EMAIL" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="PHONE_NUMBER" type="VARCHAR(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="MESSAGE" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CREATED_AT" type="TIMESTAMP">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="divij" id="createSitemapTable">
+    <createTable tableName="SITEMAP">
+      <column autoIncrement="true" name="ID" type="INT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="URL" type="VARCHAR(512)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="LAST_MODIFIED" type="DATETIME">
+        <constraints nullable="false"/>
+      </column>
+      <column name="CHANGE_FREQUENCY" type="VARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="PRIORITY" type="DECIMAL(3,1)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="STATUS" type="VARCHAR(512)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="divij" id="insert-sitemap-urls">
+    <sql>
+      INSERT INTO SITEMAP (URL, LAST_MODIFIED, CHANGE_FREQUENCY, PRIORITY, STATUS)
+      VALUES ('https://divij.tech/app/', '2023-04-24T15:00:00', 'daily', 0.5, 'ACTIVE'),
+             ('https://divij.tech/app/blogs', '2023-04-24T15:00:00', 'hourly', 0.5, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/Understanding-Notifications-through-Publisher-Subscriber-design-pattern-and-Java-2023-03-07T14-31-47-154154',
+              '2023-03-07T14:31:47', 'WEEKLY', 0.7, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/Diving-into-HashMap--2022-12-18T01-12-00-268968',
+              '2022-12-18T01:12:00', 'monthly', 0.6, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/CSS-Notes-You-Should-Keep-Handy-Part-1-2022-11-30T22-39-46-703052',
+              '2022-11-30T22:39:46', 'monthly', 0.6, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/Git-for-beginners', '2023-04-24T15:00:00', 'WEEKLY',
+              0.7, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/Sorting-101-Selection-Sort', '2023-04-24T15:00:00',
+              'WEEKLY', 0.7, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/A-case-against-microservices', '2023-04-24T15:00:00',
+              'monthly', 0.6, 'ACTIVE'),
+             ('https://divij.tech/app/blogs/Github-the-best-way-to-launch-a-website',
+              '2023-04-24T15:00:00', 'WEEKLY', 0.7, 'ACTIVE'),
+             ('https://divij.tech/app/projects', '2023-04-24T15:00:00', 'monthly', 0.6, 'ACTIVE'),
+             ('https://divij.tech/app/assets/pdf/Divij%20Shrivastava%20Resume.pdf',
+              '2023-04-24T15:00:00', 'daily', 0.6, 'ACTIVE');
+    </sql>
+  </changeSet>
+
+  <changeSet author="divij" id="createResumeDetailsTable">
+    <createTable tableName="RESUME_DETAILS">
+      <column autoIncrement="true" name="ID" type="BIGINT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="FILE_ID" type="INT">
+        <constraints foreignKeyName="fk_resume_file" nullable="false"
+          references="FILE_DETAILS(FILE_ID)"/>
+      </column>
+      <column name="TIMESTAMP" type="TIMESTAMP">
+        <constraints nullable="false"/>
+      </column>
+      <column name="STATUS" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="COMMENT" type="VARCHAR(100)">
+        <constraints nullable="true"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="divij" id="addForeignKeyConstraint">
+    <addForeignKeyConstraint baseColumnNames="AUTHOR_USER_NAME" baseTableName="AUTHOR"
+      constraintName="FK_USER_AUTHOR" onDelete="CASCADE"
+      onUpdate="CASCADE"
+      referencedColumnNames="USER_NAME" referencedTableName="user"/>
+  </changeSet>
+
+  <changeSet author="divij" id="remove-not-null-from-PHONE_NUMBER">
+    <dropNotNullConstraint columnDataType="VARCHAR(20)" columnName="PHONE_NUMBER"
+      tableName="USER_CONTACT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="createProjectTable">
+
+    <!-- Creating the Project table -->
+    <createTable tableName="PROJECT">
+      <column autoIncrement="true" name="ID" type="BIGINT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="PROJECT_TYPE" type="VARCHAR(50)"/>
+      <column name="INSERT_TIMESTAMP" type="TIMESTAMP"/>
+      <column name="INSERTED_BY" type="VARCHAR(50)"/>
+      <column name="STATUS" type="VARCHAR(20)"/>
+    </createTable>
+
+  </changeSet>
+
+
+  <changeSet author="divij" id="addIsActiveColumnToProjectTable">
+
+    <!-- Adding the IS_ACTIVE column to PROJECT_TABLE -->
+    <addColumn tableName="PROJECT">
+      <column name="IS_ACTIVE" type="BOOLEAN"/>
+    </addColumn>
+
+  </changeSet>
+
+  <changeSet author="your_name" id="createVideoProjectTable">
+
+    <!-- Creating the VIDEO_PROJECT table -->
+    <createTable tableName="VIDEO_PROJECT">
+      <column autoIncrement="true" name="ID" type="BIGINT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="PROJECT_ID" type="BIGINT">
+        <!-- Adding a foreign key reference to PROJECT_TABLE.PROJECT_ID -->
+        <constraints foreignKeyName="FK_VIDEO_PROJECT_PROJECT_ID"
+          references="PROJECT(ID)"
+        />
+      </column>
+      <column name="CODE_LINK" type="VARCHAR(200)"/>
+      <column name="IS_IMAGE_PRESENT" type="BOOLEAN"/>
+      <column name="IMAGE_ID" type="BIGINT"/>
+      <column name="STATUS" type="VARCHAR(50)"/>
+      <column name="TIMESTAMP" type="TIMESTAMP"/>
+      <column name="USERID" type="VARCHAR(50)"/>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="divij" id="addIsActiveColumnToVideoTable">
+
+    <!-- Adding the IS_ACTIVE column to PROJECT_TABLE -->
+    <addColumn tableName="VIDEO_PROJECT">
+      <column name="IS_ACTIVE" type="BOOLEAN"/>
+    </addColumn>
+
+  </changeSet>
+
+  <changeSet author="your_name" id="createWebsiteProjectTable">
+
+    <!-- Creating the WEBSITE_PROJECT table -->
+    <createTable tableName="WEBSITE_PROJECT">
+      <column autoIncrement="true" name="ID" type="BIGINT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="PROJECT_ID" type="BIGINT">
+        <!-- Adding a foreign key reference to PROJECT_TABLE.PROJECT_ID -->
+        <constraints foreignKeyName="FK_WEBSITE_PROJECT_PROJECT_ID"
+          references="PROJECT(ID)"
+        />
+      </column>
+      <column name="WEBSITE_LINK" type="VARCHAR(200)"/>
+      <column name="IS_WEBSITE_LINK_PRESENT" type="BOOLEAN"/>
+      <column name="CODE_LINK" type="VARCHAR(200)"/>
+      <column name="IS_CODE_LINK_PRESENT" type="BOOLEAN"/>
+      <column name="IMAGE_ID" type="BIGINT"/>
+      <column name="STATUS" type="VARCHAR(20)"/>
+      <column name="TIMESTAMP" type="TIMESTAMP"/>
+      <column name="IS_ACTIVE" type="BOOLEAN"/>
+    </createTable>
+
+  </changeSet>
+
+  <changeSet author="your_name" id="createAnonymousProjectTable">
+
+    <!-- Creating the ANONYMOUS_PROJECT table -->
+    <createTable tableName="ANONYMOUS_PROJECT">
+      <column autoIncrement="true" name="ID" type="BIGINT">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="PROJECT_ID" type="BIGINT">
+        <!-- Adding a foreign key reference to PROJECT_TABLE.ID -->
+        <constraints foreignKeyName="FK_ANONYMOUS_PROJECT_PROJECT_ID"
+          references="PROJECT(ID)"
+        />
+      </column>
+      <column name="ATTRIBUTE" type="VARCHAR(50)"/>
+      <column name="ATTRIBUTE_LINK" type="VARCHAR(200)"/>
+      <column name="IS_LINK_PRESENT" type="BOOLEAN"/>
+      <column name="IMAGE_ID" type="BIGINT"/>
+      <column name="IS_IMAGE_PRESENT" type="BOOLEAN"/>
+      <column name="STATUS" type="VARCHAR(20)"/>
+      <column name="TIMESTAMP" type="TIMESTAMP"/>
+      <column name="INSERTED_BY" type="VARCHAR(50)"/>
+      <column name="IS_ACTIVE" type="BOOLEAN"/>
+    </createTable>
+
+  </changeSet>
+  <changeSet author="divij" id="addIsPublishedTimestampColumnToProjectTable">
+
+    <!-- Adding the PUBLISH_TIMESTAMP column to PROJECT_TABLE -->
+    <addColumn tableName="PROJECT">
+      <column name="PUBLISH_TIMESTAMP" type="TIMESTAMP"/>
+    </addColumn>
+
+  </changeSet>
+
+  <changeSet author="divij" id="renameUserIdColumnInVideoProjectTable">
+
+    <!-- Renaming the USERID column to INSERTED_BY in VIDEO_PROJECT table -->
+    <renameColumn columnDataType="VARCHAR(50)" newColumnName="INSERTED_BY" oldColumnName="USERID"
+      tableName="VIDEO_PROJECT"/>
+    <renameColumn columnDataType="VARCHAR(50)" newColumnName="INSERTED_ON" oldColumnName="TIMESTAMP"
+      tableName="VIDEO_PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="modifyDataTypeOfInsertedOnColumnInVideoProjectTable">
+
+    <!-- Renaming the USERID column to INSERTED_BY in VIDEO_PROJECT table -->
+    <modifyDataType columnName="INSERTED_ON" newDataType="TIMESTAMP" tableName="VIDEO_PROJECT"/>
+
+  </changeSet>
+
+  <changeSet author="divij" id="addInsertByColumnToProjectTable">
+
+    <!-- Adding the INSERT_BY column to WEBSITE_PROJECT-->
+    <addColumn tableName="WEBSITE_PROJECT">
+      <column name="INSERT_BY" type="VARCHAR(50)"/>
+
+    </addColumn>
+    <!-- Renaming the TIMESTAMP column to INSERT_TIMESTAMP-->
+    <renameColumn columnDataType="TIMESTAMP" newColumnName="INSERT_TIMESTAMP"
+      oldColumnName="TIMESTAMP" tableName="WEBSITE_PROJECT"/>
+
+  </changeSet>
+
+  <changeSet author="divij" id="createTableCODE_PROJECT">
+    <createTable tableName="CODE_PROJECT">
+      <column autoIncrement="true" name="code_id" type="bigint">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="project_id" type="bigint">
+        <!-- Add foreign key constraint to reference PROJECT table -->
+        <constraints foreignKeyName="FK_CODE_PROJECT_PROJECT_ID" nullable="false"
+          references="PROJECT(id)"/>
+      </column>
+      <column name="code_link" type="varchar(255)"><!-- Adjust the data type accordingly -->
+        <constraints nullable="false"/>
+      </column>
+      <column name="is_image_present" type="boolean"><!-- Adjust the data type accordingly -->
+        <constraints nullable="false"/>
+      </column>
+      <column name="image_id" type="bigint"><!-- Adjust the data type accordingly -->
+        <!-- Add foreign key constraint to reference IMAGE table if applicable -->
+      </column>
+      <column name="status" type="VARCHAR(50)"><!-- Adjust the data type accordingly -->
+        <!-- Add any other constraints as needed -->
+      </column>
+      <column name="insert_timestamp" type="timestamp"><!-- Adjust the data type accordingly -->
+        <constraints nullable="false"/>
+      </column>
+      <column name="inserted_by" type="varchar(255)"><!-- Adjust the data type accordingly -->
+        <constraints nullable="false"/>
+      </column>
+      <column name="is_active" type="boolean"><!-- Adjust the data type accordingly -->
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="divij" id="">
+    <addColumn tableName="PROJECT">
+      <column name="HEADING" type="VARCHAR(100)"></column>
+      <column name="DESCRIPTION" type="VARCHAR(255)"></column>
+    </addColumn>
+  </changeSet>
+  <changeSet author="divij" id="renameCodeLinkColumnInVideoProjectTable">
+
+    <!-- Renaming the CODE_LINK column to VIDEO_COLUMN in VIDEO_PROJECT table -->
+    <renameColumn columnDataType="VARCHAR(50)" newColumnName="VIDEO_LINK" oldColumnName="CODE_LINK"
+      tableName="VIDEO_PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="modifyVideoLinkColumnInVideoProjectTable">
+
+    <!-- Renaming the CODE_LINK column to VIDEO_COLUMN in VIDEO_PROJECT table -->
+    <modifyDataType columnName="VIDEO_LINK" newDataType="VARCHAR(500)" tableName="VIDEO_PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="2024-08-14-drop-columns-video_project">
+    <dropColumn columnName="INSERTED_ON" tableName="VIDEO_PROJECT"/>
+    <dropColumn columnName="INSERTED_BY" tableName="VIDEO_PROJECT"/>
+    <dropColumn columnName="IS_ACTIVE" tableName="VIDEO_PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="2024-08-14-drop-columns-website_project">
+    <dropColumn columnName="INSERT_TIMESTAMP" tableName="WEBSITE_PROJECT"/>
+    <dropColumn columnName="INSERT_BY" tableName="WEBSITE_PROJECT"/>
+    <dropColumn columnName="IS_ACTIVE" tableName="WEBSITE_PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="2024-08-14-drop-columns-code_project">
+    <dropColumn columnName="insert_timestamp" tableName="CODE_PROJECT"/>
+    <dropColumn columnName="inserted_by" tableName="CODE_PROJECT"/>
+    <dropColumn columnName="is_active" tableName="CODE_PROJECT"/>
+  </changeSet>
+
+  <!-- Remove STATUS column from VIDEO_PROJECT table -->
+  <changeSet author="divij" id="1-remove-status-from-video-project">
+    <dropColumn columnName="STATUS" tableName="VIDEO_PROJECT"/>
+  </changeSet>
+
+  <!-- Remove STATUS column from CODE_PROJECT table -->
+  <changeSet author="divij" id="2-remove-status-from-code-project">
+    <dropColumn columnName="STATUS" tableName="CODE_PROJECT"/>
+  </changeSet>
+
+  <!-- Remove STATUS column from WEBSITE_PROJECT table -->
+  <changeSet author="divij" id="3-remove-status-from-website-project">
+    <dropColumn columnName="STATUS" tableName="WEBSITE_PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="2024-09-20-increase-description-size">
+    <modifyDataType columnName="description" newDataType="VARCHAR(1000)" tableName="PROJECT"/>
+  </changeSet>
+
+  <changeSet author="divij" id="20240920-add-columns-to-code-project">
+    <addColumn tableName="code_project">
+      <column defaultValueBoolean="false" name="is_project_deployment_link_present" type="boolean">
+        <constraints nullable="false"/>
+      </column>
+    </addColumn>
+
+    <addColumn tableName="code_project">
+      <column name="project_deployment_link" type="varchar(1000)">
+        <constraints nullable="true"/>
+      </column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="divij" id="rename-code_project-to-CODE_PROJECT">
+    <renameTable newTableName="CODE_PROJECT" oldTableName="code_project"/>
+  </changeSet>
+</databaseChangeLog>
