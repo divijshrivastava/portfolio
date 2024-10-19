@@ -44,7 +44,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build-jar
-        path: build/libs/*.jar
+        path: build/libs/portfolio-web.war
 
   deploy:
     runs-on: ubuntu-latest
