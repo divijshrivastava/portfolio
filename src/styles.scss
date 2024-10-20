@@ -221,6 +221,35 @@ Media queries
   background-color: #170f15
 }
 
+.button {
+  height: 42px;
+  border-radius: 20px;
+  width: 100px;
+  font-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid #0e0f13;
+  background: #814a72;
+  color: #fbf8fa;
+  cursor: pointer;
+
+  &:hover {
+    background: #683b5c;
+    color: #fbf8fa;
+  }
+}
+
+.button a:link, .button a:visited {
+  text-decoration: none;
+  color: #ffffff;
+
+  &:hover {
+    color: #fbf8fa;
+  }
+}
+
 
 @keyframes rotation {
   from {
@@ -244,7 +273,7 @@ Media queries
 }*/
 
 
-@media only screen and (max-width: 1024px) and (max-height: 1366) {
+@media only screen and (max-width: 1024px) and (max-height: 1366px) {
   ul a li {
     font-weight: 300;
     //        display: inline-block;
@@ -256,7 +285,7 @@ Media queries
 }
 
 
-@media only screen and (max-width: 1024px) and (max-height: 1366) {
+@media only screen and (max-width: 1024px) and (max-height: 1366px) {
   ul a li {
     font-weight: 300;
     display: inline-block;
@@ -350,6 +379,14 @@ Media queries
 
 }
 
+@media only screen and (max-width: 576px) {
+  .button {
+    height: 32px;
+    width: 80px;
+    font-size: 80%;
+  }
+}
+
 
 @media only screen and (max-width: 480px) {
 
@@ -380,7 +417,7 @@ Media queries
   /* Styles for iPhone SE in landscape mode */
   .menu {
     width: 50px;
-    margin-top: 0%;
+    margin-top: 0;
   }
 
   ul {

@@ -21,8 +21,8 @@
     <div [innerHTML]="data.description" class="about_project">
     </div>
     <div *ngIf="projectType == 'WEBSITE'" class="buttons_container">
-      <div *ngIf="data.isWebsiteLinkPresent" class="button_project"><a href="{{data.websiteLink}}"
-                                                                       target="_blank">Project</a>
+      <div *ngIf="data.isWebsiteLinkPresent" class="button"><a href="{{data.websiteLink}}"
+                                                               target="_blank">Project</a>
       </div>
       <div *ngIf="data.isCodeLinkPresent" class="button_code"><a href="{{data.codeLink}}"
                                                                  target="_blank">Code</a></div>

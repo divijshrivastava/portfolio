@@ -124,6 +124,11 @@
   justify-content: center;
   text-decoration: none;
   border: 1px solid black;
+
+  &:hover {
+    background: #efe8ee;
+    box-shadow: #170f15;
+  }
 }
 
 .button_project a:link,
@@ -131,6 +136,7 @@
 .button_code a:link,
 .button_code a:visited {
   text-decoration: none;
+  color: black;
 }
 
 .button_project {
@@ -139,7 +145,7 @@
 }
 
 .button_code {
-  background: #ffffff;
+  background: #fbf8fa;
   color: #814a72;
   cursor: pointer;
 }

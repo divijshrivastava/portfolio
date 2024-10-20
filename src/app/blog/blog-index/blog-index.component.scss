@@ -16,20 +16,6 @@
   grid-template-columns:auto auto;
 }
 
-.create_blog {
-  height: 42px;
-  border-radius: 20px;
-  width: 100px;
-  font-size: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  border: 1px solid black;
-  background: #814a72;
-  color: white;
-}
-
 @media only screen and (max-width: 1200px) {
 
   .blog_container {
