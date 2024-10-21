@@ -2,7 +2,8 @@
 <app-navigation (closeNavEvent)="closeNav()" *ngIf="displayNav">
 </app-navigation>
 <a fragment="home" routerLink="/">
-  <img [style]="imageStyle" class="loader" src="./assets/favicon/apple-icon-120x120.png">
+  <img [style]="imageStyle" alt="loader" class="loader"
+       src="./assets/favicon/apple-icon-120x120.png">
 </a>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
