@@ -1,5 +1,7 @@
 package tech.divij.service;
 
+import static tech.divij.constants.Constants.ACTIVE;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +14,10 @@ import org.springframework.stereotype.Service;
 import tech.divij.constants.BlogStatus;
 import tech.divij.constants.Constants;
 import tech.divij.dto.BlogDto;
+import tech.divij.dto.ChangeFrequency;
 import tech.divij.entity.AuthorEntity;
 import tech.divij.entity.BlogEntity;
+import tech.divij.entity.SitemapEntity;
 import tech.divij.mapper.BlogMapper;
 import tech.divij.repository.BlogRepository;
 import tech.divij.response.Response;
@@ -30,16 +34,19 @@ public class BlogService {
 
   private final AuthorService authorService;
 
+  private final SitemapService sitemapService;
+
   @Autowired
   public BlogService(
-      BlogRepository blogRepository,
-      BlogMapper blogMapper,
-      UserAuthenticationService userAuthenticationService,
-      AuthorService authorService) {
+    BlogRepository blogRepository,
+    BlogMapper blogMapper,
+    UserAuthenticationService userAuthenticationService,
+    AuthorService authorService, SitemapService sitemapService) {
     this.blogRepository = blogRepository;
     this.blogMapper = blogMapper;
     this.userAuthenticationService = userAuthenticationService;
     this.authorService = authorService;
+    this.sitemapService = sitemapService;
   }
 
   public ResponseEntity<BlogDto> getBlogByLink(String link) {
@@ -123,19 +130,29 @@ public class BlogService {
         .build();
   }
 
-  public Response approveBlog(String blogId) {
+  public Response<String> approveBlog(String blogId) {
 
     if (userAuthenticationService.isAdmin()) {
       blogRepository.approveBlog(Long.parseLong(blogId));
-      return Response.builder()
-          .message(Constants.BLOG_APPROVED_MESSAGE)
-          .responseCode(Constants.SUCCESS)
-          .build();
+      //TODO: move these properties to application.properties
+      String hostedOn = "https://www.divij.tech";
+      String blogRepo = "/app/blog/";
+      String sitemapUrl =
+        hostedOn + blogRepo + blogRepository.findBlogTitleLinkById(Long.parseLong(blogId));
+      sitemapService.addUrl(SitemapEntity.builder()
+        .changeFrequency(ChangeFrequency.MONTHLY)
+        .priority(0.6)
+        .lastModified(LocalDateTime.now())
+        .url(sitemapUrl).status(ACTIVE).build());
+      return Response.<String>builder()
+        .message(Constants.BLOG_APPROVED_MESSAGE)
+        .responseCode(Constants.SUCCESS)
+        .build();
     }
 
-    return Response.builder()
-        .message(Constants.BLOG_NOT_APPROVED_MESSAGE)
-        .responseCode(Constants.FAILURE)
-        .build();
+    return Response.<String>builder()
+      .message(Constants.BLOG_NOT_APPROVED_MESSAGE)
+      .responseCode(Constants.FAILURE)
+      .build();
   }
 }

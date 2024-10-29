@@ -59,6 +59,18 @@ test {
   useJUnitPlatform()
 }
 
+tasks.register('runTests', Test) {
+  description = 'Runs the unit tests.'
+  group = 'verification'
+  testClassesDirs = sourceSets.test.output.classesDirs
+  classpath = sourceSets.test.runtimeClasspath
+  useJUnitPlatform()
+}
+
+test {
+  useJUnitPlatform()
+}
+
 
 targetCompatibility = JavaVersion.VERSION_11
 

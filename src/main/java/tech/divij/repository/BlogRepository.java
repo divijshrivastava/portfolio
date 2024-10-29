@@ -17,10 +17,14 @@ public interface BlogRepository extends JpaRepository<BlogEntity, Long> {
 
   @Modifying
   @Transactional
-  @Query(value = "update BLOG set STATUS='LIVE' where BLOG_ID=?1", nativeQuery = true)
+  @Query(value = "update BLOG b set b.status='LIVE' where b.id=?1")
   void approveBlog(long id);
 
   List<BlogEntity> findBlogsByStatusInOrderByPublishedOnDesc(List<String> status);
 
   Optional<BlogEntity> findByBlogTitleLink(String link);
+
+
+  @Query("select b.blogTitleLink from BLOG b where b.id = ?1")
+  String findBlogTitleLinkById(long id);
 }

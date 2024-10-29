@@ -5,6 +5,8 @@ public class Constants {
   public static final String SUCCESS = "SUCCESS";
   public static final String FAILURE = "FAILURE";
   public static final String TRUE = "TRUE";
+
+  public static final String ACTIVE = "ACTIVE";
   public static final String FALSE = "FALSE";
   public static final String USER_ADMIN_MESSAGE = "USER IS ADMIN";
   public static final String USER_NOT_ADMIN_MESSAGE = "USER IS NOT ADMIN";

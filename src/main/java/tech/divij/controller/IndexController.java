@@ -31,9 +31,21 @@ public class IndexController {
     return "/app/blog";
   }
 
+  @GetMapping("/blogs")
+  @LogActivity(activityType = "app")
+  public String blogPageRedirection(HttpServletRequest request) {
+    return "/app/blog";
+  }
+
   @GetMapping("/project")
   @LogActivity(activityType = "app")
   public String projectPage(HttpServletRequest request) {
+    return "/app/project";
+  }
+
+  @GetMapping("/projects")
+  @LogActivity(activityType = "app")
+  public String projectPageRedirection(HttpServletRequest request) {
     return "/app/project";
   }
 
