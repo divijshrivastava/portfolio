@@ -8,6 +8,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,25 +37,33 @@ import tech.divij.response.Response;
 
 class BlogServiceTest {
 
-  @InjectMocks BlogService sut;
+  @InjectMocks
+  BlogService sut;
 
-  @Mock BlogRepository blogRepository;
+  @Mock
+  BlogRepository blogRepository;
 
-  @Mock UserAuthenticationService userAuthenticationService;
+  @Mock
+  UserAuthenticationService userAuthenticationService;
 
-  @Mock BlogMapper blogMapper;
+  @Mock
+  BlogMapper blogMapper;
 
-  @Mock AuthorService authorService;
+  @Mock
+  AuthorService authorService;
+
+  @Mock
+  SitemapService sitemapService;
 
   private static BlogEntity getBlogEntity(String blogTitleLink, String status) {
     return BlogEntity.builder()
-        .id(1L)
-        .publishedOn(LocalDateTime.of(2022, 12, 12, 1, 1))
-        .heading("link")
-        .minutesToRead(12)
-        .coverPhotoId("30")
-        .content("This is my Blog.")
-        .upVotes(0)
+      .id(1L)
+      .publishedOn(LocalDateTime.of(2022, 12, 12, 1, 1))
+      .heading("link")
+      .minutesToRead(12)
+      .coverPhotoId("30")
+      .content("This is my Blog.")
+      .upVotes(0)
         .views(0)
         .coverPhotoIdDescription("This is cover photo.")
         .status(status)
@@ -361,7 +370,7 @@ class BlogServiceTest {
     // given
     String blogId = "1";
     when(userAuthenticationService.isAdmin()).thenReturn(true);
-
+    doNothing().when(sitemapService).addUrl(any());
     // when
     Response response = sut.approveBlog(blogId);
     // then
