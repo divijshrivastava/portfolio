@@ -18,6 +18,11 @@ const routes: Routes = [
     .then((m) => m.ProjectModule),
   },
   {
+    path: 'projects',
+    loadChildren: () => import ('./project/project.module')
+    .then((m) => m.ProjectModule),
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module')
     .then((m) => m.AdminModule),
