@@ -1,19 +1,82 @@
 <div class="container">
+  <div class="resume-container">
+    <h1>Divij Shrivastava</h1>
+    <h2>Software Engineer</h2>
+    <div class="contact-links">
+      <a href="https://github.com/divijshrivastava" target="_blank">Github</a> |
+      <a href="https://www.linkedin.com/in/divijshrivastava/" target="_blank">LinkedIn</a> |
+      <a href="https://divij.tech" target="_blank">Website</a>
+    </div>
 
-  <pdf-viewer [autoresize]="true"
-              [external-link-target]="'blank'"
-              [fit-to-page]="false"
-              [original-size]="false"
-              [render-text]="true"
-              [rotation]="0"
-              [show-all]="true"
-              [show-borders]="false"
-              [src]="resumeUrl"
-              [stick-to-page]="true"
-              [zoom-scale]="'page-width'"
-              [zoom]="1"
-  ></pdf-viewer>
+    <div class="resume-section">
+      <h3>EXPERIENCE (7 Years)</h3>
+      <div class="experience-item">
+        <strong>Morgan Stanley, Mumbai — Software Developer</strong><br>
+        <em>August 2021 - present</em>
+        <ul>
+          <li>Working in Sustainability (ESG) domain and building products to help with reporting
+            and portfolio management and pre trade.
+          </li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <strong>TIAA GBS, Pune — Software Developer</strong><br>
+        <em>June 2019 - August 2021</em>
+        <ul>
+          <li>Designed and developed a web application to streamline the purchase of insurance
+            products.
+          </li>
+          <li>Worked with Java and Angular to develop an Ecommerce-like web-application called UD
+            Prime.
+          </li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <strong>TCS, Pune — Assistant Systems Engineer</strong><br>
+        <em>March 2017 - June 2019</em>
+        <ul>
+          <li>Engineered a storage drive application called DG Drive using Java, Angular, Restful
+            Web Services, and MySQL.
+          </li>
+        </ul>
+      </div>
+    </div>
 
+    <div class="resume-section">
+      <h3>SKILLS</h3>
+      <div class="skills">
+        <div><strong>Backend:</strong><br>Java | Spring Boot | Gradle</div>
+        <div><strong>Frontend:</strong><br>Angular | HTML | CSS | JavaScript | REST</div>
+        <div><strong>Technology:</strong><br>MySQL, MongoDB, Git, Jenkins</div>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h3>AWARDS</h3>
+      <div class="award-item">
+        <strong>Tech Showcase 2023 & 2024</strong><br>
+        Contributed to the Sustainability team that won Tech Showcase two years in a row.
+      </div>
+      <div class="award-item">
+        <strong>Pat on the Back Award - TIAA</strong><br>
+        For exceptional performance in delivering applications on time.
+      </div>
+      <div class="award-item">
+        <strong>On the Spot Award - TCS</strong><br>
+        Solved a tricky production issue by identifying that the problem was with missing database
+        data, not code.
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h3>EDUCATION</h3>
+      <div class="education-item">
+        <strong>Shri Ram Institute of Technology, Jabalpur — B.E</strong><br>
+        <em>July 2012 - June 2016</em><br>
+        CGPA: 7.8
+      </div>
+    </div>
+  </div>
 
   <a href="{{resumeUrl}}">
     <div class="button_code">Download</div>

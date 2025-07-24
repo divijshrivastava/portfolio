@@ -30,13 +30,6 @@ public class IndexController {
   public String blogPage(HttpServletRequest request) {
     return "/app/blog";
   }
-
-  @GetMapping("/blogs")
-  @LogActivity(activityType = "app")
-  public String blogPageRedirection(HttpServletRequest request) {
-    return "/app/blog";
-  }
-
   @GetMapping("/project")
   @LogActivity(activityType = "app")
   public String projectPage(HttpServletRequest request) {
