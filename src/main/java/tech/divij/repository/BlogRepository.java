@@ -12,7 +12,7 @@ public interface BlogRepository extends JpaRepository<BlogEntity, Long> {
 
   @Modifying
   @Transactional
-  @Query(value = "update BLOG set STATUS='DELETED' where BLOG_ID=?1", nativeQuery = true)
+  @Query(value = "update BLOG b set b.status='DELETED' where b.id=?1")
   void deleteBlog(long id);
 
   @Modifying

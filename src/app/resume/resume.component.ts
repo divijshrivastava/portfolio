@@ -11,6 +11,10 @@ export class ResumeComponent implements OnInit {
 
   resumeUrl: string = '';
 
+  public toggleNightMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
   constructor(private util: UtilService) {
   }
 
