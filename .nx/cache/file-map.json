@@ -1,0 +1,1451 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.1.1",
+  "deps": {
+    "@angular/animations": "^15.0.0",
+    "@angular/cdk": "^15.2.8",
+    "@angular/common": "~15.2.8",
+    "@angular/compiler": "~15.2.8",
+    "@angular/core": "~15.2.8",
+    "@angular/forms": "~15.2.8",
+    "@angular/material": "^15.2.8",
+    "@angular/platform-browser": "~15.2.8",
+    "@angular/platform-browser-dynamic": "~15.2.8",
+    "@angular/platform-server": "~15.2.8",
+    "@angular/router": "~15.2.8",
+    "@ckeditor/ckeditor5-angular": "^2.0.2",
+    "@nguniversal/express-engine": "^15.0.0",
+    "@nrwl/angular": "^16.3.1",
+    "ckeditor5-custom-build": "file:ckeditor5",
+    "codelyzer": "^6.0.2",
+    "express": "^4.15.2",
+    "ng-recaptcha": "^11.0.0",
+    "ng2-pdf-viewer": "^9.1.5",
+    "ngx-extended-pdf-viewer": "^17.0.0-alpha.6",
+    "prism-themes": "^1.9.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "tslint": "^5.0.0",
+    "zone.js": "~0.12.0",
+    "@angular-devkit/build-angular": "^15.0.0",
+    "@angular/cli": "^15.0.0",
+    "@angular/compiler-cli": "^15.0.0",
+    "@nguniversal/builders": "^15.0.0",
+    "@types/express": "^4.17.0",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.11.1",
+    "@types/prosemirror-state": "^1.2.8",
+    "@types/prosemirror-view": "^1.19.1",
+    "clang-format": "^1.8.0",
+    "jasmine-core": "^4.5.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.7.0",
+    "prismjs": "^1.29.0",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "typescript": "^4.8.4"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".browserslistrc",
+        "hash": "2519363244570020624"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "6686520031028425313"
+      },
+      {
+        "file": ".github/workflows/gradle.yaml",
+        "hash": "5749432365946795448"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "9041735695520560370"
+      },
+      {
+        "file": ".nx/cache/file-map.json",
+        "hash": "4316594934092465197"
+      },
+      {
+        "file": ".nx/cache/lockfile.hash",
+        "hash": "2454059850383769617"
+      },
+      {
+        "file": ".nx/cache/parsed-lock-file.json",
+        "hash": "17155864984113408410"
+      },
+      {
+        "file": ".nx/cache/project-graph.json",
+        "hash": "17289852913997677231"
+      },
+      {
+        "file": "Dockerfile",
+        "hash": "6019092595041997381"
+      },
+      {
+        "file": "HELP.md",
+        "hash": "647575628091335961"
+      },
+      {
+        "file": "README.md",
+        "hash": "3804694247015088481"
+      },
+      {
+        "file": "build.gradle",
+        "hash": "1503070020729972576"
+      },
+      {
+        "file": "copy_portfolio_web_sudo.sh",
+        "hash": "3969569623261009522"
+      },
+      {
+        "file": "gradle/wrapper/gradle-wrapper.jar",
+        "hash": "10923558880262200508"
+      },
+      {
+        "file": "gradle/wrapper/gradle-wrapper.properties",
+        "hash": "2683262627403529794"
+      },
+      {
+        "file": "gradlew",
+        "hash": "12718530801484542334"
+      },
+      {
+        "file": "gradlew.bat",
+        "hash": "14060579739680633850"
+      },
+      {
+        "file": "package.json",
+        "hash": "3218923478434143516"
+      },
+      {
+        "file": "server.ts",
+        "hash": "10175674447873712356"
+      },
+      {
+        "file": "settings.gradle",
+        "hash": "6394717905854401788"
+      },
+      {
+        "file": "src/app/about/about.component.html",
+        "hash": "453725503898353250"
+      },
+      {
+        "file": "src/app/about/about.component.scss",
+        "hash": "12871583982523442018"
+      },
+      {
+        "file": "src/app/about/about.component.spec.ts",
+        "hash": "4201867071360358492"
+      },
+      {
+        "file": "src/app/about/about.component.ts",
+        "hash": "4194688747085108016"
+      },
+      {
+        "file": "src/app/admin/admin-routing.module.ts",
+        "hash": "3757778742861252958"
+      },
+      {
+        "file": "src/app/admin/admin.module.ts",
+        "hash": "7108032070032888327"
+      },
+      {
+        "file": "src/app/admin/dashboard/dashboard.component.html",
+        "hash": "12720040266696886756"
+      },
+      {
+        "file": "src/app/admin/dashboard/dashboard.component.scss",
+        "hash": "14871684496603189950"
+      },
+      {
+        "file": "src/app/admin/dashboard/dashboard.component.spec.ts",
+        "hash": "4286541135680587832"
+      },
+      {
+        "file": "src/app/admin/dashboard/dashboard.component.ts",
+        "hash": "11799436161330763476"
+      },
+      {
+        "file": "src/app/admin/dashboard-container/dashboard-container.component.html",
+        "hash": "9130595636072877742"
+      },
+      {
+        "file": "src/app/admin/dashboard-container/dashboard-container.component.scss",
+        "hash": "11955786302306762242"
+      },
+      {
+        "file": "src/app/admin/dashboard-container/dashboard-container.component.spec.ts",
+        "hash": "2042113815674398211"
+      },
+      {
+        "file": "src/app/admin/dashboard-container/dashboard-container.component.ts",
+        "hash": "2373328849513123288"
+      },
+      {
+        "file": "src/app/admin/inbox/inbox.component.html",
+        "hash": "2526921428276185517"
+      },
+      {
+        "file": "src/app/admin/inbox/inbox.component.scss",
+        "hash": "11684119520735305549"
+      },
+      {
+        "file": "src/app/admin/inbox/inbox.component.spec.ts",
+        "hash": "7546250421720632271"
+      },
+      {
+        "file": "src/app/admin/inbox/inbox.component.ts",
+        "hash": "9779888157172138593"
+      },
+      {
+        "file": "src/app/admin/settings/settings.component.html",
+        "hash": "9907009131485212260"
+      },
+      {
+        "file": "src/app/admin/settings/settings.component.scss",
+        "hash": "39995407439117926"
+      },
+      {
+        "file": "src/app/admin/settings/settings.component.spec.ts",
+        "hash": "1496163023812957542"
+      },
+      {
+        "file": "src/app/admin/settings/settings.component.ts",
+        "hash": "3735460860533239530"
+      },
+      {
+        "file": "src/app/admin/upload-docs/upload-docs.component.html",
+        "hash": "18320703071759449335"
+      },
+      {
+        "file": "src/app/admin/upload-docs/upload-docs.component.scss",
+        "hash": "13341199607370264599"
+      },
+      {
+        "file": "src/app/admin/upload-docs/upload-docs.component.spec.ts",
+        "hash": "3781939976551132046"
+      },
+      {
+        "file": "src/app/admin/upload-docs/upload-docs.component.ts",
+        "hash": "15003373183064483364"
+      },
+      {
+        "file": "src/app/admin/upload-resume/upload-resume.component.html",
+        "hash": "17020333398653897678"
+      },
+      {
+        "file": "src/app/admin/upload-resume/upload-resume.component.scss",
+        "hash": "13341199607370264599"
+      },
+      {
+        "file": "src/app/admin/upload-resume/upload-resume.component.spec.ts",
+        "hash": "2887061194915819014"
+      },
+      {
+        "file": "src/app/admin/upload-resume/upload-resume.component.ts",
+        "hash": "17504635720455169895"
+      },
+      {
+        "file": "src/app/admin/user-activity/UserActivity.ts",
+        "hash": "1146001794841524836"
+      },
+      {
+        "file": "src/app/admin/user-activity/user-activity.component.html",
+        "hash": "7274317310993418674"
+      },
+      {
+        "file": "src/app/admin/user-activity/user-activity.component.scss",
+        "hash": "11684119520735305549"
+      },
+      {
+        "file": "src/app/admin/user-activity/user-activity.component.spec.ts",
+        "hash": "7595792380428044775"
+      },
+      {
+        "file": "src/app/admin/user-activity/user-activity.component.ts",
+        "hash": "7177002958183129375"
+      },
+      {
+        "file": "src/app/app-routing.module.ts",
+        "hash": "12320437099841570119"
+      },
+      {
+        "file": "src/app/app.component.html",
+        "hash": "3095977829392394583"
+      },
+      {
+        "file": "src/app/app.component.scss",
+        "hash": "13352667188509278643"
+      },
+      {
+        "file": "src/app/app.component.spec.ts",
+        "hash": "8575951584040645786"
+      },
+      {
+        "file": "src/app/app.component.ts",
+        "hash": "1139955172647541019"
+      },
+      {
+        "file": "src/app/app.module.ts",
+        "hash": "5620823569428029041"
+      },
+      {
+        "file": "src/app/app.server.module.ts",
+        "hash": "6503996163743773295"
+      },
+      {
+        "file": "src/app/blog/blog-container/blog.component.html",
+        "hash": "2622974956018373416"
+      },
+      {
+        "file": "src/app/blog/blog-container/blog.component.scss",
+        "hash": "6692875555280201586"
+      },
+      {
+        "file": "src/app/blog/blog-container/blog.component.spec.ts",
+        "hash": "2490533905345401083"
+      },
+      {
+        "file": "src/app/blog/blog-container/blog.component.ts",
+        "hash": "7712394404389317626"
+      },
+      {
+        "file": "src/app/blog/blog-index/blog-index.component.html",
+        "hash": "13367590320976250569"
+      },
+      {
+        "file": "src/app/blog/blog-index/blog-index.component.scss",
+        "hash": "10222908278476874936"
+      },
+      {
+        "file": "src/app/blog/blog-index/blog-index.component.spec.ts",
+        "hash": "9552164691844662653"
+      },
+      {
+        "file": "src/app/blog/blog-index/blog-index.component.ts",
+        "hash": "14875308998441894910"
+      },
+      {
+        "file": "src/app/blog/blog-page/blog-page-routing.module.ts",
+        "hash": "12389343640744871583"
+      },
+      {
+        "file": "src/app/blog/blog-page/blog-page.component.html",
+        "hash": "13671162528287855769"
+      },
+      {
+        "file": "src/app/blog/blog-page/blog-page.component.scss",
+        "hash": "6264978599917453542"
+      },
+      {
+        "file": "src/app/blog/blog-page/blog-page.component.spec.ts",
+        "hash": "18414499618326923688"
+      },
+      {
+        "file": "src/app/blog/blog-page/blog-page.component.ts",
+        "hash": "6598720644492983248"
+      },
+      {
+        "file": "src/app/blog/blog-page/blog-page.module.ts",
+        "hash": "5166082361781959262"
+      },
+      {
+        "file": "src/app/blog/blog-routing.module.ts",
+        "hash": "2559018277968452528"
+      },
+      {
+        "file": "src/app/blog/blog-summary/blog-summary.component.html",
+        "hash": "19028073843910578"
+      },
+      {
+        "file": "src/app/blog/blog-summary/blog-summary.component.scss",
+        "hash": "1552097130267819257"
+      },
+      {
+        "file": "src/app/blog/blog-summary/blog-summary.component.spec.ts",
+        "hash": "17940389991825198701"
+      },
+      {
+        "file": "src/app/blog/blog-summary/blog-summary.component.ts",
+        "hash": "1311866310427629005"
+      },
+      {
+        "file": "src/app/blog/blog-summary.ts",
+        "hash": "15285529413948740964"
+      },
+      {
+        "file": "src/app/blog/blog.module.ts",
+        "hash": "12827102595674354869"
+      },
+      {
+        "file": "src/app/blog/create-blog/adapter/image-upload-adapter.ts",
+        "hash": "8198828427003464471"
+      },
+      {
+        "file": "src/app/blog/create-blog/create-blog-routing.module.ts",
+        "hash": "4276464001532659921"
+      },
+      {
+        "file": "src/app/blog/create-blog/create-blog.component.html",
+        "hash": "12526661239848174182"
+      },
+      {
+        "file": "src/app/blog/create-blog/create-blog.component.scss",
+        "hash": "1478660521230409527"
+      },
+      {
+        "file": "src/app/blog/create-blog/create-blog.component.spec.ts",
+        "hash": "15368209993692330635"
+      },
+      {
+        "file": "src/app/blog/create-blog/create-blog.component.ts",
+        "hash": "4801709168873418997"
+      },
+      {
+        "file": "src/app/blog/create-blog/create-blog.module.ts",
+        "hash": "6104012596088679829"
+      },
+      {
+        "file": "src/app/blog/type.d.ts",
+        "hash": "11061153058245082606"
+      },
+      {
+        "file": "src/app/contact/UserContact.ts",
+        "hash": "4764255191281647676"
+      },
+      {
+        "file": "src/app/contact/contact.component.html",
+        "hash": "683362322990860342"
+      },
+      {
+        "file": "src/app/contact/contact.component.scss",
+        "hash": "12320436801411076253"
+      },
+      {
+        "file": "src/app/contact/contact.component.spec.ts",
+        "hash": "5873412151163942306"
+      },
+      {
+        "file": "src/app/contact/contact.component.ts",
+        "hash": "4770859593827477587"
+      },
+      {
+        "file": "src/app/error/error/error.component.html",
+        "hash": "13059689724564904851"
+      },
+      {
+        "file": "src/app/error/error/error.component.scss",
+        "hash": "14656663856718093963"
+      },
+      {
+        "file": "src/app/error/error/error.component.spec.ts",
+        "hash": "8450007383857004110"
+      },
+      {
+        "file": "src/app/error/error/error.component.ts",
+        "hash": "5255763321058477916"
+      },
+      {
+        "file": "src/app/footer/footer.component.html",
+        "hash": "15038856471436133067"
+      },
+      {
+        "file": "src/app/footer/footer.component.scss",
+        "hash": "16174601857404694194"
+      },
+      {
+        "file": "src/app/footer/footer.component.spec.ts",
+        "hash": "11006288738404545272"
+      },
+      {
+        "file": "src/app/footer/footer.component.ts",
+        "hash": "5166783666092976847"
+      },
+      {
+        "file": "src/app/header/header.component.html",
+        "hash": "7986409048063620750"
+      },
+      {
+        "file": "src/app/header/header.component.scss",
+        "hash": "14480032389340627517"
+      },
+      {
+        "file": "src/app/header/header.component.spec.ts",
+        "hash": "513356315440349850"
+      },
+      {
+        "file": "src/app/header/header.component.ts",
+        "hash": "10544978482611621231"
+      },
+      {
+        "file": "src/app/home/home.component.html",
+        "hash": "286749460152962524"
+      },
+      {
+        "file": "src/app/home/home.component.scss",
+        "hash": "12004817495719956741"
+      },
+      {
+        "file": "src/app/home/home.component.spec.ts",
+        "hash": "3928897093377710383"
+      },
+      {
+        "file": "src/app/home/home.component.ts",
+        "hash": "17372134843290820474"
+      },
+      {
+        "file": "src/app/navigation/navigation.component.html",
+        "hash": "1769543468363077438"
+      },
+      {
+        "file": "src/app/navigation/navigation.component.scss",
+        "hash": "10289116382912590216"
+      },
+      {
+        "file": "src/app/navigation/navigation.component.spec.ts",
+        "hash": "1750102914068004850"
+      },
+      {
+        "file": "src/app/navigation/navigation.component.ts",
+        "hash": "13905883601455621491"
+      },
+      {
+        "file": "src/app/project/create-project/create-project-routing.module.ts",
+        "hash": "5678937134497533749"
+      },
+      {
+        "file": "src/app/project/create-project/create-project.component.html",
+        "hash": "5876416691229081558"
+      },
+      {
+        "file": "src/app/project/create-project/create-project.component.scss",
+        "hash": "13619714730004594352"
+      },
+      {
+        "file": "src/app/project/create-project/create-project.component.spec.ts",
+        "hash": "8686205712975642457"
+      },
+      {
+        "file": "src/app/project/create-project/create-project.component.ts",
+        "hash": "14733054071243411083"
+      },
+      {
+        "file": "src/app/project/create-project/create-project.module.ts",
+        "hash": "12950709119821611109"
+      },
+      {
+        "file": "src/app/project/create-project/github-code-form/github-code-form.component.html",
+        "hash": "10480981559357873540"
+      },
+      {
+        "file": "src/app/project/create-project/github-code-form/github-code-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/project/create-project/github-code-form/github-code-form.component.spec.ts",
+        "hash": "10502743664903907485"
+      },
+      {
+        "file": "src/app/project/create-project/github-code-form/github-code-form.component.ts",
+        "hash": "2268347443220910282"
+      },
+      {
+        "file": "src/app/project/create-project/website-form/website-form.component.html",
+        "hash": "10480981559357873540"
+      },
+      {
+        "file": "src/app/project/create-project/website-form/website-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/project/create-project/website-form/website-form.component.spec.ts",
+        "hash": "9416211010800209825"
+      },
+      {
+        "file": "src/app/project/create-project/website-form/website-form.component.ts",
+        "hash": "12839123727140707462"
+      },
+      {
+        "file": "src/app/project/create-project/ytvideo-form/ytvideo-form.component.html",
+        "hash": "3333280617959225789"
+      },
+      {
+        "file": "src/app/project/create-project/ytvideo-form/ytvideo-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/project/create-project/ytvideo-form/ytvideo-form.component.spec.ts",
+        "hash": "9587070113105196389"
+      },
+      {
+        "file": "src/app/project/create-project/ytvideo-form/ytvideo-form.component.ts",
+        "hash": "110656579034824798"
+      },
+      {
+        "file": "src/app/project/project-card/project-card.component.html",
+        "hash": "16350120036806202507"
+      },
+      {
+        "file": "src/app/project/project-card/project-card.component.scss",
+        "hash": "15492448903143721342"
+      },
+      {
+        "file": "src/app/project/project-card/project-card.component.spec.ts",
+        "hash": "11065919921953651282"
+      },
+      {
+        "file": "src/app/project/project-card/project-card.component.ts",
+        "hash": "7128666761098568660"
+      },
+      {
+        "file": "src/app/project/project-container/project-container.component.html",
+        "hash": "145098203177319093"
+      },
+      {
+        "file": "src/app/project/project-container/project-container.component.scss",
+        "hash": "1258592730750139889"
+      },
+      {
+        "file": "src/app/project/project-container/project-container.component.spec.ts",
+        "hash": "10676328667498153701"
+      },
+      {
+        "file": "src/app/project/project-container/project-container.component.ts",
+        "hash": "15477541476481738207"
+      },
+      {
+        "file": "src/app/project/project-index/project.component.html",
+        "hash": "2812086608069992787"
+      },
+      {
+        "file": "src/app/project/project-index/project.component.scss",
+        "hash": "2578542996358650964"
+      },
+      {
+        "file": "src/app/project/project-index/project.component.spec.ts",
+        "hash": "15156825291850227971"
+      },
+      {
+        "file": "src/app/project/project-index/project.component.ts",
+        "hash": "1427769906439609883"
+      },
+      {
+        "file": "src/app/project/project-routing.module.ts",
+        "hash": "352846275826660535"
+      },
+      {
+        "file": "src/app/project/project.module.ts",
+        "hash": "14692880125296257553"
+      },
+      {
+        "file": "src/app/resume/resume-routing.module.ts",
+        "hash": "9715508749395297979"
+      },
+      {
+        "file": "src/app/resume/resume.component.html",
+        "hash": "17410924563954225141"
+      },
+      {
+        "file": "src/app/resume/resume.component.scss",
+        "hash": "11465063354609151886"
+      },
+      {
+        "file": "src/app/resume/resume.component.spec.ts",
+        "hash": "17800793363220410307"
+      },
+      {
+        "file": "src/app/resume/resume.component.ts",
+        "hash": "6828950659804623200"
+      },
+      {
+        "file": "src/app/resume/resume.module.ts",
+        "hash": "3167873159818208407"
+      },
+      {
+        "file": "src/app/safe-html.pipe.spec.ts",
+        "hash": "771550526917690494"
+      },
+      {
+        "file": "src/app/safe-html.pipe.ts",
+        "hash": "1476819311815865178"
+      },
+      {
+        "file": "src/app/services/fetch-service.service.spec.ts",
+        "hash": "4838327447552094371"
+      },
+      {
+        "file": "src/app/services/fetch-service.service.ts",
+        "hash": "17717367336800146973"
+      },
+      {
+        "file": "src/app/services/guard-blog.service.ts",
+        "hash": "12635652378738444213"
+      },
+      {
+        "file": "src/app/services/guard.service.ts",
+        "hash": "14935944893730121813"
+      },
+      {
+        "file": "src/app/services/highlight.service.ts",
+        "hash": "4540770341579200197"
+      },
+      {
+        "file": "src/app/services/user-activity.service.spec.ts",
+        "hash": "17008228056763457410"
+      },
+      {
+        "file": "src/app/services/user-activity.service.ts",
+        "hash": "3418530164996618567"
+      },
+      {
+        "file": "src/app/services/user.service.spec.ts",
+        "hash": "13293454431967078697"
+      },
+      {
+        "file": "src/app/services/user.service.ts",
+        "hash": "2348014582662425570"
+      },
+      {
+        "file": "src/app/services/util.service.spec.ts",
+        "hash": "9595112563339318330"
+      },
+      {
+        "file": "src/app/services/util.service.ts",
+        "hash": "4722104561099837739"
+      },
+      {
+        "file": "src/app/shared/nav-button/nav-button.component.html",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/shared/nav-button/nav-button.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/shared/nav-button/nav-button.component.spec.ts",
+        "hash": "9679524506450694248"
+      },
+      {
+        "file": "src/app/shared/nav-button/nav-button.component.ts",
+        "hash": "9563640903439073318"
+      },
+      {
+        "file": "src/app/shared/window.token.ts",
+        "hash": "5409264727812898680"
+      },
+      {
+        "file": "src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/assets/favicon/android-icon-144x144.png",
+        "hash": "6121942698332479453"
+      },
+      {
+        "file": "src/assets/favicon/android-icon-192x192.png",
+        "hash": "11769085039213710856"
+      },
+      {
+        "file": "src/assets/favicon/android-icon-36x36.png",
+        "hash": "17416905813967289316"
+      },
+      {
+        "file": "src/assets/favicon/android-icon-48x48.png",
+        "hash": "16794026070398523342"
+      },
+      {
+        "file": "src/assets/favicon/android-icon-72x72.png",
+        "hash": "5765581128981456206"
+      },
+      {
+        "file": "src/assets/favicon/android-icon-96x96.png",
+        "hash": "4735702779514020364"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-114x114.png",
+        "hash": "7765706451632326736"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-120x120.png",
+        "hash": "1687593925729641078"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-144x144.png",
+        "hash": "6121942698332479453"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-152x152.png",
+        "hash": "12245145735922746899"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-180x180.png",
+        "hash": "8164833655149802561"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-57x57.png",
+        "hash": "1687648065151562296"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-60x60.png",
+        "hash": "342184354683079491"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-72x72.png",
+        "hash": "5765581128981456206"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-76x76.png",
+        "hash": "13253989311813204585"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon-precomposed.png",
+        "hash": "5236945279346868723"
+      },
+      {
+        "file": "src/assets/favicon/apple-icon.png",
+        "hash": "5236945279346868723"
+      },
+      {
+        "file": "src/assets/favicon/browserconfig.xml",
+        "hash": "17041884125625050586"
+      },
+      {
+        "file": "src/assets/favicon/favicon-16x16.png",
+        "hash": "10934335748181378502"
+      },
+      {
+        "file": "src/assets/favicon/favicon-32x32.png",
+        "hash": "17185959701900791955"
+      },
+      {
+        "file": "src/assets/favicon/favicon-96x96.png",
+        "hash": "4735702779514020364"
+      },
+      {
+        "file": "src/assets/favicon/favicon.ico",
+        "hash": "17370238088760099803"
+      },
+      {
+        "file": "src/assets/favicon/manifest.json",
+        "hash": "6291115468706229054"
+      },
+      {
+        "file": "src/assets/favicon/ms-icon-144x144.png",
+        "hash": "6121942698332479453"
+      },
+      {
+        "file": "src/assets/favicon/ms-icon-150x150.png",
+        "hash": "8098257278234510000"
+      },
+      {
+        "file": "src/assets/favicon/ms-icon-310x310.png",
+        "hash": "1369730448547322758"
+      },
+      {
+        "file": "src/assets/favicon/ms-icon-70x70.png",
+        "hash": "12292637092775072242"
+      },
+      {
+        "file": "src/assets/images/28.png",
+        "hash": "1908015166545652624"
+      },
+      {
+        "file": "src/assets/images/USM_SS.png",
+        "hash": "16938622580021910174"
+      },
+      {
+        "file": "src/assets/images/android-icon-36x36.png",
+        "hash": "17416905813967289316"
+      },
+      {
+        "file": "src/assets/images/apple-icon-72x72.png",
+        "hash": "5765581128981456206"
+      },
+      {
+        "file": "src/assets/images/brace-yourself-blog-posts-are-coming.jpg",
+        "hash": "12937679613684466637"
+      },
+      {
+        "file": "src/assets/images/brace-yourselves-projects.jpg",
+        "hash": "14880816950140491706"
+      },
+      {
+        "file": "src/assets/images/chrome_extension_image.jpg",
+        "hash": "47876811957787611"
+      },
+      {
+        "file": "src/assets/images/chrome_tabs.jpg",
+        "hash": "2909199719825887987"
+      },
+      {
+        "file": "src/assets/images/display pic colored sillhout.png",
+        "hash": "4971812957639639322"
+      },
+      {
+        "file": "src/assets/images/display-pic-ConvertImage.png",
+        "hash": "13245865237365413313"
+      },
+      {
+        "file": "src/assets/images/docker_network.png",
+        "hash": "11958028111387734575"
+      },
+      {
+        "file": "src/assets/images/google_dark.jpg",
+        "hash": "1119729813268620984"
+      },
+      {
+        "file": "src/assets/images/icons8-chevron-right-96.png",
+        "hash": "1647888444385280658"
+      },
+      {
+        "file": "src/assets/images/imageonline-co-blackandwhiteimage.png",
+        "hash": "15638081426603114930"
+      },
+      {
+        "file": "src/assets/images/omnifood.png",
+        "hash": "16387521448825352395"
+      },
+      {
+        "file": "src/assets/images/opengraph-media-image-divij-tech.png",
+        "hash": "549713184723241259"
+      },
+      {
+        "file": "src/assets/images/programmer.png",
+        "hash": "2786174781899657803"
+      },
+      {
+        "file": "src/assets/images/pwa.png",
+        "hash": "2528431029803664027"
+      },
+      {
+        "file": "src/assets/images/rabbit_in_hole.avif",
+        "hash": "7437931805018727367"
+      },
+      {
+        "file": "src/assets/images/recipe.jpg",
+        "hash": "416149719252885019"
+      },
+      {
+        "file": "src/assets/images/smallsized/USM_SS.jpg",
+        "hash": "321702610999293130"
+      },
+      {
+        "file": "src/assets/images/smallsized/author-face.png",
+        "hash": "2249855112426437939"
+      },
+      {
+        "file": "src/assets/images/smallsized/brace-yourself-blog-posts-are-coming.jpg",
+        "hash": "3304356524499397707"
+      },
+      {
+        "file": "src/assets/images/smallsized/brace-yourselves-projects.jpg",
+        "hash": "9751206052011632968"
+      },
+      {
+        "file": "src/assets/images/smallsized/display pic colored sillhout.png",
+        "hash": "9600749606703865818"
+      },
+      {
+        "file": "src/assets/images/statemachine1.png",
+        "hash": "18358859424592342772"
+      },
+      {
+        "file": "src/assets/images/thick-arrow-pointing-down-pink.png",
+        "hash": "14192403436451857915"
+      },
+      {
+        "file": "src/assets/images/thick-arrow-pointing-down.png",
+        "hash": "13982128946303721440"
+      },
+      {
+        "file": "src/assets/images/vscode_java.png",
+        "hash": "11117238965319384946"
+      },
+      {
+        "file": "src/assets/video/Corner Network.mp4",
+        "hash": "5398542371180617913"
+      },
+      {
+        "file": "src/environments/environment.dev.ts",
+        "hash": "5662254778107370345"
+      },
+      {
+        "file": "src/environments/environment.prod.ts",
+        "hash": "14973478619948943684"
+      },
+      {
+        "file": "src/environments/environment.staging.ts",
+        "hash": "12455955728552657145"
+      },
+      {
+        "file": "src/environments/environment.ts",
+        "hash": "11565544027861777293"
+      },
+      {
+        "file": "src/favicon.ico",
+        "hash": "3464744996580215640"
+      },
+      {
+        "file": "src/index.html",
+        "hash": "15937193465008457393"
+      },
+      {
+        "file": "src/main/java/tech/divij/PortfolioApplication.java",
+        "hash": "4804661833623226195"
+      },
+      {
+        "file": "src/main/java/tech/divij/ServletInitializer.java",
+        "hash": "10286793905925318999"
+      },
+      {
+        "file": "src/main/java/tech/divij/aspect/ActivityLogger.java",
+        "hash": "2372009086707218855"
+      },
+      {
+        "file": "src/main/java/tech/divij/aspect/LogActivity.java",
+        "hash": "8821059575859038752"
+      },
+      {
+        "file": "src/main/java/tech/divij/config/AsyncConfig.java",
+        "hash": "3029873514909492657"
+      },
+      {
+        "file": "src/main/java/tech/divij/config/PortfolioConfig.java",
+        "hash": "11329379503596834999"
+      },
+      {
+        "file": "src/main/java/tech/divij/config/SecurityConfiguration.java",
+        "hash": "11281185910804281601"
+      },
+      {
+        "file": "src/main/java/tech/divij/constants/BlogStatus.java",
+        "hash": "16975368175070413687"
+      },
+      {
+        "file": "src/main/java/tech/divij/constants/Constants.java",
+        "hash": "8473741535484889372"
+      },
+      {
+        "file": "src/main/java/tech/divij/constants/Month.java",
+        "hash": "14812838501034319537"
+      },
+      {
+        "file": "src/main/java/tech/divij/constants/ProjectStatus.java",
+        "hash": "14782669581577628526"
+      },
+      {
+        "file": "src/main/java/tech/divij/constants/ProjectType.java",
+        "hash": "16220645585094318727"
+      },
+      {
+        "file": "src/main/java/tech/divij/constants/Role.java",
+        "hash": "12037064850414435612"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/AuthController.java",
+        "hash": "10042948358014219446"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/BlogController.java",
+        "hash": "13807008725541250212"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/FileController.java",
+        "hash": "14435940459786371684"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/HealthController.java",
+        "hash": "7886752173873130542"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/IndexController.java",
+        "hash": "51535288747086927"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/ProjectController.java",
+        "hash": "16067797625344456619"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/ResumeController.java",
+        "hash": "6271063977518687386"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/SitemapController.java",
+        "hash": "14770442801247808796"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/UserActivityController.java",
+        "hash": "9694037894482089242"
+      },
+      {
+        "file": "src/main/java/tech/divij/controller/UserContactController.java",
+        "hash": "11684992547220178079"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/BlogDto.java",
+        "hash": "15944865155529888167"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/BlogSummary.java",
+        "hash": "8770599219915392424"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/ChangeFrequency.java",
+        "hash": "9530339697521484889"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/ProjectDto.java",
+        "hash": "10584946257590018425"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/ProjectWrapper.java",
+        "hash": "11806142705240312488"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/SitemapEntryDTO.java",
+        "hash": "16316707555502343803"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/UserActivityDto.java",
+        "hash": "4761916443446060616"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/UserContactDto.java",
+        "hash": "11144319718598004587"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/UserDto.java",
+        "hash": "2211665529017957101"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/project/CodeProjectDto.java",
+        "hash": "4297092392000614310"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/project/WebsiteProjectDto.java",
+        "hash": "12665204978259020495"
+      },
+      {
+        "file": "src/main/java/tech/divij/dto/project/YtVideoProjectDto.java",
+        "hash": "16104281140761662015"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/AuthorEntity.java",
+        "hash": "1881670864754305490"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/Authority.java",
+        "hash": "11375986384124930620"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/BlogEntity.java",
+        "hash": "10983748650377975042"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/FileEntity.java",
+        "hash": "5705861965112364960"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/ResumeEntity.java",
+        "hash": "9494019292460918482"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/SitemapEntity.java",
+        "hash": "14834504053177454466"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/UserActivity.java",
+        "hash": "2364456128582264283"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/UserContactEntity.java",
+        "hash": "16627732694933553608"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/UserCredEntity.java",
+        "hash": "16188822931803943368"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/UserEntity.java",
+        "hash": "16862739828808353753"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/project/CodeProjectEntity.java",
+        "hash": "16958762718884827741"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/project/ProjectEntity.java",
+        "hash": "7031147095406195163"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/project/WebsiteProjectEntity.java",
+        "hash": "12432177042614018982"
+      },
+      {
+        "file": "src/main/java/tech/divij/entity/project/YtVideoEntity.java",
+        "hash": "2398142142667340220"
+      },
+      {
+        "file": "src/main/java/tech/divij/exceptions/BlogNotFoundException.java",
+        "hash": "1407217918541685967"
+      },
+      {
+        "file": "src/main/java/tech/divij/exceptions/FileIsEmpty.java",
+        "hash": "10013364208566319941"
+      },
+      {
+        "file": "src/main/java/tech/divij/exceptions/FileTooLargeException.java",
+        "hash": "12614753777675518124"
+      },
+      {
+        "file": "src/main/java/tech/divij/exceptions/IllegalFileTypeException.java",
+        "hash": "802139854846638939"
+      },
+      {
+        "file": "src/main/java/tech/divij/mapper/BlogMapper.java",
+        "hash": "4664110590408750325"
+      },
+      {
+        "file": "src/main/java/tech/divij/mapper/ChangeFrequencyConverter.java",
+        "hash": "8714029480275879243"
+      },
+      {
+        "file": "src/main/java/tech/divij/mapper/ProjectMapper.java",
+        "hash": "16238567286055463574"
+      },
+      {
+        "file": "src/main/java/tech/divij/mapper/UserActivityMapper.java",
+        "hash": "15675491182310149000"
+      },
+      {
+        "file": "src/main/java/tech/divij/mapper/UserContactMapper.java",
+        "hash": "17922263717962507787"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/AuthorRepository.java",
+        "hash": "2752814893301476397"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/BlogRepository.java",
+        "hash": "11272974954693025006"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/CodeProjectRepository.java",
+        "hash": "6119448675800601938"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/DownloadRepository.java",
+        "hash": "11868769297985448619"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/ProjectRepository.java",
+        "hash": "10194646387344127131"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/ResumeRepository.java",
+        "hash": "12085172903853727519"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/SitemapRepository.java",
+        "hash": "5922218413523059810"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/UploadRepository.java",
+        "hash": "13082933180718838766"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/UserActivityRepository.java",
+        "hash": "8437810221006885425"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/UserContactRepository.java",
+        "hash": "988181719174433174"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/UserCredRepo.java",
+        "hash": "6013334289962366821"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/UserRepo.java",
+        "hash": "16108544363518223135"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/WebsiteProjectRepository.java",
+        "hash": "3036883192326822857"
+      },
+      {
+        "file": "src/main/java/tech/divij/repository/YtVideoProjectRepository.java",
+        "hash": "11291836290952253957"
+      },
+      {
+        "file": "src/main/java/tech/divij/request/ProjectRequest.java",
+        "hash": "16190348692337812780"
+      },
+      {
+        "file": "src/main/java/tech/divij/response/BlogUploadResponse.java",
+        "hash": "13460453939378456386"
+      },
+      {
+        "file": "src/main/java/tech/divij/response/Response.java",
+        "hash": "5177323285042299274"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/AuthService.java",
+        "hash": "6221061758318705598"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/AuthorService.java",
+        "hash": "975291048002552679"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/BlogService.java",
+        "hash": "2284435269322578671"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/ContactService.java",
+        "hash": "15862647848027268923"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/DownloadService.java",
+        "hash": "212052675827206486"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/FileService.java",
+        "hash": "13973205251913575059"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/PortfolioUserDetailsService.java",
+        "hash": "17483059048266590118"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/ProjectService.java",
+        "hash": "6415926437196720741"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/RecaptchaService.java",
+        "hash": "9820510671212118291"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/ResumeService.java",
+        "hash": "3849728447805202777"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/SitemapService.java",
+        "hash": "4652439995339113380"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/UploadService.java",
+        "hash": "7644476293392691225"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/UserActivityService.java",
+        "hash": "13570451407445823239"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/UserAuthenticationService.java",
+        "hash": "9206945064080252618"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/UserContactService.java",
+        "hash": "9634533860351014527"
+      },
+      {
+        "file": "src/main/java/tech/divij/service/UserService.java",
+        "hash": "8890886920004996920"
+      },
+      {
+        "file": "src/main/java/tech/divij/strategy/AnonymousProjectStrategy.java",
+        "hash": "5877759838434180619"
+      },
+      {
+        "file": "src/main/java/tech/divij/strategy/CodeProjectStrategy.java",
+        "hash": "13208106329193010914"
+      },
+      {
+        "file": "src/main/java/tech/divij/strategy/ProjectStrategy.java",
+        "hash": "17917536319684761316"
+      },
+      {
+        "file": "src/main/java/tech/divij/strategy/VideoProjectStrategy.java",
+        "hash": "7191994183435253948"
+      },
+      {
+        "file": "src/main/java/tech/divij/strategy/WebsiteProjectStrategy.java",
+        "hash": "10245238626549822413"
+      },
+      {
+        "file": "src/main/java/tech/divij/strategy/factory/ProjectStrategyFactory.java",
+        "hash": "5223867674029526676"
+      },
+      {
+        "file": "src/main/java/tech/divij/util/DateUtil.java",
+        "hash": "460754359788599009"
+      },
+      {
+        "file": "src/main.server.ts",
+        "hash": "12897001626775409618"
+      },
+      {
+        "file": "src/main.ts",
+        "hash": "13118708455737350415"
+      },
+      {
+        "file": "src/polyfills.ts",
+        "hash": "6937297898579757844"
+      },
+      {
+        "file": "src/proxy.config.json",
+        "hash": "8168233103873028899"
+      },
+      {
+        "file": "src/styles.scss",
+        "hash": "8321113065691885518"
+      },
+      {
+        "file": "src/test/java/tech/divij/DemoApplicationTests.java",
+        "hash": "7952681631093085613"
+      },
+      {
+        "file": "src/test/java/tech/divij/service/BlogDtoServiceTest.java",
+        "hash": "731494046884849807"
+      },
+      {
+        "file": "src/test/java/tech/divij/service/BlogServiceTest.java",
+        "hash": "13314284398679898949"
+      },
+      {
+        "file": "src/test.ts",
+        "hash": "12522131529096238882"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "9041030522571917449"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "15433377517665727132"
+      },
+      {
+        "file": "tsconfig.server.json",
+        "hash": "13185202582047589967"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "17198424518534092990"
+      },
+      {
+        "file": "tslint.json",
+        "hash": "18172618709286815239"
+      }
+    ]
+  }
+}

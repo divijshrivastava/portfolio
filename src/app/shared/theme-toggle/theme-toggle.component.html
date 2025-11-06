@@ -1,0 +1,7 @@
+<button
+  class="theme-toggle"
+  (click)="toggleTheme()"
+  [attr.aria-label]="'Switch to ' + themeLabel"
+  [title]="'Switch to ' + themeLabel">
+  <span class="theme-toggle-icon">{{ themeIcon }}</span>
+</button>

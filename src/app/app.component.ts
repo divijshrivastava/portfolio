@@ -3,6 +3,7 @@ import {ActivatedRoute, NavigationSkipped, NavigationStart, Router} from '@angul
 import {filter} from 'rxjs/operators';
 import {UserService} from './services/user.service';
 import {UtilService} from './services/util.service';
+import {ThemeService} from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,10 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService,
               private utilService: UtilService,
-              private router: Router, private activatedRoute: ActivatedRoute) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private themeService: ThemeService) {
+    // Initialize theme service (it will automatically apply the saved theme)
   }
 
   ngOnInit(): void {

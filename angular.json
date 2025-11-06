@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "buildOptimizer": false,
-            "outputPath": "src/main/resources/static/app",
+            "outputPath": "dist/divij_tech/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,7 +62,7 @@
               "sourceMap": true,
               "optimization": false
             },
-            "prod": {
+            "production": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -198,7 +198,12 @@
             "browserTarget": "divij_tech:build:production",
             "serverTarget": "divij_tech:server:production",
             "routes": [
-              "/"
+              "/",
+              "/resume",
+              "/blog",
+              "/project",
+              "/projects",
+              "/blogs"
             ]
           },
           "configurations": {

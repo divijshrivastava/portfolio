@@ -1,8 +1,9 @@
 .container {
-  background: #472a3ff3;
+  background: var(--bg-secondary);
   height: 25vh;
   width: 100%;
   font-family: 'Dancing Script', cursive;
+  transition: background 0.3s ease;
 }
 
 .row {
@@ -58,50 +59,55 @@
 
 
 .arrow {
-  border: 1px solid white;
+  border: 1px solid var(--text-primary);
   height: 50px;
   width: 50px;
   transform: scale(1);
   position: relative;
   border-radius: 25px;
+  transition: border-color 0.3s ease;
 }
 
 
 .left-arm {
   margin-top: 23%;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--text-primary);
   height: 16px;
   width: 4px;
   border-radius: 0px 25px 25px 25px;
   position: absolute;
   margin-left: 17px;
   transform: rotate(45deg);
+  transition: background-color 0.3s ease;
 }
 
 .right-arm {
   margin-top: 23%;
   position: absolute;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--text-primary);
   height: 16px;
   width: 4px;
   border-radius: 25px 0px 25px 25px;
   transform: rotate(-45deg);
   margin-left: 29px;
+  transition: background-color 0.3s ease;
 }
 
 
 .middle-arm {
   margin-top: 23%;
   position: absolute;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--text-primary);
   height: 30px;
   width: 4px;
   border-radius: 25px 25px 25px 25px;
   margin-left: 23px;
+  transition: background-color 0.3s ease;
 }
 
 .sitemap {
-  color: #472a3ff3;
+  color: var(--bg-secondary);
+  transition: color 0.3s ease;
 }
 
 @media only screen and (orientation: portrait) {

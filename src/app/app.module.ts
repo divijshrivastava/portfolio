@@ -17,6 +17,7 @@ import {HomeComponent} from './home/home.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {CsrfInterceptor} from './services/csrf.interceptor';
 import {NavButtonComponent} from './shared/nav-button/nav-button.component';
+import {ThemeToggleComponent} from './shared/theme-toggle/theme-toggle.component';
 import {WINDOW} from './shared/window.token';
 
 export function windowFactory(): Window {
@@ -33,6 +34,7 @@ export function windowFactory(): Window {
     FooterComponent,
     HeaderComponent,
     NavButtonComponent,
+    ThemeToggleComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),

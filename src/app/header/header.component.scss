@@ -57,6 +57,26 @@
   width: 100vw;
 }
 
+.header-actions {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hamburger-menu {
+  cursor: pointer;
+}
+
+.hamburger-menu > b {
+  position: relative;
+  display: block;
+  height: 22px;
+  width: 22px;
+}
+
 .header-wrapper > div > b {
   position: absolute;
   height: 22px;
@@ -66,13 +86,14 @@
   cursor: pointer;
 }
 
-.header-wrapper > div > b > i {
+.header-wrapper > div > b > i,
+.hamburger-menu > b > i {
   position: absolute;
-  background: #fff;
+  background: var(--text-primary);
   width: 22px;
   height: 3px;
   left: 0;
-  transition: all .15s linear;
+  transition: all .15s linear, background-color 0.3s ease;
 }
 
 
@@ -89,16 +110,16 @@ b > i:nth-of-type(3) {
 }
 
 b:hover > i:nth-of-type(1) {
-  background: white;
+  background: var(--text-primary);
   top: -1px;
 }
 
 b:hover > i:nth-of-type(2) {
-  background: white;
+  background: var(--text-primary);
 }
 
 b:hover > i:nth-of-type(3) {
-  background: white;
+  background: var(--text-primary);
   bottom: -1px;
 }
 

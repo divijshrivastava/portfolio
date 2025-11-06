@@ -7,11 +7,14 @@
 
   <div (click)="goToHeadingPage()" *ngIf="!scrolled" class="heading">{{heading.title}}</div>
 
-  <div (click)="openNav()">
-    <b>
-      <i></i>
-      <i></i>
-      <i></i>
-    </b>
+  <div class="header-actions">
+    <app-theme-toggle></app-theme-toggle>
+    <div (click)="openNav()" class="hamburger-menu">
+      <b>
+        <i></i>
+        <i></i>
+        <i></i>
+      </b>
+    </div>
   </div>
 </div>

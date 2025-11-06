@@ -5,7 +5,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(to bottom, #472a3f, #3f2738);
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  transition: background 0.3s ease;
 }
 
 .contact-form {
@@ -18,57 +19,68 @@
 }
 
 button {
-  color: white;
+  color: var(--text-primary);
   width: 150px;
-  height: 30px;
-  font-size: 18px;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 500;
   margin-top: 20px;
-  border-radius: 20px;
+  border-radius: 12px;
   cursor: pointer;
-  background-color: #804a71;
-  border: 1px solid #472a3f;
-  box-shadow: 5px 5px 10px 4px #2e1c29;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-link));
+  border: none;
+  color: white;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
 }
 
 button:hover, button:focus {
-  background-color: #814a72;
-  color: rgb(250, 250, 250);
-  transition: background-image 1000ms;
-  font-weight: 400;
-  box-shadow: 5px 5px 10px 1px #2e1c29;
+  font-weight: 500;
 }
 
 input {
   width: 300px;
-  height: 30px;
-  border-radius: 250px;
+  height: 44px;
+  border-radius: 12px;
   margin-top: 10px;
   box-sizing: border-box;
-  padding: 16px;
-  background-color: rgb(255, 255, 255);
-  color: black;
-  box-shadow: inset -5px -5px 15px 0px rgb(241 233 238);
+  padding: 12px 16px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  font-size: 15px;
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md), 0 0 0 3px rgba(34, 211, 238, 0.1);
+  }
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
 }
 
-::-webkit-input-placeholder {
-  color: black;
-}
-
-::-moz-placeholder {
-  color: black;
-}
-
-:-ms-input-placeholder {
-  color: black;
-}
-
-::-ms-input-placeholder {
-  color: black;
-}
-
-::placeholder {
-  color: black;
-}
+// Placeholder styles now handled by input::placeholder above
 
 h1 {
   margin-top: 20px;
