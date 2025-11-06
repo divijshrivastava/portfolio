@@ -28,18 +28,18 @@ public class IndexController {
   @GetMapping("/blog")
   @LogActivity(activityType = "app")
   public String blogPage(HttpServletRequest request) {
-    return "/app/blog";
+    return "redirect:/app/blog";
   }
   @GetMapping("/project")
   @LogActivity(activityType = "app")
   public String projectPage(HttpServletRequest request) {
-    return "/app/project";
+    return "redirect:/app/project";
   }
 
   @GetMapping("/projects")
   @LogActivity(activityType = "app")
   public String projectPageRedirection(HttpServletRequest request) {
-    return "/app/project";
+    return "redirect:/app/project";
   }
 
   @GetMapping("/about")
@@ -57,14 +57,14 @@ public class IndexController {
   @GetMapping("/resume")
   @LogActivity(activityType = "app")
   public String resumePage(HttpServletRequest request) {
-    return "/app/resume";
+    return "redirect:/app/resume";
   }
 
   @GetMapping("/login")
   @LogActivity(activityType = "logging_in")
   public String admin(HttpServletRequest request) {
     log.info("login");
-    return "/app/login";
+    return "redirect:/app/login";
   }
 
   @GetMapping("/error")
@@ -72,6 +72,22 @@ public class IndexController {
   public String error(HttpServletRequest request) {
     log.info("Error");
     return Constants.APP_ERROR_PATH;
+  }
+
+  @GetMapping("/blog/**")
+  public String blogRoutes(HttpServletRequest request) {
+    String requestURI = request.getRequestURI();
+    String redirectPath = "/app" + requestURI;
+    log.info("Redirecting blog route: {} to {}", requestURI, redirectPath);
+    return "redirect:" + redirectPath;
+  }
+
+  @GetMapping("/project/**")
+  public String projectRoutes(HttpServletRequest request) {
+    String requestURI = request.getRequestURI();
+    String redirectPath = "/app" + requestURI;
+    log.info("Redirecting project route: {} to {}", requestURI, redirectPath);
+    return "redirect:" + redirectPath;
   }
 
   @GetMapping("/**/{link:[^\\.]*}")
